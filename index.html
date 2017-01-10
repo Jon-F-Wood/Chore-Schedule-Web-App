@@ -5,11 +5,39 @@
 		<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	</head>
 	<body>
-		<form>
-			<button type='button' onclick='addChore()'>Add Chore</button>
-		</form>
+		<div class="header">
+			<h2>Chore List</h2>
+			<form>
+				<span onclick="newChore()" class="addBtn">Add Chore</span>
+				<input type="text" id="choreName" name="choreName"
+						placeholder="Chore Name">	
+			</form>			
+		</div>
+
+		<ul id="choreList">
+		  <li>Hit the gym</li>
+		  <li class="checked">Pay bills</li>
+		  <li>Meet George</li>
+		</ul>
 
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 	</body>
 </html>
+
+<!--    
+add Chore
+displays chores
+click off chores
+
+Store/retreave information in a database
+
+create profile information
+
+create day of the week chore list
+daily to do 
+
+create login info
+
+
+-->

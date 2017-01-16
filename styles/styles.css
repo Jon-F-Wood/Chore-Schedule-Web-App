@@ -2,8 +2,14 @@
     margin: 0;
     padding: 0;
 }
-@media only screen and (max-device-width: 480px) {
-    * {
-        display:none;
-    }
+
+#menu {
+    font-size: 80px; 
+    margin-left: 70px;
+}
+
+#noteNav { 
+    float: right; 
+    margin-right: 80px;
+    font-size: 80px;
 }

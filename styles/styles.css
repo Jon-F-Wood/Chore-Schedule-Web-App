@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+a, a:hover {
+    color: inherit;
+}
 #navBar {
     background-color: green; 
     padding-top: 30px; 
@@ -18,3 +21,6 @@
     float: right; 
     font-size: 105px;
 }
+
+
+

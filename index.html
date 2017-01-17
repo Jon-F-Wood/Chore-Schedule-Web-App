@@ -2,16 +2,39 @@
 <html>
 	<head>	
 		<title>Chore Schedule Web App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
 		<header id="navBar">
-			<a href="https://www.google.com"><i id="menu" class="material-icons" >menu</i></a>
-
-			<a href="https://www.google.com"><i id="noteNav" class="material-icons">event_note</i></a>
+			<i id="menu" class="material-icons" >menu</i>
+			<i id="noteNav" class="material-icons">event_note</i>
 		</header>
-		
+		<main>	 
+			<nav id="leftMenu" class="c-menu c-menu--left"> 
+			  <button class="c-menu__close">&larr; Close Menu</button>
+			  <ul class="c-menu__items">
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+			  </ul>
+			</nav><!-- /c-menu slide-left -->
+
+			<nav id="rightMenu" class="c-menu c-menu--right">
+			  <button class="c-menu__close">Close Menu &rarr;</button>
+			  <ul class="c-menu__items">
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
+			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
+			  </ul>
+			</nav><!-- /c-menu slide-right -->
+
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+		</main>
+
+
+<!-- /EXTERNAL SCRIPTS -->
 
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>

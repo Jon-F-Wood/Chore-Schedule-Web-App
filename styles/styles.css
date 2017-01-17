@@ -1,26 +1,79 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: ;
 }
-a, a:hover {
-    color: inherit;
+
+main {
+    margin-top: 80px;
+    height: 1000px;
 }
+
 #navBar {
-    background-color: green; 
-    padding-top: 30px; 
-    padding-bottom: 20px;
-    padding-left: 50px;    
-    padding-right: 47px;
+    background-color: green;      
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    height: 10%;      
 }
 #menu {
-    font-size: 120px; 
+    font-size: 44px;  
+    margin: 11px 18px;      
 }
 
 #noteNav { 
-    padding-top: 7px;
     float: right; 
-    font-size: 105px;
+    font-size: 39px;
+    margin: 13px 17px;
 }
 
 
 
+
+
+/*Formatting*/
+.c-menu {
+    z-index:200;
+    background-color:#67b5d1;
+    transition:transform .3s;
+
+    width:300px; height:100%; overflow-y:scroll;
+}
+.c-menu__items {
+    list-style:none;
+    display:block; text-align:center; margin:0; padding:0;
+    border-top:solid 1px #b5dbe9;
+    border-bottom:solid 1px #3184a1;
+}
+.c-menu--left .c-menu__link, .c-menu--right .c-menu__link {
+    display:block; padding:12px 24px;  color:#fff;
+}
+.c-menu--left .c-menu__close,.c-menu--right .c-menu__close {
+    display:block; padding:12px 24px; width:100%;
+}
+.c-menu__close{
+    color:#fff; background-color:#3184a1; border:none;
+}
+
+/*Positioning*/
+.c-mask,.c-menu {
+    position:fixed;
+}
+
+/*Class Toggling*/
+.c-menu--left {top:0; left:0; transform:translateX(-300px);}
+.c-menu--left.is-active {     transform:translateX(0);     }
+
+.c-menu--right {top:0; right:0; transform:translateX(300px);}
+.c-menu--right.is-active {      transform:translateX(0);    }
+
+.c-mask {
+    z-index:100;
+    top:0;left:0; width:0; height:0;
+    background-color:#000; opacity:0;
+    transition:opacity .3s, width 0s .3s, height 0s .3s;
+}
+.c-mask.is-active {
+    width:100%; height:100%; 
+    opacity:.7;  transition:opacity .3s;}

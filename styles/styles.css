@@ -38,7 +38,7 @@ main {
     background-color:#67b5d1;
     transition:transform .3s;
 
-    width:300px; height:100%; overflow-y:scroll;
+    width:80%; height:100%; overflow-y:scroll;
 }
 .c-menu__items {
     list-style:none;
@@ -62,10 +62,10 @@ main {
 }
 
 /*Class Toggling*/
-.c-menu--left {top:0; left:0; transform:translateX(-300px);}
+.c-menu--left {top:0; left:0; transform:translateX(-100%);}
 .c-menu--left.is-active {     transform:translateX(0);     }
 
-.c-menu--right {top:0; right:0; transform:translateX(300px);}
+.c-menu--right {top:0; right:0; transform:translateX(100%);}
 .c-menu--right.is-active {      transform:translateX(0);    }
 
 .c-mask {

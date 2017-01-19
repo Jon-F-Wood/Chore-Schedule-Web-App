@@ -11,10 +11,16 @@
 			<header id="navBar">
 				<div class="mainHeader">	
 					<div id="topNav">	
-						<i id="menu" class="material-icons" >menu</i>
-						<span>Name</span>
-						<span>Date</span>
-						<i id="noteNav" class="material-icons">event_note</i>
+						<div>
+							<i id="menu" class="material-icons" >menu</i>
+						</div>
+						<div>	
+							<span>Jon Wood</span>
+							<span>Jan 1, 2017</span>
+						</div>
+						<div>		
+							<i id="noteNav" class="material-icons">event_note</i>
+						</div>	
 					</div>
 				<div class="subHeader">			 
 					<div class="row">
@@ -298,81 +304,50 @@
 								<span class="chore done">Put towels in the dirty Cloths in D B</span>
 							</td>	
 						</tr>
-					</table>
+				</table>
 
 
-					<aside id="timeLeft">
-						<span>2 hours 11 minutes left</span>
-					</aside>
-					
-					<aside id="actionBtns">
-						<i class="material-icons">Plus Icon</i>
-						<i class="material-icons">Add Chore Icon</i>
-							<span>Add Chore</span>
-						<i class="material-icons">Add Room Icon</i>
-							<span>Add Room</span>
-						<i class="material-icons">Overwhelmed Icon</i>
-							<span>Feeling Overwhelmed?</span>
-					</aside>
-				</div>	
-			<!--<tr id="">
-				<td class="grid_cell_drag_handle">
-					<div class="itemRow-dragHandle" id="pot.182328621421098_row__drag_handle__SPECIAL_GROUP_NULL_182329601351894" tabindex="-1">
-						<svg class="svgIcon" title="drag handle"></svg>
-					</div>
-				</td>
-				<td class="grid-cell barRow-contents">
-					<span class="bar_input_span">
-						<textarea></textarea>
-						&nbsp;
-					</span>
-				</td>
-				<td class="grid_cell_show_details">
-					<span class="loading-boundary hidden ">
-						<div class="itemRowView-detailsButton">
-							<span class="itemRowView-detailsButton-seeMore">
-								<svg class="svgIcon SeeMORE" title="right"></svg>
-							</span>
-						</div>
-					</span>
-				</td>
-			</tr>	
-
-			<tr id="">
-				<td class="grid_cell_drag_handle">
-					<div class="itemRow-dragHandle">
-						<svg class="svgIcon dragIcon" title="drag handle"></svg>
-					</div>
-				</td>
-				<td class="grid_cell_boolean taskRowView-completionCell" id="completed">
-					<div class="circularToggleButtonView ">
-						<div class="circularButtonView">
-							<span class="circularButtonView-label">
-								<svg class="svgIcon " title="checkmark"></svg>
-							</span>
-						</div>
-					</div>
-				</td>
-				<td class="grid_cell_string non_insert_mode">
-					<div class="gridCell-stringContainer">
-						<textarea></textarea>
-						<div class="task-row-overlay grid-tags-and-date">
-							<a id="centerpane_row__due_date" class="taskRow-dueDate"></a>
-						</div>
-					</div>
-				</td>
-			</tr>	-->
-		</main>
+				<aside id="timeLeft">
+					<span>2 hours 11 minutes left</span>
+				</aside>
+				
+				<aside id="actionBtns">
+					<i class="material-icons">Plus Icon</i>
+					<i class="material-icons">Add Chore Icon</i>
+						<span>Add Chore</span>
+					<i class="material-icons">Add Room Icon</i>
+						<span>Add Room</span>
+					<i class="material-icons">Overwhelmed Icon</i>
+						<span>Feeling Overwhelmed?</span>
+				</aside>				
+			</main>
+		</div>	
 		
 		<div id="sideMenus">
 			<nav id="leftMenu" class="c-menu c-menu--left"> 
-			  <button class="c-menu__close">&larr; Close Menu</button>
-			  <ul class="c-menu__items">
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-			  </ul>
-			</nav><!-- /c-menu slide-left -->
+				<div id="profileInfo">
+					<img id="profilePic" src="" />
+					<span>Jon Wood</span>
+					<span>Woodj14123@gmail.com</span>
+				</div>
+				<div id="mainPageNav">
+					<span>Today's Chores</span>
+					<span>Overdue Chores</span>
+					<span>Finished Chores</span>
+				</div>	
+				<div id="Reports">
+					<h2>Reports</h2>
+					<span>History</span>
+					<span>Statistics</span>
+					<span>Dismissed Chores</span>
+				</div>	
+				<div id="About">
+					<h2>About</h2>
+					<span>Profile Settings</span>
+					<span>Help & FAQ</span>
+					<span>Dismissed Chores</span>
+				</div>			
+			</nav>
 
 			<nav id="rightMenu" class="c-menu c-menu--right">
 			  <button class="c-menu__close">Close Menu &rarr;</button>
@@ -381,9 +356,9 @@
 			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
 			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
 			  </ul>
-			</nav><!-- /c-menu slide-right -->
+			</nav>
 
-			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+			<div id="mask" class="mask"></div>
 		</div>
 
 <!-- /EXTERNAL SCRIPTS -->

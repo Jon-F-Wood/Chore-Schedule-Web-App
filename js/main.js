@@ -1,7 +1,7 @@
 //sideNav Constructor
 function sideNav(options) {
 	//Initialise sideNav
-	var mask = document.getElementById("c-mask");
+	var mask = document.getElementById("mask");
 	this.menu = document.getElementById(options.side);
 	this.btn = document.getElementById(options.btnId);
 	//Open sideNav when corresponding button is clicked

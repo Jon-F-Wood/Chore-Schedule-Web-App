@@ -1,14 +1,13 @@
+/*Reset Defaults*/
 * {
     margin: 0;
     padding: 0;
     font-family: ;
+    box-sizing: border-box;
 }
 
-main {
-    margin-top: 80px;
-    height: 1000px;
-}
 
+/*Navigation Bar*/
 #navBar {
     background-color: green;      
     overflow: hidden;
@@ -28,10 +27,48 @@ main {
     margin: 13px 17px;
 }
 
+/*Sub Nav Bar*/
+.subHeader {
+    margin-top: 20%;
+}
+
+
+/*Catagories*/
+/*Rooms*/
+/*Chore Rows*/
+
+
+/*Time Left Aside*/
+/*Action Buttons Aside*/
 
 
 
 
+/*Grid System*/
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    text-align: center;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+/*Side Navigation Menus*/
 /*Formatting*/
 .c-menu {
     z-index:200;

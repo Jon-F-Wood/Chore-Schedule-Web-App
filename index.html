@@ -7,54 +7,367 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
-		<header id="navBar">
-			<i id="menu" class="material-icons" >menu</i>
-			<i id="noteNav" class="material-icons">event_note</i>
-		</header>
-		<main>	 
+		<div id="Main_Page"	>
+			<header id="navBar">
+				<div class="mainHeader">	
+					<div id="topNav">	
+						<i id="menu" class="material-icons" >menu</i>
+						<span>Name</span>
+						<span>Date</span>
+						<i id="noteNav" class="material-icons">event_note</i>
+					</div>
+				<div class="subHeader">			 
+					<div class="row">
+						<div class="col-4">
+							<span>Today</span>
+						</div>
+						<div class="col-4">
+							<span>Overdue</span>
+						</div>
+						<div class="col-4">
+							<span>Finished</span>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+			<main>	
+				<table>
+					<tr>
+						<td>
+							<span class="catagory">Today's Chores</span>
+						</td>	
+					</tr>
+						<tr>
+							<td>
+								<span class="room">Jon's Bedroom</span>
+							</td>	
+						</tr>	
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>
+									<span class="chore">Pick up Floor</span>
+								</td>
+								<td>
+									<span class="duration">5 minutes</span>
+								</td>	
+							</tr>	
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>
+									<span class="chore">Sweep Floor</span>
+								</td>
+								<td>
+									<span class="duration">5 minutes</span>
+								</td>	
+							</tr>	
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>
+									<span class="chore">Mop Floor</span>
+								</td>
+								<td>
+									<span class="duration">30 minutes</span>
+								</td>
+							</tr>	
+						<tr>
+							<td>
+								<span class="room">Kitchen</span>
+							</td>
+						</tr>	
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>
+									<span class="chore">Wash Dishes</span>
+								</td>
+								<td>	
+									<span class="duration">30 minutes</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore">Sweep Floor</span>
+								</td>
+								<td>	
+									<span class="duration">10 minutes</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore">Wipe off Table</span>
+								</td>
+								<td>	
+									<span class="duration">5 minutes</span>
+								</td>
+							</tr>
+					<tr>
+						<td>
+							<span class="catagory">Overdue Chores</span>
+						</td>	
+					</tr>
+						<tr>
+							<td>
+								<span class="room">Vicortia's Bedroom</span>
+							</td>	
+						</tr>	
+							<tr>	
+								<td>				
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Make Bed</span>
+								</td>
+								<td>	
+									<span class="duration">1 minutes</span>
+								</td>
+								<td>	
+									<i class="material-icons">Dismiss Icon</i>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Clean Off Desk</span>
+								</td>
+								<td>	
+									<span class="duration">5 minutes</span>
+								</td>
+								<td>	
+									<i class="material-icons">Dismiss Icon</i>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Organize Closet</span>
+								</td>
+								<td>	
+									<span class="duration">20 minutes</span>
+								</td>
+								<td>	
+									<i class="material-icons">Dismiss Icon</i>
+								</td>
+						<tr>
+							<td>
+								<span class="room">Downstair's Bathroom</span>
+							</td>
+						</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Wipe off Toilet Seat</span>
+								</td>
+								<td>	
+									<span class="duration">5 minutes</span>
+								</td>
+								<td>	
+									<i class="material-icons">Dismiss Icon</i>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Organize Sink Drawers</span>
+								</td>
+								<td>	
+									<span class="duration">10 minutes</span>
+								</td>
+								<td>	
+									<i class="material-icons">Dismiss Icon</i>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="material-icons">Drag Icon</i>
+								</td>
+								<td>	
+									<i class="material-icons">Check Icon</i>
+								</td>
+								<td>	
+									<span class="chore overdue">Put towels in the dirty Cloths</span>
+								</td>
+								<td>	
+									<span class="duration">5 minutes</span>		
+								</td>
+							</tr>
+					<tr>
+						<td>
+							<span class="catagory">Done</span>
+						</td>	
+					</tr>
+						<tr>
+							<td>	
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Make Bed in in V BR</span>
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Clean Off Desk in V BR</span>
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Organize Closet in V BR</span>
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Wipe off Toilet Seat in D B</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Organize Sink Drawers in D B</span>
+							</td>	
+						</tr>
+						<tr>
+							<td>
+								<i class="material-icons">Check Icon</i>
+							</td>
+							<td>	
+								<span class="chore done">Put towels in the dirty Cloths in D B</span>
+							</td>	
+						</tr>
+					</table>
+
+
+					<aside id="timeLeft">
+						<span>2 hours 11 minutes left</span>
+					</aside>
+					
+					<aside id="actionBtns">
+						<i class="material-icons">Plus Icon</i>
+						<i class="material-icons">Add Chore Icon</i>
+							<span>Add Chore</span>
+						<i class="material-icons">Add Room Icon</i>
+							<span>Add Room</span>
+						<i class="material-icons">Overwhelmed Icon</i>
+							<span>Feeling Overwhelmed?</span>
+					</aside>
+				</div>	
+			<!--<tr id="">
+				<td class="grid_cell_drag_handle">
+					<div class="itemRow-dragHandle" id="pot.182328621421098_row__drag_handle__SPECIAL_GROUP_NULL_182329601351894" tabindex="-1">
+						<svg class="svgIcon" title="drag handle"></svg>
+					</div>
+				</td>
+				<td class="grid-cell barRow-contents">
+					<span class="bar_input_span">
+						<textarea></textarea>
+						&nbsp;
+					</span>
+				</td>
+				<td class="grid_cell_show_details">
+					<span class="loading-boundary hidden ">
+						<div class="itemRowView-detailsButton">
+							<span class="itemRowView-detailsButton-seeMore">
+								<svg class="svgIcon SeeMORE" title="right"></svg>
+							</span>
+						</div>
+					</span>
+				</td>
+			</tr>	
+
+			<tr id="">
+				<td class="grid_cell_drag_handle">
+					<div class="itemRow-dragHandle">
+						<svg class="svgIcon dragIcon" title="drag handle"></svg>
+					</div>
+				</td>
+				<td class="grid_cell_boolean taskRowView-completionCell" id="completed">
+					<div class="circularToggleButtonView ">
+						<div class="circularButtonView">
+							<span class="circularButtonView-label">
+								<svg class="svgIcon " title="checkmark"></svg>
+							</span>
+						</div>
+					</div>
+				</td>
+				<td class="grid_cell_string non_insert_mode">
+					<div class="gridCell-stringContainer">
+						<textarea></textarea>
+						<div class="task-row-overlay grid-tags-and-date">
+							<a id="centerpane_row__due_date" class="taskRow-dueDate"></a>
+						</div>
+					</div>
+				</td>
+			</tr>	-->
+		</main>
+		
+		<div id="sideMenus">
 			<nav id="leftMenu" class="c-menu c-menu--left"> 
 			  <button class="c-menu__close">&larr; Close Menu</button>
 			  <ul class="c-menu__items">
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
-			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
-			    
 			    <li class="c-menu__item"><a href="#" class="c-menu__link">Home</a></li>
 			    <li class="c-menu__item"><a href="#" class="c-menu__link">About</a></li>
 			    <li class="c-menu__item"><a href="#" class="c-menu__link">Services</a></li>
@@ -71,8 +384,7 @@
 			</nav><!-- /c-menu slide-right -->
 
 			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
-		</main>
-
+		</div>
 
 <!-- /EXTERNAL SCRIPTS -->
 

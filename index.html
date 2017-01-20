@@ -574,16 +574,220 @@
 		</div>
 
 		<div id="reports">
+			<header id="navBar">
+				<div class="mainHeader">	
+					<div id="topNav">	
+						<div>
+							<i id="menu" class="material-icons" >menu</i>
+						</div>
+						<div>	
+							<span>Reports</span>
+							<span id="dateRange">1/02 --> 1/19</span>
+						</div>	
+					</div>
+				<div class="subHeader">	<!--Highlight under slides as different areas are selected-->
+					<div class="col-4">
+						<span>History</span>
+					</div>
+					<div class="col-4">
+						<span>Statistics</span>
+					</div>
+					<div class="col-4">
+						<span>Dismissed</span>
+					</div>
+				</div>
+			</header>
+			<div id="navTos"> <!--Slide toggle between body sections back and forth (like habitica) -->	
+				<div id="history">
+					<h2>Completed Chores</h2>
+					<ul id="finishedChoreList">
+						<li>
+							<div>
+								<span>Make Bed</span>
+								<span> in </span>
+								<span>Jon's Room</span>
+								<span> - </span>
+								<span>1/19</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Sweep Floor</span>
+								<span> in </span>
+								<span>Jon's Room</span>
+								<span> - </span>
+								<span>1/08</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Clean Toilet</span>
+								<span> in </span>
+								<span>Downstairs Bathroom</span>
+								<span> - </span>
+								<span>1/14</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Clean Dishes</span>
+								<span> in </span>
+								<span>Kitchen</span>
+								<span> - </span>
+								<span>1/17</span>
+							</div>
+						</li>
+					</ul>
 
-			<div id="">
-				
-			</div>
-			<div id="">
-				
-			</div>
-			<div id="">
-				
-			</div>
+					<div id="viewChoreDetailsPage">
+						<header>	
+							<div>
+								<i class="material-icons" >back arrow</i>
+							</div>
+							<div>	
+								<span>History: Chore Details</span>						
+							</div>
+						</header>	
+						<div id="choreName">
+							<h2>Name:</h2>
+							<span>Make Bed</span>
+						</div>
+						<div id="choreRoom">
+							<h2>Room:</h2>
+							<span>Jon's Bedroom</span>
+						</div>
+						<div id="timeItTakes">
+							<h2>Time it takes:</h2>
+							<span>1 Minute</span>
+						</div>
+						<div id="repete">
+							<h2>Repete:</h2>
+							<span>Every Day</span>
+						</div>
+						<div id="discomfortLevel">
+							<h2>Discomfort Level:</h2>
+							<div id="discomfortBtns">
+								<div id="mehBtn">
+									<i class="material-icons">Meh Icon</i>
+								</div>
+							</div>
+						</div>
+						<div id="notes">
+							<h2>Notes:</h2>
+							<span>I need to do this every morning without Fail!! >:O</span>
+						</div>
+					</div>
+				</div>
+
+				<div id="statisics">
+					<div id="chart">
+						<!--Develope Chart layout and filtering processes Later-->
+					</div>
+				</div>
+
+				<div id="dismissed">
+					<h2>Dismissed Chores</h2>
+					<ul id="dismissedChoreList">
+						<li>
+							<div>
+								<span>Make Bed</span>
+								<span> in </span>
+								<span>Jon's Room</span>
+								<span> - </span>
+								<span>1/10</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Sweep Floor</span>
+								<span> in </span>
+								<span>Jon's Room</span>
+								<span> - </span>
+								<span>1/07</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Clean Toilet</span>
+								<span> in </span>
+								<span>Downstairs Bathroom</span>
+								<span> - </span>
+								<span>1/01</span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span>Clean Dishes</span>
+								<span> in </span>
+								<span>Kitchen</span>
+								<span> - </span>
+								<span>1/10</span>
+							</div>
+						</li>
+					</ul>
+
+					<div id="dismissedChoreDetails">
+						<header>	
+							<div>
+								<i class="material-icons" >back arrow</i>
+							</div>
+							<div>	
+								<span>Dismissed: Chore Details</span>						
+							</div>
+						</header>
+						<div id="standardInfo">	
+							<div id="choreName">
+								<h2>Name:</h2>
+								<span>Make Bed</span>
+							</div>
+							<div id="moreStandardInfo">
+								<div id="moreInfoBtn">	
+									<span>...</span> <!--Acts as btn that if clicked reveals the bellow content-->
+								</div>
+								<div id="moreInfoContent">
+									<div id="choreRoom">
+										<h2>Room:</h2>
+										<span>Jon's Bedroom</span>
+									</div>
+									<div id="timeItTakes">
+										<h2>Time it takes:</h2>
+										<span>1 Minute</span>
+									</div>
+									<div id="repete">
+										<h2>Repete:</h2>
+										<span>Every Day</span>
+									</div>
+									<div id="discomfortLevel">
+										<h2>Discomfort Level:</h2>
+										<div id="discomfortBtns">
+											<div id="mehBtn">
+												<i class="material-icons">Meh Icon</i>
+											</div>
+										</div>
+									</div>
+									<div id="notes">
+										<h2>Notes:</h2>
+										<span>I need to do this every morning without Fail!! >:O</span>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div id="dismissedInfo">
+							<div id="dateOverdue">
+								<h2>Date Overdue:</h2><i class="material-icons">? for more info</i>
+								<span>Jan 5, 2017</span>
+							</div>
+							<div id="dateDismissed">
+								<h2>Date Dismissed:</h2>
+								<span>Jan 7, 2017</span>
+							</div>
+							<div id="undismissBtn">
+								<span> - Undismiss</span>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>	
 		</div>			
 
 		<div id="about">
@@ -606,43 +810,59 @@
 				</div>
 				<div id="name">
 					<div id="first">
-						
+						<input type="text" name="firstName" placeholder="First Name" />
 					</div>
 					<div id="last">
-						
+						<input type="text" name="lastName" placeholder="Last Name" />
 					</div>
 				</div>
 				<div id="email">
-					
+					<input type="email" name="userEmail" placeholder="email@example.com" />
 				</div>
 				<div id="aboutMe">
 					<div id="headline">
-						
+						<h2>About Me:</h2>
 					</div>
 					<div id="input">
-						
+						<textarea>I am a 20 year old currently building a Web application for my Launch Code internship appliation.</textarea>
 					</div>
 				</div>
 				<div id="availabilitySettings">
-						
+					<div id="availabilitySettingsBtn">
+						<span>Availability Settings</span>
+					</div>	
 				</div>	
 				<div id="sendMeEmailNotifications">
 					<div id="optionBtn">
-						
+						<i class="material-icons">CheckBox Icon</i>
+						<span>Send Me Email Notifications</span>
+						<div id="displayTime"> <!--If the previous option is Checked Displayed show this-->
+							<input type="time" name="timeToRecieveEmails">
+						</div>
 					</div>
-					<div id="displayTime">
 						
-					</div>
 				</div>
 				<div id="sincWithMyGoogleCallender">
-					
+					<div id="optionBtn">
+						<i class="material-icons">CheckBox Icon</i>
+						<span>Sinc with my Google Callender</span>
+					</div>
+					<div id="sincGCalUserInfo"> 
+						<!--Medium Size square pops up in the uppper middle screen asking for a users Gmail information
+						What this is going to look like will depend on Google Callender API so I need to wait until then to 
+						Design this out-->
+					</div>
 				</div>
 			</div>
+
 			<div id="help&FAQ">
-			
+				<!--Design later based on the info gained through making the site.
+				Will be a likely just a static page-->
 			</div>
+
 			<div id="about">
-				
+				<!--Design later based on the info gained through making the site.
+				Will be a likely just a static page-->
 			</div>
 		</div>
 

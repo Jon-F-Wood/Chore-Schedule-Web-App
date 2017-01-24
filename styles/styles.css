@@ -3,12 +3,11 @@
     margin: 0;
     padding: 0;
     font-family: ;
-    box-sizing: border-box;
 }
 
 
 /*Navigation Bar*/
-#navBar {
+header {
     background-color: green;      
     overflow: hidden;
     position: fixed; /* Set the navbar to fixed position */
@@ -16,22 +15,11 @@
     width: 100%; /* Full width */
     height: 10%;      
 }
-#menu {
-    font-size: 44px;  
-    margin: 11px 18px;      
-}
 
-#noteNav { 
-    float: right; 
-    font-size: 39px;
-    margin: 13px 17px;
+[id*="Contents"], aside {
+    display: none;
+    visibility: hidden;
 }
-
-/*Sub Nav Bar*/
-.subHeader {
-    margin-top: 20%;
-}
-
 
 /*Catagories*/
 /*Rooms*/

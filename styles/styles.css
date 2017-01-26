@@ -2,25 +2,138 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: ;
+    font-family: arial;
 }
 
-
-/*Navigation Bar*/
-header {
-    background-color: green;      
-    overflow: hidden;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
-    height: 10%;      
+html, body { 
+    width: 100%; 
+    height: 100%;
 }
 
-[id*="Contents"], aside {
+[id*="Page"], aside, #homeContents {
     display: none;
     visibility: hidden;
 }
 
+#homePage {
+    display: block;
+    visibility: visible;
+}
+
+
+/*Headers*/
+header {  
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+
+    color: white;
+}
+header.withSubMenu {  
+    background-color: #09590B; 
+    height: 8%; 
+    min-height: 50px;
+}
+
+div.mainHeader {
+}
+div.topNav {
+    background-color: #09590B;
+}
+
+.menuIcon {    
+    width: 18%; 
+    
+}
+i#menu {
+    margin: 9.5px 0 0 12px;
+    font-size: 30px;
+}
+
+.title {
+    white-space: nowrap;
+    overflow-x: hidden;
+    width: 62%;
+    margin-top: 14px;
+    font-size: 20px;
+}
+
+.eventNoteIcon {  
+    width: 20%;
+}
+i#eventNote {
+    float: right;
+    margin: 12px 13px 0 0;
+    font-size: 27px;
+}
+.subHeader {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;   
+}
+
+.Panel__body {
+    background-color: #0D6610;
+    padding: 10px 20px;
+}
+
+.Tabs {
+    position: absolute;
+    width: 100%;
+    background-color: #0D6610;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.Tabs:after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+.Tabs__tab {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+}
+
+.Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
+    left: 0;
+}
+.Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
+    left: 33.333%;
+}
+.Tabs__tab:nth-child(3).active ~ .Tabs__presentation-slider {
+    left: 66.66667%;
+}
+
+.Tabs__presentation-slider {
+    position: absolute;
+    bottom: 0;
+    width: 33.333%;
+    height: 2px;
+    background-color: white;
+    transition: left .25s;
+}
+
+
+.Tab a {
+    display: block;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #cccccc;
+    transition: color .17s;
+}
+
+.Tab.active a {
+    color: white;
+}
+
+.Tab:hover a {
+    color: white;
+}
 /*Catagories*/
 /*Rooms*/
 /*Chore Rows*/
@@ -38,9 +151,8 @@ header {
     clear: both;
     display: table;
 }
-[class*="col-"] {
+[class*="col-"], .col {
     float: left;
-    text-align: center;
 }
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}

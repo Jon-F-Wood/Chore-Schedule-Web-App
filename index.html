@@ -9,36 +9,32 @@
 	<body>
 		<div id="pages">
 			<div id="homePage">
-				<header id="mainPageNav" class="withSubMenu">
+				<header id="homeNav" class="withSubMenu">
 					<div class="mainHeader">	
-						<div id="topNav">	
-							<div class="leftNavIcon">
+						<div class="topNav row" >	
+							<div class="menuIcon col">
 								<i id="menu" class="material-icons" >menu</i>
 							</div>
-							<div>	
+							<div class="title col">	
 								<span>Jon Wood</span>
 								<span>Jan 1, 2017</span>
 							</div>
-							<div>		
-								<i id="noteNav" class="material-icons">event_note</i>
+							<div class="eventNoteIcon col">		
+								<i id="eventNote" class="material-icons">event_note</i>
 							</div>	
 						</div>
-					<div class="subHeader">			 
-						<div class="row">
-							<div class="col-4">
-								<span>Today</span>
-							</div>
-							<div class="col-4">
-								<span>Overdue</span>
-							</div>
-							<div class="col-4">
-								<span>Finished</span>
-							</div>
-						</div>
-					</div>
+					</div>	
+					<nav class="subHeader">			 
+						<ul class="Tabs">
+							<li class="Tabs__tab active Tab"><a href="#">Today</a></li>
+							<li class="Tabs__tab Tab"><a href="#">Overdue</a></li>
+							<li class="Tabs__tab Tab"><a href="#">Finished</a></li>
+							<li class="Tabs__presentation-slider" role="presentation"></li>
+						</ul>
+					</nav>
 				</header>
 				
-				<main id="homeContents">	
+				<main id="homeContents Panel__body">	
 					<table>
 						<tr>
 							<td>
@@ -334,7 +330,7 @@
 							<div class="leftNavIcon">
 								<i id="menu" class="material-icons" >menu</i>
 							</div>
-							<div>	
+							<div class="title">	
 								<span>Reports</span>
 								<span id="dateRange">1/02 --> 1/19</span>
 							</div>	
@@ -486,71 +482,70 @@
 						<span>I need to do this every morning without Fail!! >:O</span>
 					</div>
 				</div>
-			</div>
-			
-			<div id="dismissedChoreDetailsPage"> <!--display when dismissed li is clicked-->
-				<header id="dismissedChoreDetailsNav" class="backBtnHeaders"s>	
-					<div class="backBtn">
-						<i class="material-icons" >arrow_back</i>
-					</div>
-					<div  class="pageTitle">	
-						<span>Dismissed: Chore Details</span>						
-					</div>
-				</header>
-
-				<div id="dismissedChoreDetailsContents">						
-					<div id="standardInfo">	
-						<div id="choreName">
-							<h2>Name:</h2>
-							<span>Make Bed</span>
+			</div>			
+				<div id="dismissedChoreDetailsPage"> <!--display when dismissed li is clicked-->
+					<header id="dismissedChoreDetailsNav" class="backBtnHeaders"s>	
+						<div class="backBtn">
+							<i class="material-icons" >arrow_back</i>
 						</div>
-						<div id="moreStandardInfo">
-							<div id="moreInfoBtn">	
-								<span>...</span> <!--Acts as btn that if clicked reveals the bellow content-->
+						<div  class="pageTitle">	
+							<span>Dismissed: Chore Details</span>						
+						</div>
+					</header>
+
+					<div id="dismissedChoreDetailsContents">						
+						<div id="standardInfo">	
+							<div id="choreName">
+								<h2>Name:</h2>
+								<span>Make Bed</span>
 							</div>
-							<div id="moreInfoContent">
-								<div id="choreRoom">
-									<h2>Room:</h2>
-									<span>Jon's Bedroom</span>
+							<div id="moreStandardInfo">
+								<div id="moreInfoBtn">	
+									<span>...</span> <!--Acts as btn that if clicked reveals the bellow content-->
 								</div>
-								<div id="timeItTakes">
-									<h2>Time it takes:</h2>
-									<span>1 Minute</span>
-								</div>
-								<div id="repete">
-									<h2>Repete:</h2>
-									<span>Every Day</span>
-								</div>
-								<div id="discomfortLevel">
-									<h2>Discomfort Level:</h2>
-									<div id="discomfortBtns">
-										<div id="mehBtn">
-											<i class="material-icons">Meh Icon</i>
+								<div id="moreInfoContent">
+									<div id="choreRoom">
+										<h2>Room:</h2>
+										<span>Jon's Bedroom</span>
+									</div>
+									<div id="timeItTakes">
+										<h2>Time it takes:</h2>
+										<span>1 Minute</span>
+									</div>
+									<div id="repete">
+										<h2>Repete:</h2>
+										<span>Every Day</span>
+									</div>
+									<div id="discomfortLevel">
+										<h2>Discomfort Level:</h2>
+										<div id="discomfortBtns">
+											<div id="mehBtn">
+												<i class="material-icons">Meh Icon</i>
+											</div>
 										</div>
 									</div>
+									<div id="notes">
+										<h2>Notes:</h2>
+										<span>I need to do this every morning without Fail!! >:O</span>
+									</div>
 								</div>
-								<div id="notes">
-									<h2>Notes:</h2>
-									<span>I need to do this every morning without Fail!! >:O</span>
-								</div>
+							</div>	
+						</div>
+						<div id="dismissedInfo">
+							<div id="dateOverdue">
+								<h2>Date Overdue:</h2><i class="material-icons">? for more info</i>
+								<span>Jan 5, 2017</span>
+							</div>
+							<div id="dateDismissed">
+								<h2>Date Dismissed:</h2>
+								<span>Jan 7, 2017</span>
+							</div>
+							<div id="undismissBtn">
+								<span> - Undismiss</span>
 							</div>
 						</div>	
-					</div>
-					<div id="dismissedInfo">
-						<div id="dateOverdue">
-							<h2>Date Overdue:</h2><i class="material-icons">? for more info</i>
-							<span>Jan 5, 2017</span>
-						</div>
-						<div id="dateDismissed">
-							<h2>Date Dismissed:</h2>
-							<span>Jan 7, 2017</span>
-						</div>
-						<div id="undismissBtn">
-							<span> - Undismiss</span>
-						</div>
 					</div>	
-				</div>	
-			</div>
+				</div>
 				
 			<div id="roomAddPage">
 				<header id="roomAddNav" class="backBtnHeaders">	
@@ -824,75 +819,74 @@
 						</div>
 					</div>
 				</div>	
-			</div>
-			
-			<div id="userAvailabilityPage">
-				<header id="profileSettingsNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons arrow_back" >arrow_back</i>
-					</div>
-					<div class="pageTitle">	
-						<span>Availability</span>						
-					</div>
-					<div class="savePageBtn">		
-						<span>Save</span>
-					</div>	
-				</header>
-				
-				<div id="userAvailabilityContents">
-					<div id="daysOfTheWeek">
-						<h2>Days of the Week</h2>
-						<div id="sunAvl">
-							<span>Sunday:</span>
-							<div class="dropdownMenu">
-								
+			</div>			
+				<div id="userAvailabilityPage">
+					<header id="profileSettingsNav" class="backBtnHeaders">	
+						<div class="backBtn">
+							<i class="material-icons arrow_back" >arrow_back</i>
+						</div>
+						<div class="pageTitle">	
+							<span>Availability</span>						
+						</div>
+						<div class="savePageBtn">		
+							<span>Save</span>
+						</div>	
+					</header>
+					
+					<div id="userAvailabilityContents">
+						<div id="daysOfTheWeek">
+							<h2>Days of the Week</h2>
+							<div id="sunAvl">
+								<span>Sunday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="monAvl">
+								<span>Monday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="tueAvl">
+								<span>Tuesday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="wedAvl">
+								<span>Wednesday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="thuAvl">
+								<span>Thursday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="friAvl">
+								<span>Friday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
+							</div>
+							<div id="satAvl">
+								<span>Saturday:</span>
+								<div class="dropdownMenu">
+									
+								</div>
 							</div>
 						</div>
-						<div id="monAvl">
-							<span>Monday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-						<div id="tueAvl">
-							<span>Tuesday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-						<div id="wedAvl">
-							<span>Wednesday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-						<div id="thuAvl">
-							<span>Thursday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-						<div id="friAvl">
-							<span>Friday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-						<div id="satAvl">
-							<span>Saturday:</span>
-							<div class="dropdownMenu">
-								
-							</div>
-						</div>
-					</div>
 
-					<!--Later Priority
-					<div id="monthly">
-						
+						<!--Later Priority
+						<div id="monthly">
+							
+						</div>
+						-->
 					</div>
-					-->
 				</div>
-			</div>
 
 			<div id="help&FAQPage">
 				<!--Design later based on the info gained through making the site.

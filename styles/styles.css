@@ -10,7 +10,7 @@ html, body {
     height: 100%;
 }
 
-[id*="Page"], aside, #homeContents {
+[id*="Page"], aside {
     display: none;
     visibility: hidden;
 }
@@ -54,8 +54,17 @@ i#menu {
     white-space: nowrap;
     overflow-x: hidden;
     width: 62%;
-    margin-top: 14px;
-    font-size: 20px;
+    margin-top: 12px;
+}
+
+#mainName {
+    font-size: 22px;
+}
+.dashIcon{
+    margin: 4%;
+}
+#mainDate{
+    font-size: 15px;  
 }
 
 .eventNoteIcon {  
@@ -71,11 +80,6 @@ i#eventNote {
     margin: 0 auto;
     position: absolute;
     bottom: 0;   
-}
-
-.Panel__body {
-    background-color: #0D6610;
-    padding: 10px 20px;
 }
 
 .Tabs {
@@ -133,6 +137,15 @@ i#eventNote {
 
 .Tab:hover a {
     color: white;
+}
+
+
+
+
+
+
+main.contents {
+    margin-top: 90px;
 }
 /*Catagories*/
 /*Rooms*/

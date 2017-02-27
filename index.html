@@ -7,915 +7,904 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
-		<div id="pages">
-			<div id="homePage">
-				<header id="homeNav" class="withSubMenu">
-					<div class="mainHeader">	
-						<div class="topNav row" >	
-							<div class="menuIcon col">
-								<i id="menu" class="material-icons" >menu</i>
+		
+
+		<div>	
+			<!--Previously written code
+			<div id="pages">
+				<div id="homePage">
+					<header id="homeNav" class="withSubMenu">
+						<div class="mainHeader">	
+							<div class="topNav row" >	
+								<div class="menuIcon col">
+									<i id="menu" class="material-icons" >menu</i>
+								</div>
+								<div class="title col">	
+									<span id="mainName">Jon Wood</span>
+									<i class="dashIcon">-</i>
+									<span id="mainDate">Jan 31, 2017</span>
+								</div>
+								<div class="eventNoteIcon col">		
+									<i id="eventNote" class="material-icons">event_note</i>
+								</div>	
 							</div>
-							<div class="title col">	
-								<span id="mainName">Jon Wood</span>
-								<i class="dashIcon">-</i>
-								<span id="mainDate">Jan 31, 2017</span>
-							</div>
-							<div class="eventNoteIcon col">		
-								<i id="eventNote" class="material-icons">event_note</i>
-							</div>	
-						</div>
-					</div>	
-					<nav class="subHeader">			 
-						<ul class="Tabs">
-							<li class="Tabs__tab active Tab"><a href="#">Today</a></li>
-							<li class="Tabs__tab Tab"><a href="#">Overdue</a></li>
-							<li class="Tabs__tab Tab"><a href="#">Finished</a></li>
-							<li class="Tabs__presentation-slider" role="presentation"></li>
-						</ul>
-					</nav>
-				</header>
-				
-				<main id="homeContents" class="contents">	
-					<table>
-						<div class="row">
-							<div class="col catagory">
-								<span id="todaysChores" class="catagory">Today's Chores</span>
-							</div>	
-						</div>
-							<div class="row">
-								<div class="col">
-									<span class="room">Jon's Bedroom</span>
-								</div>	
-							</div>	
-								<div class="row">									
-									<div class="col">	
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">
-										<span class="chore">Pick up Floor</span>
-									</div>
-									<div class="col">
-										<span class="duration">5 minutes</span>
-									</div>	
-								</div>	
-								<div class="row">
-									<div class="col">
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">
-										<span class="chore">Sweep Floor</span>
-									</div>
-									<div class="col">
-										<span class="duration">5 minutes</span>
-									</div>	
-								</div>	
-								<div class="row">
-									<div class="col">
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">
-										<span class="chore">Mop Floor</span>
-									</div>
-									<div class="col">
-										<span class="duration">30 minutes</span>
-									</div>
-								</div>	
-							<div class="row">
-								<div class="col">
+						</div>	
+						<nav class="subHeader">			 
+							<ul class="Tabs">
+								<li class="Tabs__tab active Tab"><a href="#">Today</a></li>
+								<li class="Tabs__tab Tab"><a href="#">Overdue</a></li>
+								<li class="Tabs__tab Tab"><a href="#">Finished</a></li>
+								<li class="Tabs__presentation-slider" role="presentation"></li>
+							</ul>
+						</nav>
+					</header>
+					
+					<main id="homeContents" class="contents">	
+						<ul>
+							<li class="catagory">
+								<span id="todaysChores" class="catagory">Today's Chores</span>	
+							</li>
+								<li class="room">
+									<span class="room">Jon's Bedroom</span>	
+								</li>	
+									<li class="chore">									
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">
+											<span class="chore">Pick up Floor</span>
+										</div>
+										<div class="col">
+											<span class="duration">5 minutes</span>
+										</div>	
+									</li>	
+									<!--<li class="chore">
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">
+											<span class="chore">Sweep Floor</span>
+										</div>
+										<div class="col">
+											<span class="duration">5 minutes</span>
+										</div>	
+									</li>	
+									<li class="chore">
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">
+											<span class="chore">Mop Floor</span>
+										</div>
+										<div class="col">
+											<span class="duration">30 minutes</span>
+										</div>
+									</li>	
+								<li class="room">
 									<span class="room">Kitchen</span>
-								</div>
-							</div>	
-								<div class="row">
-									<div class="col">
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">
-										<span class="chore">Wash Dishes</span>
-									</div>
-									<div class="col">	
-										<span class="duration">30 minutes</span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">	
-										<span class="chore">Sweep Floor</span>
-									</div>
-									<div class="col">	
-										<span class="duration">10 minutes</span>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">	
-										<span class="chore">Wipe off Table</span>
-									</div>
-									<div class="col">	
-										<span class="duration">5 minutes</span>
-									</div>
-								</div>
-						<div class="row">
-							<div class="col catagory">
+								</li>	
+									<li class="chore">
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">
+											<span class="chore">Wash Dishes</span>
+										</div>
+										<div class="col">	
+											<span class="duration">30 minutes</span>
+										</div>
+									</li>
+									<li class="chore">
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore">Sweep Floor</span>
+										</div>
+										<div class="col">	
+											<span class="duration">10 minutes</span>
+										</div>
+									</li>
+									<li class="chore">
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore">Wipe off Table</span>
+										</div>
+										<div class="col">	
+											<span class="duration">5 minutes</span>
+										</div>
+									</li>->
+							<li class="catagory">
 								<span id="overdueChores" class="catagory">Overdue Chores</span>
-							</div>	
-						</div>
-							<div class="row">
-								<div class="col">
-									<span class="room">Vicortia's Bedroom</span>
-								</div>	
-							</div>	
-								<div class="row">	
-									<div class="col">				
-										<i class="material-icons">Drag Icon</i>
+							</li>
+								<li class="room">
+									<span class="room">Vicortia's Bedroom</span>	
+								</li>	
+									<li class="chore">	
+										<div class="col">
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Make Bed</span>
+										</div>
+										<div class="col">	
+											<span class="duration">1 minutes</span>
+										</div>
+										<div class="col">	
+											<i class="material-icons">Dismiss Icon</i>
+										</div>
+									</li>
+									<!--<li class="chore">
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Clean Off Desk</span>
+										</div>
+										<div class="col">	
+											<span class="duration">5 minutes</span>
+										</div>
+										<div class="col">	
+											<i class="material-icons">Dismiss Icon</i>
+										</div>
+									</li>
+									<li class="chore">
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Organize Closet</span>
+										</div>
+										<div class="col">	
+											<span class="duration">20 minutes</span>
+										</div>
+										<div class="col">	
+											<i class="material-icons">Dismiss Icon</i>
+										</div>
+									</li>	
+								<li class="room">
+									<span class="room">Downstair's Bathroom</span>
+								</li>
+									<li class="chore">
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Wipe off Toilet Seat</span>
+										</div>
+										<div class="col">	
+											<span class="duration">5 minutes</span>
+										</div>
+										<div class="col">	
+											<i class="material-icons">Dismiss Icon</i>
+										</div>
+									</li>
+									<li class="chore">
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Organize Sink Drawers</span>
+										</div>
+										<div class="col">	
+											<span class="duration">10 minutes</span>
+										</div>
+										<div class="col">	
+											<i class="material-icons">Dismiss Icon</i>
+										</div>
+									</li>
+									<li class="chore">
+										<div class="col">	
+											<i class="material-icons">check</i>
+										</div>
+										<div class="col">	
+											<span class="chore overdue">Put towels in the dirty Cloths</span>
+										</div>
+										<div class="col">	
+											<span class="duration">5 minutes</span>		
+										</div>
+									</li>->
+							<li class="catagory">
+								<span id="doneChores" class="catagory">Done</span>
+							</li>
+								<li class="chore done">
+									<div class="col">	
+										<i class="material-icons">check</i>
 									</div>
+									<div class="col">	
+										<span class="chore done">Make Bed in in V BR</span>
+									</div>	
+								</li>
+								<!--<li class="chore done">
 									<div class="col">
 										<i class="material-icons">check</i>
 									</div>
 									<div class="col">	
-										<span class="chore overdue">Make Bed</span>
-									</div>
-									<div class="col">	
-										<span class="duration">1 minutes</span>
-									</div>
-									<div class="col">	
-										<i class="material-icons">Dismiss Icon</i>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">	
+										<span class="chore done">Clean Off Desk in V BR</span>
+									</div>	
+								</li>
+								<li class="chore done">
+									<div class="col">
 										<i class="material-icons">check</i>
 									</div>
 									<div class="col">	
-										<span class="chore overdue">Clean Off Desk</span>
-									</div>
-									<div class="col">	
-										<span class="duration">5 minutes</span>
-									</div>
-									<div class="col">	
-										<i class="material-icons">Dismiss Icon</i>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">	
+										<span class="chore done">Organize Closet in V BR</span>
+									</div>	
+								</li>
+								<li class="chore done">
+									<div class="col">
 										<i class="material-icons">check</i>
 									</div>
 									<div class="col">	
-										<span class="chore overdue">Organize Closet</span>
+										<span class="chore done">Wipe off Toilet Seat in D B</span>
 									</div>
-									<div class="col">	
-										<span class="duration">20 minutes</span>
-									</div>
-									<div class="col">	
-										<i class="material-icons">Dismiss Icon</i>
-									</div>
-							<div class="row">
-								<div class="col">
-									<span class="room">Downstair's Bathroom</span>
-								</div>
-							</div>
-								<div class="row">
-									<div class="col">	
+								</li>
+								<li class="chore done">
+									<div class="col">
 										<i class="material-icons">check</i>
 									</div>
 									<div class="col">	
-										<span class="chore overdue">Wipe off Toilet Seat</span>
-									</div>
-									<div class="col">	
-										<span class="duration">5 minutes</span>
-									</div>
-									<div class="col">	
-										<i class="material-icons">Dismiss Icon</i>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">	
+										<span class="chore done">Organize Sink Drawers in D B</span>
+									</div>	
+								</li>
+								<li class="chore done">
+									<div class="col">
 										<i class="material-icons">check</i>
 									</div>
 									<div class="col">	
-										<span class="chore overdue">Organize Sink Drawers</span>
-									</div>
-									<div class="col">	
-										<span class="duration">10 minutes</span>
-									</div>
-									<div class="col">	
-										<i class="material-icons">Dismiss Icon</i>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col">	
-										<i class="material-icons">check</i>
-									</div>
-									<div class="col">	
-										<span class="chore overdue">Put towels in the dirty Cloths</span>
-									</div>
-									<div class="col">	
-										<span class="duration">5 minutes</span>		
-									</div>
-								</div>
-						<div class="row">
-							<div class="col catagory">
-								<span id="doneChores" class="catagory">Done</span>
-							</div>	
-						</div>
-							<div class="row">
-								<div class="col">	
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Make Bed in in V BR</span>
-								</div>	
-							</div>
-							<div class="row">
-								<div class="col">
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Clean Off Desk in V BR</span>
-								</div>	
-							</div>
-							<div class="row">
-								<div class="col">
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Organize Closet in V BR</span>
-								</div>	
-							</div>
-							<div class="row">
-								<div class="col">
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Wipe off Toilet Seat in D B</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col">
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Organize Sink Drawers in D B</span>
-								</div>	
-							</div>
-							<div class="row">
-								<div class="col">
-									<i class="material-icons">check</i>
-								</div>
-								<div class="col">	
-									<span class="chore done">Put towels in the dirty Cloths in D B</span>
-								</div>	
-							</div>
-					</table>						
-				</main>	
+										<span class="chore done">Put towels in the dirty Cloths in D B</span>
+									</div>	
+								</li>->
+						</ul>						
+					</main>	
 
-				<aside id="timeLeft">
-					<span>2 hours 11 minutes left</span>
-				</aside>
+					<aside id="timeLeft">
+						<span>2 hours 11 minutes left</span>
+					</aside>
+					
+					<aside id="actionBtns">
+						<i class="material-icons">Plus Icon</i>
+						<i class="material-icons">Add Chore Icon</i>
+							<span>Add Chore</span>
+						<i class="material-icons">Add Room Icon</i>
+							<span>Add Room</span>
+						<div id="">	
+							<i class="material-icons">Overwhelmed Icon</i>
+								<span>Feeling Overwhelmed?</span>
+						<!-- or Create Chore Schedule if not done yet ->
+							<i class="material-icons">Create Schedule Icon</i>
+								<span>Create Chore Schedule</span>	
+					</aside>
+				</div>
+
+				<div id="reportsPage">
+					<header id="reportsNav" class="withSubMenu">
+						<div class="mainHeader">	
+							<div id="topNav">	
+								<div class="leftNavIcon">
+									<i id="menu" class="material-icons" >menu</i>
+								</div>
+								<div class="title">	
+									<span>Reports</span>
+									<span id="dateRange">1/02 -> 1/19</span>
+								</div>	
+							</div>
+						<div class="subHeader">	<!--Highlight under slides as different areas are selected->
+							<div class="col-4">
+								<span>History</span>
+							</div>
+							<div class="col-4">
+								<span>Statistics</span>
+							</div>
+							<div class="col-4">
+								<span>Dismissed</span>
+							</div>
+						</div>
+					</header>
+
+					<div id="reportsContents">		
+						<div id="navTos"> <!--Slide toggle between body sections back and forth (like habitica) ->	
+							<div id="history">
+								<h2>Completed Chores</h2>
+								<ul id="finishedChoreList"><!--if Li is clicked display viewChoreDetailsPage->
+									<li>
+										<div>
+											<span>Make Bed</span>
+											<span> in </span>
+											<span>Jon's Room</span>
+											<span> - </span>
+											<span>1/19</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Sweep Floor</span>
+											<span> in </span>
+											<span>Jon's Room</span>
+											<span> - </span>
+											<span>1/08</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Clean Toilet</span>
+											<span> in </span>
+											<span>Downstairs Bathroom</span>
+											<span> - </span>
+											<span>1/14</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Clean Dishes</span>
+											<span> in </span>
+											<span>Kitchen</span>
+											<span> - </span>
+											<span>1/17</span>
+										</div>
+									</li>
+								</ul>			
+							</div>
+
+							<div id="statisics">
+								<div id="chart">
+									<!--Develope Chart layout and filtering processes Later->
+								</div>
+							</div>
+
+							<div id="dismissed">
+								<h2>Dismissed Chores</h2>
+								<ul id="dismissedChoreList"><!--if Li is clicked display dismissedChoreDetailsPage->
+									<li>
+										<div>
+											<span>Make Bed</span>
+											<span> in </span>
+											<span>Jon's Room</span>
+											<span> - </span>
+											<span>1/10</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Sweep Floor</span>
+											<span> in </span>
+											<span>Jon's Room</span>
+											<span> - </span>
+											<span>1/07</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Clean Toilet</span>
+											<span> in </span>
+											<span>Downstairs Bathroom</span>
+											<span> - </span>
+											<span>1/01</span>
+										</div>
+									</li>
+									<li>
+										<div>
+											<span>Clean Dishes</span>
+											<span> in </span>
+											<span>Kitchen</span>
+											<span> - </span>
+											<span>1/10</span>
+										</div>
+									</li>
+								</ul>						
+							</div>
+						</div>	
+					</div>
+				</div>
 				
-				<aside id="actionBtns">
-					<i class="material-icons">Plus Icon</i>
-					<i class="material-icons">Add Chore Icon</i>
-						<span>Add Chore</span>
-					<i class="material-icons">Add Room Icon</i>
-						<span>Add Room</span>
-					<div id="">	
-						<i class="material-icons">Overwhelmed Icon</i>
-							<span>Feeling Overwhelmed?</span>
-					<!-- or Create Chore Schedule if not done yet -->
-						<i class="material-icons">Create Schedule Icon</i>
-							<span>Create Chore Schedule</span>	
-				</aside>
-			</div>
-
-			<div id="reportsPage">
-				<header id="reportsNav" class="withSubMenu">
-					<div class="mainHeader">	
-						<div id="topNav">	
-							<div class="leftNavIcon">
-								<i id="menu" class="material-icons" >menu</i>
-							</div>
-							<div class="title">	
-								<span>Reports</span>
-								<span id="dateRange">1/02 --> 1/19</span>
-							</div>	
-						</div>
-					<div class="subHeader">	<!--Highlight under slides as different areas are selected-->
-						<div class="col-4">
-							<span>History</span>
-						</div>
-						<div class="col-4">
-							<span>Statistics</span>
-						</div>
-						<div class="col-4">
-							<span>Dismissed</span>
-						</div>
-					</div>
-				</header>
-
-				<div id="reportsContents">		
-					<div id="navTos"> <!--Slide toggle between body sections back and forth (like habitica) -->	
-						<div id="history">
-							<h2>Completed Chores</h2>
-							<ul id="finishedChoreList"><!--if Li is clicked display viewChoreDetailsPage-->
-								<li>
-									<div>
-										<span>Make Bed</span>
-										<span> in </span>
-										<span>Jon's Room</span>
-										<span> - </span>
-										<span>1/19</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Sweep Floor</span>
-										<span> in </span>
-										<span>Jon's Room</span>
-										<span> - </span>
-										<span>1/08</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Clean Toilet</span>
-										<span> in </span>
-										<span>Downstairs Bathroom</span>
-										<span> - </span>
-										<span>1/14</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Clean Dishes</span>
-										<span> in </span>
-										<span>Kitchen</span>
-										<span> - </span>
-										<span>1/17</span>
-									</div>
-								</li>
-							</ul>			
-						</div>
-
-						<div id="statisics">
-							<div id="chart">
-								<!--Develope Chart layout and filtering processes Later-->
-							</div>
-						</div>
-
-						<div id="dismissed">
-							<h2>Dismissed Chores</h2>
-							<ul id="dismissedChoreList"><!--if Li is clicked display dismissedChoreDetailsPage-->
-								<li>
-									<div>
-										<span>Make Bed</span>
-										<span> in </span>
-										<span>Jon's Room</span>
-										<span> - </span>
-										<span>1/10</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Sweep Floor</span>
-										<span> in </span>
-										<span>Jon's Room</span>
-										<span> - </span>
-										<span>1/07</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Clean Toilet</span>
-										<span> in </span>
-										<span>Downstairs Bathroom</span>
-										<span> - </span>
-										<span>1/01</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<span>Clean Dishes</span>
-										<span> in </span>
-										<span>Kitchen</span>
-										<span> - </span>
-										<span>1/10</span>
-									</div>
-								</li>
-							</ul>						
-						</div>
-					</div>	
-				</div>
-			</div>
-			
-			<div id="viewChoreDetailsPage">	<!--display when history li is clicked-->
-				<header id="viewChoreDetailsPageNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons" >arrow_back</i>
-					</div>
-					<div  class="pageTitle">	
-						<span>History: Chore Details</span>						
-					</div>
-				</header>	
-				<div id="viewChoreDetailsContents">						
-					<div id="choreName">
-						<h2>Name:</h2>
-						<span>Make Bed</span>
-					</div>
-					<div id="choreRoom">
-						<h2>Room:</h2>
-						<span>Jon's Bedroom</span>
-					</div>
-					<div id="timeItTakes">
-						<h2>Time it takes:</h2>
-						<span>1 Minute</span>
-					</div>
-					<div id="repete">
-						<h2>Repete:</h2>
-						<span>Every Day</span>
-					</div>
-					<div id="discomfortLevel">
-						<h2>Discomfort Level:</h2>
-						<div id="discomfortBtns">
-							<div id="mehBtn">
-								<i class="material-icons">Meh Icon</i>
-							</div>
-						</div>
-					</div>
-					<div id="notes">
-						<h2>Notes:</h2>
-						<span>I need to do this every morning without Fail!! >:O</span>
-					</div>
-				</div>
-			</div>			
-				<div id="dismissedChoreDetailsPage"> <!--display when dismissed li is clicked-->
-					<header id="dismissedChoreDetailsNav" class="backBtnHeaders"s>	
+				<div id="viewChoreDetailsPage">	<!--display when history li is clicked->
+					<header id="viewChoreDetailsPageNav" class="backBtnHeaders">	
 						<div class="backBtn">
 							<i class="material-icons" >arrow_back</i>
 						</div>
 						<div  class="pageTitle">	
-							<span>Dismissed: Chore Details</span>						
+							<span>History: Chore Details</span>						
 						</div>
-					</header>
-
-					<div id="dismissedChoreDetailsContents">						
-						<div id="standardInfo">	
-							<div id="choreName">
-								<h2>Name:</h2>
-								<span>Make Bed</span>
-							</div>
-							<div id="moreStandardInfo">
-								<div id="moreInfoBtn">	
-									<span>...</span> <!--Acts as btn that if clicked reveals the bellow content-->
+					</header>	
+					<div id="viewChoreDetailsContents">						
+						<div id="choreName">
+							<h2>Name:</h2>
+							<span>Make Bed</span>
+						</div>
+						<div id="choreRoom">
+							<h2>Room:</h2>
+							<span>Jon's Bedroom</span>
+						</div>
+						<div id="timeItTakes">
+							<h2>Time it takes:</h2>
+							<span>1 Minute</span>
+						</div>
+						<div id="repete">
+							<h2>Repete:</h2>
+							<span>Every Day</span>
+						</div>
+						<div id="discomfortLevel">
+							<h2>Discomfort Level:</h2>
+							<div id="discomfortBtns">
+								<div id="mehBtn">
+									<i class="material-icons">Meh Icon</i>
 								</div>
-								<div id="moreInfoContent">
-									<div id="choreRoom">
-										<h2>Room:</h2>
-										<span>Jon's Bedroom</span>
+							</div>
+						</div>
+						<div id="notes">
+							<h2>Notes:</h2>
+							<span>I need to do this every morning without Fail!! >:O</span>
+						</div>
+					</div>
+				</div>			
+					<div id="dismissedChoreDetailsPage"> <!--display when dismissed li is clicked->
+						<header id="dismissedChoreDetailsNav" class="backBtnHeaders"s>	
+							<div class="backBtn">
+								<i class="material-icons" >arrow_back</i>
+							</div>
+							<div  class="pageTitle">	
+								<span>Dismissed: Chore Details</span>						
+							</div>
+						</header>
+
+						<div id="dismissedChoreDetailsContents">						
+							<div id="standardInfo">	
+								<div id="choreName">
+									<h2>Name:</h2>
+									<span>Make Bed</span>
+								</div>
+								<div id="moreStandardInfo">
+									<div id="moreInfoBtn">	
+										<span>...</span> <!--Acts as btn that if clicked reveals the bellow content->
 									</div>
-									<div id="timeItTakes">
-										<h2>Time it takes:</h2>
-										<span>1 Minute</span>
-									</div>
-									<div id="repete">
-										<h2>Repete:</h2>
-										<span>Every Day</span>
-									</div>
-									<div id="discomfortLevel">
-										<h2>Discomfort Level:</h2>
-										<div id="discomfortBtns">
-											<div id="mehBtn">
-												<i class="material-icons">Meh Icon</i>
+									<div id="moreInfoContent">
+										<div id="choreRoom">
+											<h2>Room:</h2>
+											<span>Jon's Bedroom</span>
+										</div>
+										<div id="timeItTakes">
+											<h2>Time it takes:</h2>
+											<span>1 Minute</span>
+										</div>
+										<div id="repete">
+											<h2>Repete:</h2>
+											<span>Every Day</span>
+										</div>
+										<div id="discomfortLevel">
+											<h2>Discomfort Level:</h2>
+											<div id="discomfortBtns">
+												<div id="mehBtn">
+													<i class="material-icons">Meh Icon</i>
+												</div>
 											</div>
 										</div>
+										<div id="notes">
+											<h2>Notes:</h2>
+											<span>I need to do this every morning without Fail!! >:O</span>
+										</div>
 									</div>
-									<div id="notes">
-										<h2>Notes:</h2>
-										<span>I need to do this every morning without Fail!! >:O</span>
-									</div>
+								</div>	
+							</div>
+							<div id="dismissedInfo">
+								<div id="dateOverdue">
+									<h2>Date Overdue:</h2><i class="material-icons">? for more info</i>
+									<span>Jan 5, 2017</span>
+								</div>
+								<div id="dateDismissed">
+									<h2>Date Dismissed:</h2>
+									<span>Jan 7, 2017</span>
+								</div>
+								<div id="undismissBtn">
+									<span> - Undismiss</span>
 								</div>
 							</div>	
-						</div>
-						<div id="dismissedInfo">
-							<div id="dateOverdue">
-								<h2>Date Overdue:</h2><i class="material-icons">? for more info</i>
-								<span>Jan 5, 2017</span>
-							</div>
-							<div id="dateDismissed">
-								<h2>Date Dismissed:</h2>
-								<span>Jan 7, 2017</span>
-							</div>
-							<div id="undismissBtn">
-								<span> - Undismiss</span>
-							</div>
 						</div>	
-					</div>	
-				</div>
-				
-			<div id="roomAddPage">
-				<header id="roomAddNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons arrow_back" >arrow_back</i>
 					</div>
-					<div class="pageTitle">	
-						<span>New Room</span>						
-					</div>
-					<div class="savePageBtn">		
-						<span>Add</span>
-					</div>	
-				</header>
-				
-				<div id="roomAddContents">				
-					<div id="roomName">
-						<h2>Name:</h2>
-						<input type="text" name="roomName" placeholder="Room Name" />
-					</div>
-					<div id="roomType">
-						<h2>Type:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later!!!!-->
+					
+				<div id="roomAddPage">
+					<header id="roomAddNav" class="backBtnHeaders">	
+						<div class="backBtn">
+							<i class="material-icons arrow_back" >arrow_back</i>
 						</div>
-					</div>
-					<div id="AddChores">
-						<div id="addChoreSquareBtn">
-							<i class="material-icons">add icon</i>
+						<div class="pageTitle">	
+							<span>New Room</span>						
 						</div>
-						<span>Add Chores to This Room</span>
-						<div>
-							<!--Pops up when add chore button is pushed to show content was saved-->
-							<span>New Room Added</span>
+						<div class="savePageBtn">		
+							<span>Add</span>
+						</div>	
+					</header>
+					
+					<div id="roomAddContents">				
+						<div id="roomName">
+							<h2>Name:</h2>
+							<input type="text" name="roomName" placeholder="Room Name" />
 						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="roomEditPage">
-				<header id="roomEditNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons" >arrow_back</i>
-					</div>
-					<div  class="pageTitle">	
-						<span>Room: Jon's Bedroom</span>						
-					</div>
-					<div class="savePageBtn">		
-						<span>Save</span>
-					</div>	
-				</header>
-
-				<div id="roomEditContents">				
-					<div id="roomName">
-						<h2>Name:</h2>
-						<input type="text" name="roomName" placeholder="Jon's" />
-					</div>
-					<div id="roomType">
-						<h2>Type:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later with Placeholder of Bedroom!!!!-->
+						<div id="roomType">
+							<h2>Type:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later!!!!->
+							</div>
 						</div>
-					</div>
-					<div id="choreList">
-						<h2>Add Chores to This Room</h2>
-						<ul>
-							<li>Make Bed</li>
-							<li>Pick Up Floor</li>
-							<li>Sweep</li>
-							<li>Mop</li>
-							<li>Clean off desk</li>
-						</ul>
 						<div id="AddChores">
 							<div id="addChoreSquareBtn">
 								<i class="material-icons">add icon</i>
 							</div>
 							<span>Add Chores to This Room</span>
 							<div>
-								<!--Pops up when add chore button is pushed to show content was saved-->
-								<span>Changes Saved!</span>
+								<!--Pops up when add chore button is pushed to show content was saved->
+								<span>New Room Added</span>
 							</div>
-						</div>
-					</div>				
-				</div>
-			</div>
-
-			<div id="choreAddPage">
-				<header id="choreAddNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons arrow_back" >arrow_back</i>
-					</div>
-					<div class="pageTitle">	
-						<span>New Chore</span>						
-					</div>
-					<div  class="savePageBtn">		
-						<span>Add</span>
-					</div>	
-				</header>
-
-				<div id="choreAddContents">				
-					<div id="choreName">
-						<h2>Name:</h2>
-						<input type="text" name="roomName" placeholder="Chore Name" />
-					</div>
-					<div id="choreRoom">
-						<h2>Room:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later!!!!-->
-						</div>
-					</div>
-					<div id="timeItTakes">
-						<h2>Time it takes:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later!!!!-->
-						</div>
-					</div>
-					<div id="repete">
-						<h2>Repete:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later!!!!-->
-						</div>
-					</div>
-					<div id="discomfortLevel">
-						<h2>Discomfort Level:</h2>
-						<div id="discomfortBtns">
-							<div id="funBtn">
-								<i class="material-icons">Smile Icon</i>
-							</div>
-							<div id="mehBtn">
-								<i class="material-icons">Meh Icon</i>
-							</div>
-							<div id="dislikeBtn">
-								<i class="material-icons">Frown Icon</i>
-							</div>
-							<div id="sdiv class="row"ingDislikeBtn">
-								<i class="material-icons">Angery Frown Icon</i>
-							</div>
-						</div>
-					</div>
-					<div id="notes">
-						<h2>Notes:</h2>
-						<div id="noteText">
-							<textarea>Notes about the Chore and What needs to be done</textarea>
 						</div>
 					</div>
 				</div>
-			</div>			
 
-			<div id="choreEditPage">
-				<header id="choreEditNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons" >arrow_back</i>
-					</div>
-					<div class="pageTitle">	
-						<span>Edit Chore</span>						
-					</div>
-					<div class="savePageBtn">		
-						<span>Save</span>
-					</div>	
-				</header>
-
-				<div id="choreEditContents">
-					<div id="choreName">
-						<h2>Name:</h2>
-						<input type="text" name="roomName" placeholder="Make Bed" />
-					</div>
-					<div id="choreRoom">
-						<h2>Room:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later with Placeholder of Jon's Bedroom!!!!-->
-						</div>
-					</div>
-					<div id="timeItTakes">
-						<h2>Time it takes:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later with Placeholder of 1 minutes!!!!-->
-						</div>
-					</div>
-					<div id="repete">
-						<h2>Repete:</h2>
-						<div class="dropdownMenu">
-							<!--Make Dropdown Menu Later with Placeholder of Every Day!!!!-->
-						</div>
-					</div>
-					<div id="discomfortLevel">
-						<h2>Discomfort Level:</h2>
-						<div id="discomfortBtns">
-							<div id="funBtn">
-								<i class="material-icons">Smile Icon</i>
-							</div>
-							<div id="mehBtn">
-							<!--Placeholder with this button on-->
-								<i class="material-icons">Meh Icon</i>
-							</div>
-							<div id="dislikeBtn">
-								<i class="material-icons">Frown Icon</i>
-							</div>
-							<div id="sdiv class="row"ingDislikeBtn">
-								<i class="material-icons">Angery Frown Icon</i>
-							</div>
-						</div>
-					</div>
-					<div id="notes">
-						<h2>Notes:</h2>
-						<div id="noteText">
-							<textarea>I need to do this every morning without Fail!! >:O</textarea>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div id="profileSettingsPage">	
-				<header id="profileSettingsNav" class="backBtnHeaders">	
-					<div class="backBtn">
-						<i class="material-icons arrow_back" >arrow_back</i>
-					</div>
-					<div class="pageTitle">	
-						<span>Profile</span>						
-					</div>
-					<div class="savePageBtn">		
-						<span>Save</span>
-					</div>	
-				</header>
-
-				<div id="profileSettingsContents">				
-					<div id="profilePic">
-						<img src="" />
-					</div>
-					<div id="name">
-						<div id="first">
-							<input type="text" name="firstName" placeholder="First Name" />
-						</div>
-						<div id="last">
-							<input type="text" name="lastName" placeholder="Last Name" />
-						</div>
-					</div>
-					<div id="email">
-						<input type="email" name="userEmail" placeholder="email@example.com" />
-					</div>
-					<div id="aboutMe">
-						<div id="headline">
-							<h2>About Me:</h2>
-						</div>
-						<div id="input">
-							<textarea>I am a 20 year old currently building a Web application for my Launch Code internship appliation.</textarea>
-						</div>
-					</div>
-					<div id="availabilitySettings"> <!--if clicked display userAvailabilityPage and show soft pop up saying other settings were saved-->
-						<div id="availabilitySettingsBtn">
-							<span>Availability Settings</span>
-						</div>	
-					</div>	
-					<div id="sendMeEmailNotifications">
-						<div id="optionBtn">
-							<i class="material-icons">CheckBox Icon</i>
-							<span>Send Me Email Notifications</span>
-							<div id="displayTime"> <!--If the previous option is Checked Displayed show this-->
-								<input type="time" name="timeToRecieveEmails">
-							</div>
-						</div>
-							
-					</div>
-					<div id="sincWithMyGoogleCallender">
-						<div id="optionBtn">
-							<i class="material-icons">CheckBox Icon</i>
-							<span>Sinc with my Google Callender</span>
-						</div>
-						<div id="sincGCalUserInfo"> 
-							<!--Medium Size square pops up in the uppper middle screen asking for a users Gmail information
-							What this is going to look like will depend on Google Callender API so I need to wait until then to 
-							Design this out-->
-						</div>
-					</div>
-				</div>	
-			</div>			
-				<div id="userAvailabilityPage">
-					<header id="profileSettingsNav" class="backBtnHeaders">	
+				<div id="roomEditPage">
+					<header id="roomEditNav" class="backBtnHeaders">	
 						<div class="backBtn">
-							<i class="material-icons arrow_back" >arrow_back</i>
+							<i class="material-icons" >arrow_back</i>
 						</div>
-						<div class="pageTitle">	
-							<span>Availability</span>						
+						<div  class="pageTitle">	
+							<span>Room: Jon's Bedroom</span>						
 						</div>
 						<div class="savePageBtn">		
 							<span>Save</span>
 						</div>	
 					</header>
-					
-					<div id="userAvailabilityContents">
-						<div id="daysOfTheWeek">
-							<h2>Days of the Week</h2>
-							<div id="sunAvl">
-								<span>Sunday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="monAvl">
-								<span>Monday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="tueAvl">
-								<span>Tuesday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="wedAvl">
-								<span>Wednesday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="thuAvl">
-								<span>Thursday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="friAvl">
-								<span>Friday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-							<div id="satAvl">
-								<span>Saturday:</span>
-								<div class="dropdownMenu">
-									
-								</div>
-							</div>
-						</div>
 
-						<!--Later Priority
-						<div id="monthly">
-							
+					<div id="roomEditContents">				
+						<div id="roomName">
+							<h2>Name:</h2>
+							<input type="text" name="roomName" placeholder="Jon's" />
 						</div>
-						-->
+						<div id="roomType">
+							<h2>Type:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later with Placeholder of Bedroom!!!!->
+							</div>
+						</div>
+						<div id="choreList">
+							<h2>Add Chores to This Room</h2>
+							<ul>
+								<li>Make Bed</li>
+								<li>Pick Up Floor</li>
+								<li>Sweep</li>
+								<li>Mop</li>
+								<li>Clean off desk</li>
+							</ul>
+							<div id="AddChores">
+								<div id="addChoreSquareBtn">
+									<i class="material-icons">add icon</i>
+								</div>
+								<span>Add Chores to This Room</span>
+								<div>
+									<!--Pops up when add chore button is pushed to show content was saved->
+									<span>Changes Saved!</span>
+								</div>
+							</div>
+						</div>				
 					</div>
 				</div>
 
-			<div id="help&FAQPage">
-				<!--Design later based on the info gained through making the site.
-				Will be a likely just a static page-->
-			</div>
+				<div id="choreAddPage">
+					<header id="choreAddNav" class="backBtnHeaders">	
+						<div class="backBtn">
+							<i class="material-icons arrow_back" >arrow_back</i>
+						</div>
+						<div class="pageTitle">	
+							<span>New Chore</span>						
+						</div>
+						<div  class="savePageBtn">		
+							<span>Add</span>
+						</div>	
+					</header>
 
-			<div id="aboutPage">
-				<!--Design later based on the info gained through making the site.
-				Will be a likely just a static page-->
-			</div>
-		</div>	
-
-		<!--Create outline and HTML Later-->	
-		<div id="choreListSetup">
-			<div id="">
-				
-			</div>
-			<div id="">
-				
-			</div>
-		</div>
-
-		<div id="sideMenus">
-			<nav id="leftMenu" class="c-menu c-menu--left"> 
-				<div id="profileInfo">
-					<img id="profilePic" src="" />
-					<span>Jon Wood</span>
-					<span>Woodj14123@gmail.com</span>
-				</div>
-				<div id="mainPageNav">
-					<span>Today's Chores</span>
-					<span>Overdue Chores</span>
-					<span>Finished Chores</span>
-				</div>	
-				<div id="Reports">
-					<h2>Reports</h2>
-					<span>History</span>
-					<span>Statistics</span>
-					<span>Dismissed Chores</span>
-				</div>	
-				<div id="About">
-					<h2>About</h2>
-					<span>Profile Settings</span>
-					<span>Help & FAQ</span>
-					<span>Dismissed Chores</span>
+					<div id="choreAddContents">				
+						<div id="choreName">
+							<h2>Name:</h2>
+							<input type="text" name="roomName" placeholder="Chore Name" />
+						</div>
+						<div id="choreRoom">
+							<h2>Room:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later!!!!->
+							</div>
+						</div>
+						<div id="timeItTakes">
+							<h2>Time it takes:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later!!!!->
+							</div>
+						</div>
+						<div id="repete">
+							<h2>Repete:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later!!!!->
+							</div>
+						</div>
+						<div id="discomfortLevel">
+							<h2>Discomfort Level:</h2>
+							<div id="discomfortBtns">
+								<div id="funBtn">
+									<i class="material-icons">Smile Icon</i>
+								</div>
+								<div id="mehBtn">
+									<i class="material-icons">Meh Icon</i>
+								</div>
+								<div id="dislikeBtn">
+									<i class="material-icons">Frown Icon</i>
+								</div>
+								<div id="sdiv class="row"ingDislikeBtn">
+									<i class="material-icons">Angery Frown Icon</i>
+								</div>
+							</div>
+						</div>
+						<div id="notes">
+							<h2>Notes:</h2>
+							<div id="noteText">
+								<textarea>Notes about the Chore and What needs to be done</textarea>
+							</div>
+						</div>
+					</div>
 				</div>			
-			</nav>
 
-			<nav id="rightMenu" class="c-menu c-menu--right">
-				<div id="Title">
-					<h2>Schedule Layout</h2>
+				<div id="choreEditPage">
+					<header id="choreEditNav" class="backBtnHeaders">	
+						<div class="backBtn">
+							<i class="material-icons" >arrow_back</i>
+						</div>
+						<div class="pageTitle">	
+							<span>Edit Chore</span>						
+						</div>
+						<div class="savePageBtn">		
+							<span>Save</span>
+						</div>	
+					</header>
+
+					<div id="choreEditContents">
+						<div id="choreName">
+							<h2>Name:</h2>
+							<input type="text" name="roomName" placeholder="Make Bed" />
+						</div>
+						<div id="choreRoom">
+							<h2>Room:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later with Placeholder of Jon's Bedroom!!!!->
+							</div>
+						</div>
+						<div id="timeItTakes">
+							<h2>Time it takes:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later with Placeholder of 1 minutes!!!!->
+							</div>
+						</div>
+						<div id="repete">
+							<h2>Repete:</h2>
+							<div class="dropdownMenu">
+								<!--Make Dropdown Menu Later with Placeholder of Every Day!!!!->
+							</div>
+						</div>
+						<div id="discomfortLevel">
+							<h2>Discomfort Level:</h2>
+							<div id="discomfortBtns">
+								<div id="funBtn">
+									<i class="material-icons">Smile Icon</i>
+								</div>
+								<div id="mehBtn">
+								<!--Placeholder with this button on->
+									<i class="material-icons">Meh Icon</i>
+								</div>
+								<div id="dislikeBtn">
+									<i class="material-icons">Frown Icon</i>
+								</div>
+								<div id="sdiv class="row"ingDislikeBtn">
+									<i class="material-icons">Angery Frown Icon</i>
+								</div>
+							</div>
+						</div>
+						<div id="notes">
+							<h2>Notes:</h2>
+							<div id="noteText">
+								<textarea>I need to do this every morning without Fail!! >:O</textarea>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div id="layoutAccordion">
+				
+				<div id="profileSettingsPage">	
+					<header id="profileSettingsNav" class="backBtnHeaders">	
+						<div class="backBtn">
+							<i class="material-icons arrow_back" >arrow_back</i>
+						</div>
+						<div class="pageTitle">	
+							<span>Profile</span>						
+						</div>
+						<div class="savePageBtn">		
+							<span>Save</span>
+						</div>	
+					</header>
+
+					<div id="profileSettingsContents">				
+						<div id="profilePic">
+							<img src="" />
+						</div>
+						<div id="name">
+							<div id="first">
+								<input type="text" name="firstName" placeholder="First Name" />
+							</div>
+							<div id="last">
+								<input type="text" name="lastName" placeholder="Last Name" />
+							</div>
+						</div>
+						<div id="email">
+							<input type="email" name="userEmail" placeholder="email@example.com" />
+						</div>
+						<div id="aboutMe">
+							<div id="headline">
+								<h2>About Me:</h2>
+							</div>
+							<div id="input">
+								<textarea>I am a 20 year old currently building a Web application for my Launch Code internship appliation.</textarea>
+							</div>
+						</div>
+						<div id="availabilitySettings"> <!--if clicked display userAvailabilityPage and show soft pop up saying other settings were saved->
+							<div id="availabilitySettingsBtn">
+								<span>Availability Settings</span>
+							</div>	
+						</div>	
+						<div id="sendMeEmailNotifications">
+							<div id="optionBtn">
+								<i class="material-icons">CheckBox Icon</i>
+								<span>Send Me Email Notifications</span>
+								<div id="displayTime"> <!--If the previous option is Checked Displayed show this->
+									<input type="time" name="timeToRecieveEmails">
+								</div>
+							</div>
+								
+						</div>
+						<div id="sincWithMyGoogleCallender">
+							<div id="optionBtn">
+								<i class="material-icons">CheckBox Icon</i>
+								<span>Sinc with my Google Callender</span>
+							</div>
+							<div id="sincGCalUserInfo"> 
+								<!--Medium Size square pops up in the uppper middle screen asking for a users Gmail information
+								What this is going to look like will depend on Google Callender API so I need to wait until then to 
+								Design this out->
+							</div>
+						</div>
+					</div>	
+				</div>			
+					<div id="userAvailabilityPage">
+						<header id="profileSettingsNav" class="backBtnHeaders">	
+							<div class="backBtn">
+								<i class="material-icons arrow_back" >arrow_back</i>
+							</div>
+							<div class="pageTitle">	
+								<span>Availability</span>						
+							</div>
+							<div class="savePageBtn">		
+								<span>Save</span>
+							</div>	
+						</header>
+						
+						<div id="userAvailabilityContents">
+							<div id="daysOfTheWeek">
+								<h2>Days of the Week</h2>
+								<div id="sunAvl">
+									<span>Sunday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="monAvl">
+									<span>Monday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="tueAvl">
+									<span>Tuesday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="wedAvl">
+									<span>Wednesday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="thuAvl">
+									<span>Thursday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="friAvl">
+									<span>Friday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+								<div id="satAvl">
+									<span>Saturday:</span>
+									<div class="dropdownMenu">
+										
+									</div>
+								</div>
+							</div>
+
+							<!--Later Priority
+							<div id="monthly">
+								
+							</div>
+							->
+						</div>
+					</div>
+
+				<div id="help&FAQPage">
+					<!--Design later based on the info gained through making the site.
+					Will be a likely just a static page->
+				</div>
+
+				<div id="aboutPage">
+					<!--Design later based on the info gained through making the site.
+					Will be a likely just a static page->
+				</div>
+			</div>	
+
+			<!--Create outline and HTML Later->	
+			<div id="choreListSetup">
+				<div id="">
 					
 				</div>
-			</nav>
+				<div id="">
+					
+				</div>
+			</div>
 
-			<div id="mask" class="c-mask"></div>
-		</div>	
-<!-- /EXTERNAL SCRIPTS -->
+			<div id="sideMenus">
+				<nav id="leftMenu" class="c-menu c-menu--left"> 
+					<div id="profileInfo">
+						<img id="profilePic" src="" />
+						<span>Jon Wood</span>
+						<span>Woodj14123@gmail.com</span>
+					</div>
+					<div id="mainPageNav">
+						<span>Today's Chores</span>
+						<span>Overdue Chores</span>
+						<span>Finished Chores</span>
+					</div>	
+					<div id="Reports">
+						<h2>Reports</h2>
+						<span>History</span>
+						<span>Statistics</span>
+						<span>Dismissed Chores</span>
+					</div>	
+					<div id="About">
+						<h2>About</h2>
+						<span>Profile Settings</span>
+						<span>Help & FAQ</span>
+						<span>Dismissed Chores</span>
+					</div>			
+				</nav>
 
+				<nav id="rightMenu" class="c-menu c-menu--right">
+					<div id="Title">
+						<h2>Schedule Layout</h2>
+					</div>
+					<div id="layoutAccordion">
+						
+					</div>
+				</nav>
+
+				<div id="mask" class="c-mask"></div>
+			</div>	-->
+		</div>
+
+	<!-- /EXTERNAL SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 	</body>

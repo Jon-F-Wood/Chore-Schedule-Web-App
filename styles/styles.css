@@ -1,4 +1,29 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*Reset Defaults*/
+/*
 html, body, applet, object, iframe, h1, h2, h3, h4, 
 h5, h6, p, blockquote, pre, acronym, address, big, 
 cite, code, del, dfn, em, img, ins, kbd, q, s, samp, 
@@ -32,11 +57,11 @@ html, body {
 }
 
 
-/*Headers*/
+/*Headers
 header {  
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+    position: fixed; /* Set the navbar to fixed position 
+    top: 0; /* Position the navbar at the top of the page
+    width: 100%; /* Full width 
 
     color: white;
 }
@@ -153,13 +178,13 @@ i#eventNote {
 
 
 
-/*Contents*/
+/*Contents
 
 main.contents {
     margin: 90px 10px 0 10px;
 
 }
-/*Catagories*/
+/*Catagories
 td.catagory {
     color: #1B2432;
     font-size: 20px; 
@@ -177,17 +202,17 @@ span.room {
     font-size: 16px;
     color: #676D76;
 }
-/*Rooms*/
-/*Chore Rows*/
+/*Rooms
+/*Chore Rows
 
 
-/*Time Left Aside*/
-/*Action Buttons Aside*/
+/*Time Left Aside
+/*Action Buttons Aside
 
 
 
 
-/*Grid System*/
+/*Grid System
 .row::after {
     content: "";
     clear: both;
@@ -210,8 +235,8 @@ span.room {
 .col-12 {width: 100%;}
 
 
-/*Side Navigation Menus*/
-/*Formatting*/
+/*Side Navigation Menus
+/*Formatting
 .c-menu {
     z-index:200;
     background-color:#67b5d1;
@@ -235,12 +260,12 @@ span.room {
     color:#fff; background-color:#3184a1; border:none;
 }
 
-/*Positioning*/
+/*Positioning
 .c-mask,.c-menu {
     position:fixed;
 }
 
-/*Class Toggling*/
+/*Class Toggling
 .c-menu--left {top:0; left:0; transform:translateX(-100%);}
 .c-menu--left.is-active {     transform:translateX(0);     }
 
@@ -256,3 +281,4 @@ span.room {
 .c-mask.is-active {
     width:100%; height:100%; 
     opacity:.7;  transition:opacity .3s;}
+*/

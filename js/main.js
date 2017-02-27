@@ -1,4 +1,21 @@
-//sideNav Constructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*//sideNav Constructor
 function sideNav(options) {
 	//Initialise sideNav
 	var mask = document.getElementById("mask");
@@ -45,3 +62,4 @@ function setActiveClass(evt) {
 	evt.currentTarget.classList.add('active');
 }
 
+*/

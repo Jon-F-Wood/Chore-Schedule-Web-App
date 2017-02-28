@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<title>Chore Schedule Web App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	</head>
+	<body>
+		<form id="login" >
+			<h2>Login</h2>
+			Email: <input type="email" id="loginEmail" placeholder="email@example.com" required />
+			Password: <input type="password" id="loginPassword" placeholder="password" required />
+			<input type="submit" id="loginBtn" value="login" /> 
+			<input type="button" class="switch" value="Register" />
+			<input type="button" id="clear" value="clear" />
+		</form>
+		<form id="register" class="hide">
+			<h2>Register</h2>
+			Email: <input type="email" id="registerEmail" placeholder="email@example.com" required />
+			Password: <input type="password" id="registerPassword" placeholder="password" required />
+			<input type="submit" id="registerBtn" value="Submit" />
+			<input type="button" class="switch" value="Cancel" /> 
+		</form>
+
+	<!-- /EXTERNAL SCRIPTS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+	</body>
+</html>

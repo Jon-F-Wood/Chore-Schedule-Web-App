@@ -24,8 +24,8 @@ $( document ).ready(function() {
 			localStorage.getItem("password") == $("#loginPassword").val()) {
 			alert("In");
 		} else {
-			//alert("Out "+localStorage.getItem("email")+" is not "+$("#loginEmail").val()+" and/or "
-			//	+localStorage.getItem("password")+" is not "+$("#loginPassword").val());
+			alert("Out "+localStorage.getItem("email")+" is not "+$("#loginEmail").val()+" and/or "
+				+localStorage.getItem("password")+" is not "+$("#loginPassword").val());
 		}
 	});
 

@@ -7,6 +7,21 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
+		<form id="login" >
+			<h2>Login</h2>
+			Email: <input type="email" id="loginEmail" placeholder="email@example.com" required />
+			Password: <input type="password" id="loginPassword" placeholder="password" required />
+			<input type="submit" id="loginBtn" value="login" /> 
+			<input type="button" class="switch" value="Register" />
+			<input type="button" id="clear" value="clear" />
+		</form>
+		<form id="register" class="hide">
+			<h2>Register</h2>
+			Email: <input type="email" id="registerEmail" placeholder="email@example.com" required />
+			Password: <input type="password" id="registerPassword" placeholder="password" required />
+			<input type="submit" id="registerBtn" value="Submit" />
+			<input type="button" class="switch" value="Cancel" /> 
+		</form>
 		
 
 		<div>	

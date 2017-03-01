@@ -1,52 +1,9 @@
 $( document ).ready(function() {	
-//Register.html
-	var toggleForms = function(){
-		$("#login").toggleClass("hide");
-		$("#register").toggleClass("hide");
-	};
-	
-	if (localStorage.getItem("email") == null){
-		toggleForms();
-	} 
-
-	$("#clear").on("click", function(){
-		localStorage.clear();
-	});	
-	$(".switch").on("click", function(){
-		toggleForms();
-	});
-    $("#registerBtn").on("click", function(){
-    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
-	    localStorage.setItem("password", $("#registerPassword").val());	
-	    toggleForms();
-    });
-    $("#loginBtn").on("click", function(){
-		if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
-			localStorage.getItem("password") == $("#loginPassword").val()) {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
-		} else {
-			alert("Email or password was incorrect.  Please try again.");
-		}
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Text input Validation
     var validations ={
 	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address'],
 		password: [/.{8,}/, 'Password must be 8 or more characters.']
+		addChoresTextField: [/^[a-z\d\-_\s]+$/i, 'Your chore name can only be Alphanumeric Characters']
 	};
     // Check all the input fields of type email. This function will handle all the email addresses validations
     $("#registerEmail").change( function(){
@@ -63,9 +20,9 @@ $( document ).ready(function() {
         }
 	});
     $("#registerPassword").change( function(){
-        // Set the regular expression to validate the email 
+        // Set the regular expression to validate the password 
         validation = new RegExp(validations['password'][0]);
-        // validate the email value against the regular expression
+        // validate the password value against the regular expression
         if (!validation.test(this.value)){
             // If the validation fails then we show the custom error message
             this.setCustomValidity(validations['password'][1]);
@@ -75,94 +32,193 @@ $( document ).ready(function() {
             this.setCustomValidity('');
         }
 	});
+	$("#addChore").change( function(){
+        // Set the regular expression to validate the email 
+        validation = new RegExp(validations['addChoresTextField'][0]);
+        // validate the email value against the regular expression
+        if (!validation.test(this.value)){
+            // If the validation fails then we show the custom error message
+            this.setCustomValidity(validations['addChoresTextField'][1]);
+            return false;
+        } else {
+            // This is really important. If the validation is successful you need to reset the custom error message
+            this.setCustomValidity('');
+        }
+	});
+
+//Register.html
+	var toggleForms = function(){
+		$("#login").toggleClass("hide");
+		$("#register").toggleClass("hide");
+	};
+	
+	if (localStorage.getItem("email") === null){
+		toggleForms();
+	} 
+
+	/*$("#clear").on("click", function(){
+		localStorage.clear();
+	});	*/
+	$(".switch").on("click", function(){
+		toggleForms();
+	});
+    $("#registerBtn").on("click", function(){
+    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
+	    localStorage.setItem("password", $("#registerPassword").val());	
+	    toggleForms();
+    });
+    $("#loginBtn").on("click", function(){
+		if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
+			localStorage.getItem("password") == $("#loginPassword").val()) {
+			if (localStorage.getItem("choreList") === null || localStorage.getItem("choreList") == "" )	{
+				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
+			} else {
+				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			}
+
+		} else {
+			alert("Email or password was incorrect.  Please try again.");
+		}
+	});
 
 //addChores.html
 	var chores = [];
-	var setItems = localStorage.getItem("set");
+	var setItems = localStorage.getItem("choreList");
+	
 	// Store todo in variable on keyup
 	$("#addChore").on("keyup", function() {
 	  chores = $(this).val();
 	});
 
 	// When enter key is pressed add item to list | Check for an empty input if true shake and skew the input box
-	$("input#addChore").on("keypress", function(e) {
+	$("#addChore").on("keypress", function(whicheverKey) {
 		//Add chores list item if enter is pressed 
-		if (e.which == 13) {
+		if (whicheverKey.which == 13) {
 			//Verify that there is something in the input field    
 		    if ($(this).val().length <= 0) {
 		    	alert("You must name your Chore.");
 		    } else {		    
-			    var toDoItem = $("<div class='choreLI'><span class='toDo'>" + chores  
+			    var choreItem = $("<div class='choreLI'><span class='toDo'>" + chores  
 			    	+ "</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " 
-			    	+ "<input type='button' value='delete' class='delete' />");
+			    	+ "<input type='button' value='delete' class='delete' /></div>");
 		    }
 		   
 		    //Store toDo in a Comma Separated Value (CSV) format in local Storage
-		    if (setItems === null)	{
+		    if (setItems === null || setItems == "")	{
 		    	setItems = chores;
 		    } else {
 		    	setItems = setItems + ',' + chores;
 		    }
    			
-   			localStorage.setItem("set", setItems);   
+   			localStorage.setItem("choreList", setItems);   
 
    			//Append list and clear text field
-		    $(".choreList").append(toDoItem);
+		    $(".choreList").append(choreItem);
 		    
-		    $(this).val(''); // Empty input field on submit	   
+		    $(this).val(''); //Empty input field on submit	   
 
+		    return false;//To make the page not reload
 		}
 	});
-
+		
+	
 	$(".choreList").on("click", ".delete", function() {
 		//delete div from the dom
-		$(this).parent().remove();
-		
-		//make set into an array
-		var localChoreList = localStorage.getItem("set").split(",");
-		//get the text from Dom that I want to remove from set
+		$(this).parent().remove();		
+		//make choreList into an array
+		var localChoreList = localStorage.getItem("choreList").split(",");
+		//get the text from Dom that I want to remove from choreList
 		var targetChore = $(this).parent().children(".toDo")[0].textContent;
 		//Remove the item from the array
 		localChoreList.splice(localChoreList.indexOf(targetChore),1);
-		//convert the array back into a string in the right format then put it back into set
-		localStorage.setItem("set", JSON.stringify(localChoreList).replace(/[\[\]"]+/g, ''));
-	});
-
-	//
-	
+		//convert the array back into a string in the right format then put it back into choreList
+		localStorage.setItem("choreList", JSON.stringify(localChoreList).replace(/[\[\]"]+/g, ''));
+	});	
 
 	$(".done").on("click", function() {
-
+		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
 	});
 
-	// Delete click handler
+	/*/ Delete click handler
 	$(".clearList").on("click", function() {
 	 localStorage.removeItem("set");
 	  $(".choreLI").remove();
+	});*/
+
+//DisplayChores.html
+
+	var localChoreList = localStorage.getItem("choreList").split(",");
+	var histRecord = localStorage.getItem("history");	
+	//Display all chores to the dom
+	if (setItems !== "") {	
+		for (var i = 0; localChoreList.length > i; i++) {
+			var choreName = localChoreList[i]; 		
+			var choreToDo = $("<div class='choreToDoLI'><input type='checkbox' value='done' class='checkbox' /> &nbsp; &nbsp; &nbsp;" 
+					    	+ "<span class='choreToDo'>" + choreName + "</span></div>");
+			//Append list and clear text field
+		    $(".choreListToDo").append(choreToDo);
+		}	
+    }
+
+    $(".choreListToDo").on("click", ".checkbox", function() {
+		//delete div from the dom
+		$(this).delay(400).queue(function() {
+            $(this).parent().remove();
+        });		
+		
+		//get the text from Dom that I want to remove from choreList
+		var targetChore = $(this).parent().children(".choreToDo")[0].textContent;
+
+		//Move the targetChore text and time info into history
+		var x = new Date();
+		var datetime = x.toDateString();
+
+		if (histRecord === null)	{
+	    	histRecord = targetChore + ',' + datetime;
+	    } else {
+	    	histRecord = histRecord + ',' + targetChore + ',' + datetime;
+	    }
+		localStorage.setItem("history", histRecord); 
+		//Remove the item from the array
+		localChoreList.splice(localChoreList.indexOf(targetChore),1);
+		//convert the array back into a string in the right format then put it back into choreList
+		localStorage.setItem("choreList", JSON.stringify(localChoreList).replace(/[\[\]"]+/g, ''));
+	});
+	
+	$(".addMoreChores").on("click", function() {
+		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
 	});
 
-
-
-
-
-/*for DisplayChores.html
-
-	// Load click handler
-	$(".loadList").on("click", function() {
-	  var listNameHeader = localStorage.getItem("listName");
-	  $("input#listName").attr('value', listNameHeader);
-	  var retrieve = localStorage.getItem("set").split(',');
-	  for (i = 0; i < retrieve.length - 1; i++)
-	    $(".choreList").append($("<div class='choreLI' data-value='0' style='opacity: 1'>" 
-	    	+ "<p>" + retrieve[i + 1] + "</p>" + "<i id='delete' class='material-icons'>check_circle</i>"));
+	$(".goToHistory").on("click", function() {
+		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
 	});
 
-*/
+//Display History	
+	console.log("verify alpha numeric and spaces in add chores .html");
+	if (histRecord !== "" || histRecord !== null) {			
+		//make history into two dimentional array
+		var histRecordList = [];
+		var histRecordConverter = histRecord.split(",")
+		
+		for (var i = 0; (histRecordConverter.length/2) > i; i++) {
+			histRecordList.push(histRecordConverter.splice(i*2,2));
+			var choreName = histRecordList[i][0]; 
+			var choreDateTime = histRecordList[i][1];
+
+			var choreHistory = $("<div class='choreHistLI'><span class='choreHistName'>" + choreName
+					    	+ " was preformed on </span><span class='choreHistDate'>" + choreDateTime 
+					    	+ "</span></div>");
+			//Append list and clear text field
+		    $(".choreListHistory").append(choreHistory);
+		}
+    } else {
+    	//if there are no chores done write " no chores done"
+    }
 
 
 
 
-
+	
 });
 
 

@@ -2,7 +2,7 @@ $( document ).ready(function() {
 //Text input Validation
     var validations ={
 	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address'],
-		password: [/.{8,}/, 'Password must be 8 or more characters.']
+		password: [/.{8,}/, 'Password must be 8 or more characters.'],
 		addChoresTextField: [/^[a-z\d\-_\s]+$/i, 'Your chore name can only be Alphanumeric Characters']
 	};
     // Check all the input fields of type email. This function will handle all the email addresses validations
@@ -10,7 +10,7 @@ $( document ).ready(function() {
         // Set the regular expression to validate the email 
         validation = new RegExp(validations['email'][0]);
         // validate the email value against the regular expression
-        if (!validation.test(this.value)){
+        if (!validation.test($(this).val())){
             // If the validation fails then we show the custom error message
             this.setCustomValidity(validations['email'][1]);
             return false;
@@ -23,7 +23,7 @@ $( document ).ready(function() {
         // Set the regular expression to validate the password 
         validation = new RegExp(validations['password'][0]);
         // validate the password value against the regular expression
-        if (!validation.test(this.value)){
+        if (!validation.test($(this).val())){
             // If the validation fails then we show the custom error message
             this.setCustomValidity(validations['password'][1]);
             return false;
@@ -36,7 +36,7 @@ $( document ).ready(function() {
         // Set the regular expression to validate the email 
         validation = new RegExp(validations['addChoresTextField'][0]);
         // validate the email value against the regular expression
-        if (!validation.test(this.value)){
+        if (!validation.test($(this).val())){
             // If the validation fails then we show the custom error message
             this.setCustomValidity(validations['addChoresTextField'][1]);
             return false;
@@ -146,7 +146,6 @@ $( document ).ready(function() {
 	});*/
 
 //DisplayChores.html
-
 	var localChoreList = localStorage.getItem("choreList").split(",");
 	var histRecord = localStorage.getItem("history");	
 	//Display all chores to the dom
@@ -194,20 +193,18 @@ $( document ).ready(function() {
 	});
 
 //Display History	
-	console.log("verify alpha numeric and spaces in add chores .html");
 	if (histRecord !== "" || histRecord !== null) {			
 		//make history into two dimentional array
 		var histRecordList = [];
-		var histRecordConverter = histRecord.split(",")
-		
-		for (var i = 0; (histRecordConverter.length/2) > i; i++) {
-			histRecordList.push(histRecordConverter.splice(i*2,2));
+		var histRecordConverter = histRecord.split(",");
+		for (var i = 0; (histRecordConverter.length+i-1) > i; i++) {
+			histRecordList.push(histRecordConverter.splice(0,2));
 			var choreName = histRecordList[i][0]; 
 			var choreDateTime = histRecordList[i][1];
 
-			var choreHistory = $("<div class='choreHistLI'><span class='choreHistName'>" + choreName
-					    	+ " was preformed on </span><span class='choreHistDate'>" + choreDateTime 
-					    	+ "</span></div>");
+			var choreHistory = $("<div class='choreHistLI'><b><span class='choreHistName'>" + choreName
+					    	+ "</b> was preformed on </span><span class='choreHistDate'><b>" + choreDateTime 
+					    	+ "</b></span></div>");
 			//Append list and clear text field
 		    $(".choreListHistory").append(choreHistory);
 		}
@@ -215,7 +212,9 @@ $( document ).ready(function() {
     	//if there are no chores done write " no chores done"
     }
 
-
+    $(".backToChores").on("click", function() {
+		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+	});
 
 
 	

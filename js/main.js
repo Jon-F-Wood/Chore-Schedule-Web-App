@@ -1,37 +1,12 @@
+
 $( document ).ready(function() {	
 //Text input Validation
-    var validations ={
-	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 'Please enter a valid email address'],
+    var validations = {
+	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 
+	    'Your email address is invalid.  Please enter a valid Email.'],
 		password: [/.{8,}/, 'Password must be 8 or more characters.'],
-		addChoresTextField: [/^[a-z\d\-_\s]+$/i, 'Your chore name can only be Alphanumeric Characters']
-	};
-    // Check all the input fields of type email. This function will handle all the email addresses validations
-    $("#registerEmail").change( function(){
-        // Set the regular expression to validate the email 
-        validation = new RegExp(validations['email'][0]);
-        // validate the email value against the regular expression
-        if (!validation.test($(this).val())){
-            // If the validation fails then we show the custom error message
-            this.setCustomValidity(validations['email'][1]);
-            return false;
-        } else {
-            // This is really important. If the validation is successful you need to reset the custom error message
-            this.setCustomValidity('');
-        }
-	});
-    $("#registerPassword").change( function(){
-        // Set the regular expression to validate the password 
-        validation = new RegExp(validations['password'][0]);
-        // validate the password value against the regular expression
-        if (!validation.test($(this).val())){
-            // If the validation fails then we show the custom error message
-            this.setCustomValidity(validations['password'][1]);
-            return false;
-        } else {
-            // This is really important. If the validation is successful you need to reset the custom error message
-            this.setCustomValidity('');
-        }
-	});
+		addChoresTextField: [/^([a-z\d\-_\s]{3,})+$/i, 'Your chore name can only be Letters and Numbers']
+	};    
 	$("#addChore").change( function(){
         // Set the regular expression to validate the email 
         validation = new RegExp(validations['addChoresTextField'][0]);
@@ -63,9 +38,40 @@ $( document ).ready(function() {
 		toggleForms();
 	});
     $("#registerBtn").on("click", function(){
-    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
-	    localStorage.setItem("password", $("#registerPassword").val());	
-	    toggleForms();
+	    var validationTest = function() {
+		    var validateEmail = new RegExp(validations['email'][0]);
+	        // validate the email value against the regular expression
+	        if (!validateEmail.test($("#registerEmail").val())){	            
+	            return false;
+	        } 	        
+	        var validatePassword = new RegExp(validations['password'][0]);
+	        // validate the password value against the regular expression
+	        if (!validatePassword.test($("#registerPassword").val())){
+	            return false;
+	        }
+	        if (validateEmail.test($("#registerEmail").val()) && 
+	        	validatePassword.test($("#registerPassword").val())){
+	            return true;
+	        }
+	    }
+	    var emailFailsValidation = function() {
+		    var validateEmail = new RegExp(validations['email'][0]);
+	        // validate the email value against the regular expression
+	        if (!validateEmail.test($("#registerEmail").val())){	            
+	            return true;
+	        } 	  
+	    }
+	    if (validationTest() == true) {
+	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
+		    localStorage.setItem("password", $("#registerPassword").val());	
+		    toggleForms();
+		} else {
+			if (emailFailsValidation() == true) {
+				alert(validations['email'][1]);
+			} else {
+				alert(validations['password'][1]);
+			}
+		}    
     });
     $("#loginBtn").on("click", function(){
 		if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
@@ -94,30 +100,37 @@ $( document ).ready(function() {
 	$("#addChore").on("keypress", function(whicheverKey) {
 		//Add chores list item if enter is pressed 
 		if (whicheverKey.which == 13) {
+			//validate input
+			var validate = new RegExp(validations['addChoresTextField'][0]);
+			if (!validate.test($(this).val()) || $(this).val().length <= 0){
+	            valid = false;
+	        } else {
+	        	valid = true;
+	        }
+			
 			//Verify that there is something in the input field    
-		    if ($(this).val().length <= 0) {
-		    	alert("You must name your Chore.");
+		    if (valid == false) {
+		    	alert(validations['addChoresTextField'][1]);
 		    } else {		    
 			    var choreItem = $("<div class='choreLI'><span class='toDo'>" + chores  
 			    	+ "</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " 
-			    	+ "<input type='button' value='delete' class='delete' /></div>");
-		    }
+			    	+ "<input type='button' value='delete' class='delete' /></div>");			    
+		    	//Store toDo in a Comma Separated Value (CSV) format in local Storage
+			    if (setItems === null || setItems == "")	{
+			    	setItems = chores;
+			    } else {
+			    	setItems = setItems + ',' + chores;
+			    }
+			    localStorage.setItem("choreList", setItems);  
+		    	
+		    	//Append list and clear text field
+		    	$(".choreList").append(choreItem);
+		    	
+		    	$(this).val(''); //Empty input field on submit
+		    }		        	   
+		   	
+		   	return false;//To make the page not reload
 		   
-		    //Store toDo in a Comma Separated Value (CSV) format in local Storage
-		    if (setItems === null || setItems == "")	{
-		    	setItems = chores;
-		    } else {
-		    	setItems = setItems + ',' + chores;
-		    }
-   			
-   			localStorage.setItem("choreList", setItems);   
-
-   			//Append list and clear text field
-		    $(".choreList").append(choreItem);
-		    
-		    $(this).val(''); //Empty input field on submit	   
-
-		    return false;//To make the page not reload
 		}
 	});
 		
@@ -323,6 +336,34 @@ $( document ).ready(function() {
 				console.log("It seems there is no account here by that name.  Would you like to register it?");
 			}
 		}
+	});
+
+	// Check all the input fields of type email. This function will handle all the email addresses validations
+    $("#registerEmail").change( function(){
+        // Set the regular expression to validate the email 
+        validation = new RegExp(validations['email'][0]);
+        // validate the email value against the regular expression
+        if (!validation.test($(this).val())){
+            // If the validation fails then we show the custom error message
+            this.setCustomValidity(validations['email'][1]);
+            return false;
+        } else {
+            // This is really important. If the validation is successful you need to reset the custom error message
+            this.setCustomValidity('');
+        }
+	});
+    $("#registerPassword").change( function(){
+        // Set the regular expression to validate the password 
+        validation = new RegExp(validations['password'][0]);
+        // validate the password value against the regular expression
+        if (!validation.test($(this).val())){
+            // If the validation fails then we show the custom error message
+            this.setCustomValidity(validations['password'][1]);
+            return false;
+        } else {
+            // This is really important. If the validation is successful you need to reset the custom error message
+            this.setCustomValidity('');
+        }
 	});
 });
 */

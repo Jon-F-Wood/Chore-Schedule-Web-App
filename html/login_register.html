@@ -1,20 +1,96 @@
 <!DOCTYPE html>
 <html>
 	<head>	
-		<title>Chore Schedule Web App</title><!DOCTYPE html>
-<html>
-	<head>	
 		<title>Chore Schedule Web App</title>
 		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />
 	</head>
-	<body>
-		<form id="login" >
-			<h2>Login</h2>
-			Email: <input type="email" id="loginEmail" placeholder="email@example.com" required />
-			Password: <input type="password" id="loginPassword" placeholder="password" required />
-			<input type="button" id="loginBtn" value="Login" /> 
-			<input type="button" class="switch" value="Register" />
-		</form>
+	<body class="body-login">		
+		<div cz-shortcut-listen="true">
+			<!-- might use later (still needs editing)
+			<header class="main-header lowkey-header">
+				<h1 class="logo header-chunk">
+					<a href="http://codepen.io/" class="large-screen-logo">
+						CodePen
+					</a>
+				</h1>
+
+				<div class="fill-space"></div>
+			  
+				<div id="user-header-dropdown" class="user-stuff header-chunk">
+					<a id="aboutUsLink" class="button button-medium login-button" href="https://codepen.io/login">About Us</a>
+				</div>  
+			</header>-->  
+
+			<div id="login" class="login-wrap">
+				<header class="login-header">
+					<h1 class="login-logo">Chore Schedule</h1>
+					<h2 class="little-big-header">Log in!</h2>
+				</header>
+
+			  	<div class="flex-grid">
+			    	<div class="login-half left">
+			      		<div class="login-area">
+							<form class="login-form top-label-form" id="login-login-form">
+							  	<div id="login-email" class="field">
+							    	<label for="loginEmail">Email</label>
+							    	<input type="text" name="email" id="loginEmail" placeholder="email@example.com" value="" required="required" />
+							  	</div>
+
+								<div id="login-password" class="field">
+									<label for="loginPassword">Password</label>
+									<input name="password" id="loginPassword" placeholder="password" required="required" type="password" />
+									<input type="checkbox" name="show-password" id="show-password" value="" class="show-password">
+									<label class="small-inline" for="show-password">Keep me logged in</label>
+								</div>
+
+								<div id="login-error"></div>
+
+								<div>
+									<label class="loginBtn">&nbsp;</label>
+
+									<button id="loginBtn" class="button green action-button expand-right">
+										<span class="label">Log in</span>
+									</button>
+									<a href="#" id="forgot-password-link" class="forgot-password-link">
+										Forgot Password?
+									</a>
+								</div>
+
+							</form>
+
+							<!-- might use later (still needs edits)
+							<form class="forgot-password-form login-form" id="forgot-password-form" action="#0">
+
+							  <h3>Reset Your Password</h3>
+
+							  <div class="field">
+							    <label for="forgot-email">Email</label>
+							    <input type="email" id="forgot-email" name="forgot-email" placeholder="your@email.com">
+							  </div>
+
+							  <div class="field">
+							    <input id="forgot-email-btn" type="submit" value="Send Password Reset Email" class="button button-medium">
+							  </div>
+
+							  <div id="sent-message">
+							    <div id="sent-message-message"></div>
+							  </div>
+							</form>-->
+
+						</div>
+					</div>
+				</div>
+
+				<div class="signup-callout">
+					Haven't signed up yet?  <a class="switch">  Register now!</a>
+				</div>
+
+			</div>
+
+			<script src="https://production-assets.codepen.io/assets/common/everypage-6f290f716814296ef98ea984bf48af4e6dc3331843e84bfd4d87e4fb4ee90ea4.js"></script>
+
+		</div>
+
 		<form id="register" class="hide">
 			<h2>Register</h2>
 			Email: <input type="email" id="registerEmail" placeholder="email@example.com" required />
@@ -22,32 +98,6 @@
 			<input type="button" id="registerBtn" value="Submit" />
 			<input type="button" class="switch" value="Cancel" /> 
 		</form>
-
-	<!-- /EXTERNAL SCRIPTS -->
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-		<script src="../js/main.js" type="text/javascript"></script>
-	</body>
-</html>
-
-		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />
-	</head>
-	<body>
-		<form id="login" >
-			<h2>Login</h2>
-			Email: <input type="email" id="loginEmail" placeholder="email@example.com" required />
-			Password: <input type="password" id="loginPassword" placeholder="password" required />
-			<input type="button" id="loginBtn" value="Login" /> 
-			<input type="button" class="switch" value="Register" />
-			<!--<input type="button" id="clear" value="clear" />-->
-		</form>
-		<form id="register" class="hide">
-			<h2>Register</h2>
-			Email: <input type="email" id="registerEmail" placeholder="email@example.com" required />
-			Password: <input type="password" id="registerPassword" placeholder="password" required />
-			<input type="button" id="registerBtn" value="Submit" />
-			<input type="button" class="switch" value="Cancel" /> 
-		</form>
-
 	<!-- /EXTERNAL SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="../js/main.js" type="text/javascript"></script>

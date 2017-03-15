@@ -2,16 +2,218 @@
     display: none;
 }
 
+/*Body*/
+.body-login {
+    background: #252527 url(https://production-assets.codepen.io/assets/logos/codepen-logo-pattern-725360e4ce5b66f968c7f39c80999bdeaa3cbe2f18eac75d58b01f8cf55c26ab.png);
+}
+.body-login {
+    background: #252527 url(https://production-assets.codepen.io/assets/logos/codepen-logo-pattern-725360e4ce5b66f968c7f39c80999bdeaa3cbe2f18eac75d58b01f8cf55c26ab.png);
+}
+body {
+    background: #252527 url(https://production-assets.codepen.io/assets/logos/codepen-logo-pattern-725360e4ce5b66f968c7f39c80999bdeaa3cbe2f18eac75d58b01f8cf55c26ab.png);
+    background-position: center;
+    color: #999;
+}
+body {
+    background: #252527 url(https://production-assets.codepen.io/assets/logos/codepen-logo-pattern-725360e4ce5b66f968c7f39c80999bdeaa3cbe2f18eac75d58b01f8cf55c26ab.png);
+    background-position: 0 -5px;
+}
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #191919;
+}
+body {
+    color: white;
+}
+html, body {
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: block;
+    margin: 8px;
+}
+html {
+    font-size: 13px;
+}
+html {
+    font-size: 14px;
+}
+html {
+    font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 400;
+}
 
 
 
+    /*Login Header Section*/
+    .login-header {
+        margin-top: 10px;
+    }
+    .login-half.left, .login-half.right, .login-header {
+        padding: 2%;
+    }
+    .login-header {
+        margin: 50px 0 20px 0;
+    }
 
+    .login-header {
+        margin-top: 10px;
+    }
 
+    .login-half.left, .login-half.right, .login-header {
+        padding: 2%;
+    }
+    .login-header {
+        margin: 50px 0 20px 0;
+    }
 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+        /*Login Logo*/
+        .login-logo {
+            margin: 15px 0 5px 0;
+            background-size: 110px 24px;
+            width: 220px;
+            height: 24px;
+        }
+        .login-logo {
+            margin: 0;
+            font: 0/0 a;
+            background: url(https://production-assets.codepen.io/assets/logos/codepen-logo-0b07553e128f9be6a5f2e8a3f80a08f2772c2f56c054d78091ee82f6f3f02727.svg) no-repeat;
+            background-size: 176px 31px;
+            width: 220px;
+            height: 31px;
+            opacity: 0.5;
+        }
+        .login-logo {
+            margin: 15px 0 5px 0;
+            background-size: 110px 24px;
+            width: 220px;
+            height: 24px;
+        }
+        .login-logo {
+            margin: 0;
+            font: 0/0 a;
+            background: url(https://production-assets.codepen.io/assets/logos/codepen-logo-0b07553e128f9be6a5f2e8a3f80a08f2772c2f56c054d78091ee82f6f3f02727.svg) no-repeat;
+            background-size: 176px 31px;
+            width: 220px;
+            height: 31px;
+            opacity: 0.5;
+        }
+        h1, .h1 {
+            font-size: 2.2rem;
+        }
+        h1, .h1 {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: "Telefon Black", Sans-Serif;
+            line-height: 1.1;
+            font-size: 3.0rem;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
 
+        /*Page title (login or Register*/
+        .little-big-header {
+            font-size: 2.8rem;
+        }
+        .little-big-header {
+            font-size: 4.5rem;
+            margin: 0;
+            color: white;
+        }
+        h2, .h2 {
+            font-family: "Telefon", Sans-Serif;
+            font-size: 1.8rem;
+        }
+        h2, h3, h4, h5, h6 {
+            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            -webkit-margin-before: 0.83em;
+            -webkit-margin-after: 0.83em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            font-weight: bold;
+        }
 
-
+    /*Login Form*/
+    .login-half.left, .login-half.right, .login-header {
+        padding: 2%;
+    }
+    .login-half.left {
+        padding-right: 10%;
+        width: 55%;
+    }
+    .login-half.left, .login-half.right, .login-header {
+        padding: 2%;
+    }
+    .login-half.left {
+        padding-right: 10%;
+        width: 55%;
+    }
+    .flex-grid>:last-child {
+        margin-right: 0;
+    }
+    .login-half {
+        width: 50%;
+    }
+    .login-half {
+        width: 50%;
+    }
+    .flex-grid>* {
+        width: 100% !important;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    div {
+        display: block;
+    }
+        /*Labels*/
+        .field>label {
+            color: #999;
+        }
+        .top-label-form label {
+            font-weight: normal;
+            display: block;
+            margin: 0 0 3px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        label[for], input[type=checkbox], input[type=radio] {
+            cursor: pointer;
+        }
 
 
 

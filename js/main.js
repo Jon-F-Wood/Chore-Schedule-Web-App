@@ -2,7 +2,9 @@ console.log("To Dos: \n"
 			+ "- Make into Single HTML page with append() and empty() \n" 
 			+ "- Make file locations stored in variables\n"
 			+ "- Make it possible to have multiple user \n"
-			+ "- Refactor Code \n");
+			+ "- Refactor Code \n"
+			+ "- Make display chores draggable \n"
+			+ "- Fix Bug with login=true and on register(when page is exited make login = false?) \n");
 $( document ).ready(function() {	
 //Text input Validation
     var validations = {
@@ -120,13 +122,11 @@ $( document ).ready(function() {
 				//Verify that there is something in the input field    
 			    if (valid == false) {
 			    	alert(validations['addChoresTextField'][1]);
-			    } else {		    
-				    console.log("4" +setItems);
+			    } else {		    				    
 				    var choreItem = $("<div class='choreLI'><span class='toDo'>" + chores  
 				    	+ "</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " 
 				    	+ "<input type='button' value='delete' class='delete' /></div>");			    
 			    	//Store toDo in a Comma Separated Value (CSV) format in local Storage
-				   	console.log("5" +setItems);
 				    if (setItems === null || setItems == "")	{
 				    	setItems = chores;
 				    } else {
@@ -174,6 +174,21 @@ $( document ).ready(function() {
 			}	
 	    }
 
+	    var sendEmails = localStorage.getItem("sendEmails");	    
+	    $(".sendEmails").on("click", function() {	    	
+	    	if (sendEmails === null || sendEmails == "false"){
+	    		localStorage.setItem("sendEmails", "true");
+	    	} else {
+	    		localStorage.setItem("sendEmails", "false");
+	    	}
+	    });
+	    
+	    if (sendEmails === null || sendEmails == "false") { 
+    		$(".sendEmails").prop("checked", false);
+    	} else {
+    		$(".sendEmails").prop("checked", true);
+    	}
+
 	    $(".choreListToDo").on("click", ".checkbox", function() {
 			//delete div from the dom
 			$(this).delay(400).queue(function() {
@@ -198,6 +213,18 @@ $( document ).ready(function() {
 			localChoreList.splice(localChoreList.indexOf(targetChore),1);
 			//convert the array back into a string in the right format then put it back into choreList
 			localStorage.setItem("choreList", JSON.stringify(localChoreList).replace(/[\[\]"]+/g, ''));
+
+			//Send Email Update
+			if (sendEmails == "true") { 
+	    		$.ajax({
+				    url: "https:  //formspree.io/woodj14123@gmail.com", 
+				    method: "POST",
+				    data: $(this).serialize(),
+				    dataType: "json"
+				});
+	    	} 
+
+
 		});
 		
 		$(".addMoreChores").on("click", function() {
@@ -209,7 +236,8 @@ $( document ).ready(function() {
 		});
 
 	//Display History	
-		if (histRecord !== "" || histRecord !== null) {			
+		var histRecord = localStorage.getItem("history");
+		if (histRecord !== "" || histRecord !== null) {		
 			//make history into two dimentional array
 			var histRecordList = [];
 			var histRecordConverter = histRecord.split(",");

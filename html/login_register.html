@@ -3,33 +3,19 @@
 	<head>	
 		<title>Chore Schedule Web App</title>
 		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	</head>
 	<body >	
-		<div id="background_branding_container" class="ie_legacy" style="background: rgb(235, 60, 0);">
-		    <img id="background_background_image" alt="Log in"  src="file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/pictures/images.jpg">
-		</div>    
-		</div>
+		<div id="background_branding_container" class="ie_legacy">
+		    <img id="background_background_image" alt="Log in"  src="file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/pictures/morning-time-alarm-bell.jpg">
+		</div>   
+	    <img src="file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/pictures/pexels-photo-514152.jpg" class="login_panel" alt="" />	   
 		<div class="login_panel">
+			<div id="background_right"></div>
 			<div class="body-login">	
-				<!-- might use later (still needs editing)
-					<header class="main-header lowkey-header">
-						<h1 class="logo header-chunk">
-							<a href="http://codepen.io/" class="large-screen-logo">
-								CodePen
-							</a>
-						</h1>
-
-						<div class="fill-space"></div>
-					  
-						<div id="user-header-dropdown" class="user-stuff header-chunk">
-							<a id="aboutUsLink" class="button button-medium login-button" href="https://codepen.io/login">About Us</a>
-						</div>  
-					</header>-->  
-
 				<div id="login">
 					<header class="login-header">
-						<h1 class="login-logo">Chore Schedule</h1>
+						<h1 class="login-logo">Chore - Schedule <div class="underline"></div></h1>
 						<h2 class="little-big-header">Log in!</h2>
 					</header>
 
@@ -39,14 +25,14 @@
 								<form class="login-form" id="login-login-form">
 								  	<div id="login-email" class="field">
 								    	<label for="loginEmail">Email</label>
-								    	<input type="text" name="email" id="loginEmail" placeholder="email@example.com" value="" required="required" />
+								    	<input type="text" name="email" id="loginEmail" placeholder="Your Email" required="required" />
 								  	</div>
 
 									<div id="login-password" class="field">
 										<label for="loginPassword">Password</label>
-										<input name="password" id="loginPassword" placeholder="password" required="required" type="password" />
-										<input type="checkbox" name="show-password" id="show-password" value="" class="show-password">
-										<label class="small-inline" for="show-password">Keep me logged in</label>
+										<input name="password" id="loginPassword" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required="required" type="password" />
+										<input type="checkbox" name="remember-me" id="remember-me" value="" class="remember-me">
+										<label class="small-inline" for="remember-me">Remember Me</label>
 									</div>
 
 									<div id="login-error"></div>
@@ -59,26 +45,7 @@
 											Forgot Password?
 										</a>
 									</div>
-								</form>
-
-								<!-- might use later (still needs edits)
-									<form class="forgot-password-form login-form" id="forgot-password-form" action="#0">
-
-									  <h3>Reset Your Password</h3>
-
-									  <div class="field">
-									    <label for="forgot-email">Email</label>
-									    <input type="email" id="forgot-email" name="forgot-email" placeholder="your@email.com">
-									  </div>
-
-									  <div class="field">
-									    <input id="forgot-email-btn" type="submit" value="Send Password Reset Email" class="button button-medium">
-									  </div>
-
-									  <div id="sent-message">
-									    <div id="sent-message-message"></div>
-									  </div>
-									</form>-->
+								</form>								
 							</div>
 						</div>
 					</div>
@@ -86,18 +53,45 @@
 					<div class="signup-callout">
 						Haven't signed up yet?  <a class="switch">  Register now!</a>
 					</div>
-
 				</div>
 
-					
+				<div id="register" class="hide">
+					<header class="login-header">
+						<h1 class="login-logo">Chore - Schedule <div class="underline"></div></h1>
+						<h2 class="little-big-header">Register!</h2>
+					</header>
 
-				<form id="register" class="hide">
-					<h2>Register</h2>
-					Email: <input type="email" id="registerEmail" placeholder="email@example.com" required />
-					Password: <input type="password" id="registerPassword" placeholder="password" required />
-					<input type="button" id="registerBtn" value="Submit" />
-					<input type="button" class="switch" value="Cancel" /> 
-				</form>
+				  	<div class="flex-grid">
+				    	<div class="login-half">
+				      		<div class="login-area">
+								<form class="login-form" id="login-login-form">
+								  	<div id="login-email" class="field">
+								    	<label for="registerEmail">Email Address:</label>
+								    	<input type="text" name="email" id="registerEmail" placeholder="email" required="required" />
+								  	</div>
+
+									<div id="login-password" class="field">
+										<label for="registerPassword">Choose Password:</label>
+										<input name="password" id="registerPassword" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required="required" type="password" />
+									</div>
+
+									<div id="login-error"></div>
+
+									<div>
+										<button id="registerBtn" class="button">
+											<span class="label">Submit</span>
+										</button>
+									</div>
+								</form>								
+							</div>
+						</div>
+					</div>
+
+					<div class="signup-callout">
+						Go back to <a class="switch">  Log in.</a>
+					</div>
+
+				</div>	
 			</div>
 		</div>	
 	<!-- /EXTERNAL SCRIPTS -->

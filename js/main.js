@@ -4,7 +4,10 @@ console.log("To Dos: \n"
 			+ "- Make it possible to have multiple user \n"
 			+ "- Refactor Code \n"
 			+ "- Make display chores draggable \n"
-			+ "- Fix Bug with login=true and on register(when page is exited make login = false?) \n");
+			+ "- Fix Bug with login=true and on register(when page is exited make login = false?) \n"
+			+ "- Make 'Remember Me' on login page Work \n"
+			+ "- Change validation from alerts to error messages in DOM \n"
+			+ "- Make Confirm Password on Register Page \n");
 $( document ).ready(function() {	
 //Text input Validation
     var validations = {
@@ -76,17 +79,21 @@ $( document ).ready(function() {
 		}    
     });
     $("#loginBtn").on("click", function(){
-		if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
+    	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
 			localStorage.getItem("password") == $("#loginPassword").val()) {
-			localStorage.setItem("loggedIn", "true");
+			localStorage.setItem("loggedIn", "true");			
 			if (localStorage.getItem("choreList") === null || localStorage.getItem("choreList") == "" )	{
 				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
+				return false;
 			} else {
 				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+				return false;
 			}
-		} else {
+		} else {console.log("Out");
 			localStorage.setItem("loggedIn", "false");
-			alert("Email or password was incorrect.  Please try again.");
+			alert("Email or password was incorrect.  Please try again.");			
+			$('#loginPassword').val("");
+			$('#loginPassword').focus();
 		}
 	});
 

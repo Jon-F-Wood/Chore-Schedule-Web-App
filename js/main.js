@@ -238,6 +238,15 @@ $( document ).ready(function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
 		});
 
+		$(".addMoreChores").hover(
+		    function() {
+		      $(".addChoresTitle").removeClass('hide');
+		    },
+		    function() {
+		      $(".addChoresTitle").addClass('hide');
+		    }
+		);
+
 		$(".goToHistory").on("click", function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
 		});

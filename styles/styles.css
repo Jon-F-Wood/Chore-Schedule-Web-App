@@ -2,338 +2,1146 @@
     display: none;
 }
 
-/*Overall*/
+/*General*/
 * {
+    transform-origin: 0px 0px 0px;
+}
+html, body, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, 
+pre, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, 
+samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, 
+dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, article, aside, canvas, details, embed, figure, figcaption, 
+footer, header, hgroup, menu, nav, output, ruby, section, summary, time, 
+mark, audio, video, input, textarea {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border: 0;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
 }
-
-html, body {
-    height: 100%;
-}
-
-
-html {
-    font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
-    line-height: 1.5;
-    font-size: 15px;
-    font-weight: 400;
-}
-
 body {
-    background: black;
-    margin: 0;
-    padding: 0;
-    z-index: -999;
-    text-align: left;
-    color: white;
-    overflow-x: hidden;
-    overflow-y:hidden;
-    display: block;
+    font-family: "proxima-nova","Helvetica Neue",Arial,sans-serif;
+    background-color: #EFF0F1;
+    background-image: -webkit-linear-gradient(top, #F8F8F9, #EFF0F1);
+    background-image: linear-gradient(to bottom,#F8F8F9, #EFF0F1);
+    color: #1B2432;
+    font-size: 14px;
+    overflow: hidden;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    line-height: 1;
+}
+html|* > svg {
+    transform-origin: 50% 50% 0px;
+}
+svg:not(:root), symbol, image, marker, pattern, foreignObject {
+    overflow: hidden;
 }
 
 div {
     display: block;
 }
-/*Background picture*/
-div#background_branding_container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow: hidden;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
+
+table {
+  display: table;
+  border-spacing: 2px;
+  border-color: grey;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-img#background_background_image {
-    position: fixed;    
-    width: 100%;
-    height: 100%;
-    width: 1400px;
-    height: 935px;
-    margin-top: 150px;
-    background-color: black;
-    visibility: visible;
-    display: block;
-}
-img {
-    border: 0;
-}
-div#background_right {
-    background-color: rgba(10,10,10, 0.7);
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+colgroup {
+  display: table-column-group;
 }
 
-.login_panel {
-    position: fixed;
-    right: 0;
-    float: right;
-    height: 100%;
-    width: 550px;
-    margin: 0;
+col {
+  display: table-column;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+td, th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+td {
     padding: 0;
-    z-index: 2;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-left: 2px solid #333;
+}   
+
+p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }
 
-
-@media only screen and (max-width: 600px), (max-device-width: 600px){
-    .login_panel {        
-        float: none; 
-        height: 100%;
-        width: 100%; 
-        min-width: 100%;
-        padding-top: 0;
-        overflow: auto;   
-    }
+textarea {
+    font-family: monospace;
+    border-color: rgb(169, 169, 169);
+}
+textarea {
+    -webkit-appearance: textarea;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+    padding: 2px;
+}
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 13.3333px Arial;
+}
+input, textarea, keygen, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
 }
 
-#login, #register {
-    margin: 0 auto; 
-    padding: 0 10%;  
+a {
+  color: #1AAFD0;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:-webkit-any-link {
+  color: -webkit-link;
+  text-decoration: underline;
+  cursor: auto;
 }
 
-    /*Login body*/
-    div.body-login {  
-        z-index: 4;
+/*Background Image*/
+.themeBackground, .webkit .bg-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.themeBackground-sky {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://d3ki9tyy5l5ruj.cloudfront.net/obj/63ffe57d9c7581fd71482364071be39315ab76fd/sky.jpg);
+}
+
+/*Page Container*/
+#whole_page_container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  bottom: 0;
+  left: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+/*UI*/
+#asana_ui {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-height: 1px;
+  overflow: hidden;
+}
+
+/*Main*/
+#asana_main {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  min-width: 1px;
+  z-index: 0;
+}
+
+/*TopBar Container*/
+.remix-topbar {
+  -webkit-transition: min-width 0.25s ease-out;
+  -moz-transition: min-width 0.25s ease-out;
+  transition: min-width 0.25s ease-out;
+  min-width: 920px;
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  height: 41px;
+  position: relative;
+  z-index: 10;
+}
+
+  /*Mount Node*/
+  .remix-topbar>.react-mount-node {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .react-mount-node {
+  }
+
+    /*TopBar*/
+    .react-mount-node .topbar {
+      background: #fff;
+      border-bottom: 1px solid #e1e2e4;
+      color: #898e95;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-size: 14px;
+      height: 40px;
     }
 
-    /*Login Header Section*/
-    .login-header {        
-        margin: 20px 0 20px 0;
+      /*View History Button*/
+      .react-mount-node .topbar-myTasksButton, 
+      .react-mount-node .topbar-notificationsButton, 
+      .react-mount-node .topbar-myDashboardButton {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-bottom: 3px solid transparent;
+        color: #898e95;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: 12px;
+        margin: 0 15px;
+        padding-top: 4px;
+        text-transform: uppercase;
+      }
+      .react-mount-node a {
+        color: #1aafd0;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .react-mount-node a {
+        background-color: transparent;
+      }      
+      
+      /*Log Out Button*/
+      .react-mount-node .topbar-accountInfo {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+
+        /*Log Out Button colors/fonts*/
+        .react-mount-node .topbarContingentUpgradeButton-button.Button--primary {
+          background: #ffb900;
+          border-color: #ffb900;
+          color: #fff;
+          fill: #fff;
+        }
+        .react-mount-node .Button.Button--small {
+          height: 30px;
+          padding: 0 9px;
+        }
+        .react-mount-node .Button.Button--primary {
+          background: #1aafd0;
+          border-color: #1aafd0;
+          color: #fff;
+          fill: #fff;
+        }
+        .react-mount-node .topbarContingentUpgradeButton-button {
+          -webkit-align-self: center;
+          -ms-flex-item-align: center;
+          align-self: center;
+          height: 26px;
+          margin: 3px 5px 3px 0;
+        }
+        .react-mount-node .Button {
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+          -ms-flex-align: center;
+          align-items: center;
+          border-radius: 3px;
+          border-style: solid;
+          border-width: 1px;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          cursor: pointer;
+          display: -webkit-inline-box;
+          display: -webkit-inline-flex;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          font-size: 14px;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          line-height: 1;
+          min-width: 50px;
+          text-align: center;
+          -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+          -webkit-transition-property: background, border, box-shadow, color;
+          transition-property: background, border, box-shadow, color;
+        }
+
+  /*Title Wrapper*/
+  .remix-topbar>.search-field-wrapper {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    padding: 5px 0;
+  }
+    /*left Buffer*/
+    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-with-dashboard {
+      width: 380px;
     }
-    .login-header, .login-half  {
-        padding-top: 50px;
+    .remix-topbar>.search-field-wrapper>.search-field-buffer {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1 0 auto;
+      -moz-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      -webkit-transition: width 0.25s ease-out;
+      -moz-transition: width 0.25s ease-out;
+      transition: width 0.25s ease-out;
+      width: 315px;
     }
 
-        /*Headers*/
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.2;
-            margin: 0 0 10px 0;
-            font-weight: normal;
+    /*Title*/
+    .remix-topbar>.search-field-wrapper>.typeahead {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      box-flex: 0;
+      -webkit-flex: 0 1 511px;
+      -moz-flex: 0 1 511px;
+      -ms-flex: 0 1 511px;
+      flex: 0 1 511px;
+      height: 30px;
+    }
+    .typeahead {
+      position: relative;
+    }
+
+    /*Right Buffer*/
+    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-right.search-field-buffer-with-dashboard {
+      -webkit-flex-shrink: 0.5;
+      -moz-flex-shrink: 0.5;
+      flex-shrink: 0.5;
+      -ms-flex-negative: 0.5;
+    }
+    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-with-dashboard {
+      width: 380px;
+    }
+    .remix-topbar>.search-field-wrapper>.search-field-buffer {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1 0 auto;
+      -moz-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      -webkit-transition: width 0.25s ease-out;
+      -moz-transition: width 0.25s ease-out;
+      transition: width 0.25s ease-out;
+      width: 315px;
+    }
+
+
+/*BodyContainer*/
+.asanaView-bodyContainer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -moz-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  min-height: 1px;
+  position: relative;
+}
+
+  /*Body*/
+  .asanaView-body {
+    -webkit-transition: min-width 0.25s ease-out;
+    -moz-transition: min-width 0.25s ease-out;
+    transition: min-width 0.25s ease-out;
+    min-width: 920px;
+    background-color: transparent;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    min-height: 1px;
+    padding-top: 15px;
+    position: relative;
+    z-index: 0;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    transition: background-color 1s;
+  }
+
+    /*Left and Right Gutter*/
+    .asanaView-paneGutter {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1 0 20px;
+      -moz-flex: 1 0 20px;
+      -ms-flex: 1 0 20px;
+      flex: 1 0 20px;
+      -webkit-transition: flex-basis 200ms,-webkit-flex-basis 200ms;
+      -moz-transition: flex-basis 200ms,-webkit-flex-basis 200ms;
+      transition: flex-basis 200ms,-webkit-flex-basis 200ms;
+    }
+
+    /*Center Body Container*/
+    .known-list#center_pane_container {
+      max-width: 1000px;
+    }
+    #center_pane_container {
+      -webkit-transition: margin-left 0.25s ease-out,width 0.25s ease-out;
+      -moz-transition: margin-left 0.25s ease-out,width 0.25s ease-out;
+      transition: margin-left 0.25s ease-out,width 0.25s ease-out;
+      -webkit-box-flex: 5500;
+      -moz-box-flex: 5500;
+      box-flex: 5500;
+      -webkit-flex: 5500 1 605px;
+      -moz-flex: 5500 1 605px;
+      -ms-flex: 5500 1 605px;
+      flex: 5500 1 605px;
+      min-width: 405px;
+      z-index: 2;
+    }
+    #center_pane_container, #right_pane_container {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-direction: column;
+      min-width: 0;
+      position: relative;
+    }
+      /*Center Pane*/
+      .known-list #center_pane, .known-list #right_pane {
+        border-radius: 3px 3px 0 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        background-color: #fff;
+      }
+      #center_pane {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        border-bottom: none;
+      }
+      #center_pane, #right_pane {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        min-height: 1px;
+      }
+
+        /*Center Body Contents*/
+        #center_pane__contents {
+          -webkit-box-flex: 1;
+          -moz-box-flex: 1;
+          box-flex: 1;
+          -webkit-flex: 1;
+          -moz-flex: 1;
+          -ms-flex: 1;
+          flex: 1;
+          overflow-y: auto;
+          -webkit-transform: translate3d(0, 0, 0);
         }
 
-        h2, h3, h4, h5, h6 {
-            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
-        } 
+          /*Body Header*/
+          .search.toolbar {
+            -webkit-box-align: center;
+            -moz-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            -moz-align-items: center;
+            -ms-align-items: center;
+            -o-align-items: center;
+            align-items: center;
+            -ms-flex-align: center;
+            height: 30px;
+            padding: 15px 30px;
+          }
+          .toolbar {
+            -webkit-box-align: start;
+            -moz-box-align: start;
+            box-align: start;
+            -webkit-align-items: flex-start;
+            -moz-align-items: flex-start;
+            -ms-align-items: flex-start;
+            -o-align-items: flex-start;
+            align-items: flex-start;
+            -ms-flex-align: start;
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flexbox;
+            display: flex;
+          }
 
-        h1, .h1 {
-            font-smoothing: antialiased;
-            font-family: "Papyrus Regular", "Telefon Black", Sans-Serif;
-            font-weight: 900;
-            line-height: 1.4;
-            font-size: 2.2rem;
-            padding-left: 80px;
-        }
+            /*Body Title Contents*/
+            .toolbar .toolbar-spacer {
+              display: block;
+              -webkit-box-flex: 1;
+              -moz-box-flex: 1;
+              box-flex: 1;
+              -webkit-flex: 1 0 auto;
+              -moz-flex: 1 0 auto;
+              -ms-flex: 1 0 auto;
+              flex: 1 0 auto;
+           }
 
-        h2, .h2 {
-            font-family: "Tw Cen MT";
-            display: block;
-            font-size: 1.5em;
-        }
-
-        /*Login Logo*/
-        .login-logo {
-            color: #999;
-            margin: 15px 0 5px 0;
-            height: 45px;
-            opacity: 0.7;
-        }
-        div.underline {
-          background: #999;
-          width: 275px;
-          height: 0.13em;
-          border-radius: 0 120% 0 70%;
-          transform: rotate(-1.5deg);
-          box-shadow: 0 0 2px white;/* because of rotation , blur the edges a bit to avoid a stairs effect */
-        }
-
-        /*Page title (login or Register*/
-        .little-big-header {
-            font-size: 3rem;            
-            padding-top: 33px;
-            margin: 0;
-            color: #bbb;
-        }
-
-        @media only screen and (max-width: 1400px), (max-device-width: 1400px){
-            .login_panel { width: 500px; }
-            /*Login Header Section*/
-            .login-header, .login-half  { padding-top: 20px; }
-            /*Headers*/
-            h1, .h1 { font-size: 2.3rem; }
-            h2, .h2 { font-size: 1.5em; }
-
-            /*Page title (login or Register*/
-            .little-big-header {font-size: 2.7rem; }
-
-            img#background_background_image {
-                width: 1200px;
-                height: 820px;
-                margin-top: 0px;
+          /*Body Contents*/
+          .grid-uncompact {
+            margin-bottom: 30px;
+          }
+           
+            /*Table*/
+            .grid-uncompact #grid {
+              table-layout: fixed;
+            }
+            #grid {
+              width: 100%;
+              border-collapse: separate;
+              empty-cells: show;
             }
 
-        }
-    /*Login Form*/
-    .login-half{
-        padding: 0 5% 10% 2%;
-        width: 55%;
+              /*Colgroups*/
+              .drag-handle-column {
+                width: 26px;
+              }
+              .boolean-column {
+                width: 31px;
+              }
 
-    }
-    .flex-grid>* {
-        width: 100% !important;
-    }
-        /*Labels*/
-        .field>label {
-            color: #999;
-        }
-        .login-form label {
-            font-weight: normal;
-            display: block;
-            margin: 0 0 3px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        label[for], input[type=checkbox], input[type=radio] {
-            cursor: pointer;
-        }
+              /*left Section and possible future Drag hangdle*/
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              .grid-uncompact .grid_cell_drag_handle {
+                border: 1px solid transparent;
+                border-bottom-left-radius: 3px;
+                border-right: 0px;
+                border-top-left-radius: 3px;
+              }
+              .grid_cell_drag_handle {
+                fill: #CDCFD2;
+                -webkit-flex-shrink: 0;
+                -moz-flex-shrink: 0;
+                flex-shrink: 0;
+                -ms-flex-negative: 0;
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                box-pack: center;
+                -webkit-justify-content: center;
+                -moz-justify-content: center;
+                -ms-justify-content: center;
+                -o-justify-content: center;
+                justify-content: center;
+                -ms-flex-pack: center;
+                opacity: 0;
+                -webkit-transition: opacity 150ms,fill 150ms;
+                -moz-transition: opacity 150ms,fill 150ms;
+                transition: opacity 150ms,fill 150ms;
+                width: 26px;
+              }
+              .drag_hand, .drag_hand a {
+                cursor: move;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+              }         
+              
+              /*Check Box Container*/
+              .grid-uncompact #grid .task-row:hover>td, .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover>td, .grid-uncompact #grid .bar-row:hover>td {
+                border-bottom: 1px solid #E1E2E4;
+                border-top: 1px solid #E1E2E4;
+                opacity: 1;
+              }
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, 
+              .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid #E1E2E4;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              .grid-compact:not(.itemListView--isCompact) .grid_cell_boolean, 
+              .grid-uncompact:not(.itemListView--isCompact) .grid_cell_boolean {
+                height: 35px;
+              }
+              .grid_cell_boolean {
+                -webkit-flex-shrink: 0;
+                -moz-flex-shrink: 0;
+                flex-shrink: 0;
+                -ms-flex-negative: 0;
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                box-pack: center;
+                -webkit-justify-content: center;
+                -moz-justify-content: center;
+                -ms-justify-content: center;
+                -o-justify-content: center;
+                justify-content: center;
+                -ms-flex-pack: center;
+              }
+              .grid-uncompact #grid .grid-row-selected+.task-row:not(:hover):not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .grid-row-selected+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .grid-row-selected+.task-row:not(:hover):not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .grid-row-selected+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .grid-row-selected+.task-row:not(:hover):not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .grid-row-selected+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .grid-row-selected+.task-row:not(:hover):not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .grid-row-selected+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .task-row:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_boolean, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_boolean, 
+              .grid-uncompact #grid .task-row:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_string, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_string, 
+              .grid-uncompact #grid .task-row:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_schedule, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_schedule, 
+              .grid-uncompact #grid .task-row:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_assignee, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:first-of-type:not(:hover):not(.focused):not(.grid_pseudorow_no_prioritized) .grid_cell_assignee, 
+              .grid-uncompact #grid .task-row:hover+.task-row:not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.task-row:not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .task-row:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .task-row:hover+.task-row:not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.task-row:not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .task-row:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .task-row:hover+.task-row:not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.task-row:not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .task-row:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .task-row:hover+.task-row:not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.task-row:not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .task-row:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .grid_pseudorow_no_prioritized:hover+.grid_pseudorow_no_prioritized:not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .bar-row .grid_cell_boolean, 
+              .grid-uncompact #grid .bar-row .grid_cell_string, 
+              .grid-uncompact #grid .bar-row .grid_cell_schedule, 
+              .grid-uncompact #grid .bar-row .grid_cell_assignee, 
+              .grid-uncompact #grid .bar-row+.task-row:not(:hover):not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .bar-row+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_boolean, 
+              .grid-uncompact #grid .bar-row+.task-row:not(:hover):not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .bar-row+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_string, 
+              .grid-uncompact #grid .bar-row+.task-row:not(:hover):not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .bar-row+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_schedule, 
+              .grid-uncompact #grid .bar-row+.task-row:not(:hover):not(.focused) .grid_cell_assignee, 
+              .grid-uncompact #grid .bar-row+.grid_pseudorow_no_prioritized:not(:hover):not(.focused) .grid_cell_assignee {
+                border-top: 1px solid transparent;
+              }
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, 
+              .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid #E1E2E4;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              .grid-compact:not(.itemListView--isCompact) .grid_cell_boolean, .grid-uncompact:not(.itemListView--isCompact) .grid_cell_boolean {
+                height: 35px;
+              }
+              .grid_cell_boolean {
+                -webkit-flex-shrink: 0;
+                -moz-flex-shrink: 0;
+                flex-shrink: 0;
+                -ms-flex-negative: 0;
+                -webkit-box-pack: center;
+                -moz-box-pack: center;
+                box-pack: center;
+                -webkit-justify-content: center;
+                -moz-justify-content: center;
+                -ms-justify-content: center;
+                -o-justify-content: center;
+                justify-content: center;
+                -ms-flex-pack: center;
+              }
 
-        /*Login Email*/
-        .login-form .field {
-            padding-right: 0;
-        }
-        .field {
-            margin: 0 0 20px 0;
-        }
 
-        /*Inputs*/        
-        input, button {
-            text-rendering: auto;
-            color: initial;
-            letter-spacing: normal;
-            word-spacing: normal;
-            text-transform: none;
-            text-indent: 0px;
-            text-shadow: none;
-            display: inline-block;
-            text-align: start;
-            margin: 0em 0em 0em 0em;
-            font: 25px Arial;
-        }
+                /*On Or Off?*/
+                .taskCheckboxNodeView {
+                  display: -webkit-box;
+                  display: -moz-box;
+                  display: box;
+                  display: -webkit-flex;
+                  display: -moz-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  position: relative;
+                }
 
-        input[type='name'], input[type='tel'], input[type='text'], input[type='email'], 
-        input[type='password'], input[type='search'], input[type='url'], input[type='tel'], 
-        input[type='number'], textarea {
-            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
-            font-size: 1.2rem;
-            width: 100%;
-            padding: 7px 12px;
-            border: 3px solid #eee;
-            border-radius: 3px;
-            background-color: #ddd;
-            user-select: text;
-            cursor: auto;
-            border-color: #777;
-            
-        }
-        input[name="password"] {
-            font: small-caption;
-            padding: 0 0 2px 12px;
-            font-size: 2.2rem;
-        }
+                  /*Outside and Button Background*/
+                  .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
+                    border: 1px solid #B9BCC0;
+                    fill: #CDCFD2;
+                  }
+                  .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
+                    border-color: #B9BCC0;
+                    background-color: transparent;
+                    color: #E1E2E4;
+                    fill: #E1E2E4;
+                  }
+                  .taskCheckboxNodeView.circularToggleButtonView--toggledOn .circularToggleButtonView-button {
+                    border-color: #D4F2E8;
+                    background-color: #D4F2E8;
+                    color: #fff;
+                    fill: #fff;
+                  }
+                  .circularToggleButtonView-button {
+                    position: relative;
+                  }
+                  .circularButtonView--xsmall {
+                    height: 20px;
+                    width: 20px;
+                  }
+                  .circularButtonView {
+                    -webkit-box-align: center;
+                    -moz-box-align: center;
+                    box-align: center;
+                    -webkit-align-items: center;
+                    -moz-align-items: center;
+                    -ms-align-items: center;
+                    -o-align-items: center;
+                    align-items: center;
+                    -ms-flex-align: center;
+                    border: 1px solid #B9BCC0;
+                    border-radius: 50%;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    background-color: transparent;
+                    color: #B9BCC0;
+                    fill: #B9BCC0;
+                    display: -webkit-inline-box;
+                    display: -moz-inline-box;
+                    display: inline-box;
+                    display: -webkit-inline-flex;
+                    display: -moz-inline-flex;
+                    display: -ms-inline-flexbox;
+                    display: inline-flex;
+                    -webkit-flex-shrink: 0;
+                    -moz-flex-shrink: 0;
+                    flex-shrink: 0;
+                    -ms-flex-negative: 0;
+                    height: 20px;
+                    -webkit-box-pack: center;
+                    -moz-box-pack: center;
+                    box-pack: center;
+                    -webkit-justify-content: center;
+                    -moz-justify-content: center;
+                    -ms-justify-content: center;
+                    -o-justify-content: center;
+                    justify-content: center;
+                    -ms-flex-pack: center;
+                    -webkit-transition: border 200ms,box-shadow 200ms,color 200ms;
+                    -moz-transition: border 200ms,box-shadow 200ms,color 200ms;
+                    transition: border 200ms,box-shadow 200ms,color 200ms;
+                    width: 20px;
+                  }
+
+                    /*CheckMark*/
+                    .circularButtonView-label {
+                      -webkit-align-self: center;
+                      -ms-flex-item-align: center;
+                      flex-item-align: center;
+                      align-self: center;
+                      display: block;
+                    }
+
+                      /*SVG*/
+                      .circularButtonView--xsmall .svgIcon {
+                        height: 12px;
+                        width: 12px;
+                      }
+                      .circularButtonView .svgIcon {
+                        display: block;
+                      }
+                      .svgIcon {
+                        height: 16px;
+                        width: 16px;
+                      }
 
 
-        /*Password*/
-        .login-form .field {
-            padding-right: 0;
-        }
-        .login-form>div {
-            margin: 0 0 20px 0;
-        }
 
-            /*Input*/
-            input:-webkit-autofill {
-                background-color: #444;
-                background-image: none;
-                color: rgb(0, 0, 0);
-            }
+              /*Chore List Text*/
+              .grid-uncompact #grid .grid-row-selected.focused>td {
+                border-bottom: 1px solid #1AAFD0;
+                border-radius: 0;
+                border-top: 1px solid #1AAFD0;
+              }
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, 
+              .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid #E1E2E4;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid_cell_string, 
+              .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_string {
+                overflow-x: hidden;
+                position: relative;
+              }
+              .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              .grid-uncompact .grid_cell_string {
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                box-flex: 1;
+                -webkit-flex: 1 1 auto;
+                -moz-flex: 1 1 auto;
+                -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+                min-width: 1px;
+              }
+              .grid_cell_string, .gridCell-rightGutter {
+                  z-index: 40;
+              }
 
-            /*Checkbox*/
-            label[for], input[type=checkbox], input[type=radio] {
+                /*Text Container Cell*/
+                .grid-uncompact .gridCell-stringContainer {
+                  overflow: hidden;
+                }
+                .gridCell-stringContainer {
+                  display: -webkit-box;
+                  display: -moz-box;
+                  display: box;
+                  display: -webkit-flex;
+                  display: -moz-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                }
+
+                  /*TextArea*/
+                  .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_cell_string .task-row-text-input, 
+                  .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_cell_string .task-row-text-input {
+                    height: 35px;
+                    line-height: 35px;
+                  }
+
+                  .grid-uncompact .grid_cell_string .task-row-text-input {
+                    top: 0;
+                    color: #1B2432;
+                    width: 100%;
+                    background: transparent;
+                    border: 0px solid transparent;
+                    outline: 0px solid transparent;
+                    position: absolute;
+                    padding: 0;
+                    overflow: hidden;
+                    resize: none;
+                  }
+                  .grid-uncompact textarea.task-row-text-input {
+                    overflow: hidden;
+                    resize: none;
+                    word-wrap: normal;
+                    white-space: nowrap;
+                  }
+                  .generic-input, textarea, .recurly input[type=text], .recurly .recurly-hosted-field {
+                    border-radius: 3px 3px 3px 3px;
+                    -webkit-border-radius: 3px 3px 3px 3px;
+                    border: 1px solid transparent;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    color: #1B2432;
+                    padding-left: 10px;
+                    border: 1px solid transparent;
+                  }
+                
+
+
+              /*Right Spacer 1*/
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
+                border-bottom: 1px solid transparent;
+                border-top: 1px solid #E1E2E4;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid_cell_assignee, 
+              .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
                 cursor: pointer;
-            }
-            input[type="checkbox"] {
-                margin: 10px 0 0 10px;
-                box-sizing: border-box;    
-            }
+                width: 35px;
+                text-align: center;
+              }
+              .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              /*Right Spacer 2*/
+              .grid-uncompact #grid .grid-cell {
+                vertical-align: middle;
+              }
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                height: 35px;
+              }
+              .grid-uncompact .task-row .grid-cell, 
+              .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
+                border-spacing: 1px;
+                font-size: 14px;
+                vertical-align: middle;
+                white-space: nowrap;
+              }
+              .grid-uncompact .grid_cell_show_details {
+                padding-right: 20px;
+                width: 12px;
+                border: 1px solid transparent;
+                border-bottom-right-radius: 3px;
+                border-top-right-radius: 3px;
+                border-left: 0px;
+              }
 
-            /*Keep me logged in*/    
-            label.small-inline {
-                font-size: 0.8em;
-                display: inline-block !important;
-                margin-right: 3px;
-            }
-        
-
-        /*Login Btn*/
-        .button {
-            background: #47CF73;
-            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
-            color: white;
-            position: relative;
-            -webkit-appearance: none;
-            font-size: 1rem;
-            line-height: 1.2;
-            display: inline-block;
-            border: 0;
-            outline: 0;
-            padding: 10px 16px;
-            margin: 15px 15px 0 0;
-            position: relative;
-            border-radius: 4px;
-            border: 3px solid transparent;
+          /*Add Chores Button*/
+          .addChoresTitle {
+            font-size: 15px;
+            font-weight: 500;
+            position: fixed;
+            bottom: 20px;
+            right: 90px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            color: black;
+            cursor: pointer;
+            padding: 0 0 20px 0;
+            border-radius: 10px;
+          }
+          .addMoreChores {
+            font-size: 30px;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: red;
             color: white;
             cursor: pointer;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            text-decoration: none !important;
-            cursor: pointer;
-            text-align: center;
-            font-weight: normal !important;
-        }
+            padding: 10px 17px 8px 17px;
+            border-radius: 40px;
+          }
 
-        a {
-            text-decoration: none;
-            color: #76daff;
-        }
-
-    /*Register sub section*/
-    .signup-callout {
-        margin-top: 40px;
-        text-align: center;
-        border-radius: 2px;
-        color: #999;
-        display: block;
-        padding: 20px;
-        position: relative;
-        background: #333;
-        margin: 0 0 20px 0;
-        overflow: hidden;
-    }
-
-
-
-
-
+          .addMoreChores:hover {
+            background-color: #e22;
+          }
 
 
 

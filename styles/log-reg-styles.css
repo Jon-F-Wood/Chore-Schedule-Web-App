@@ -1,0 +1,333 @@
+.hide {
+    display: none;
+}
+
+/*Overall*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+html {
+    font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+body {
+    background: black;
+    margin: 0;
+    padding: 0;
+    z-index: -999;
+    text-align: left;
+    color: white;
+    overflow-x: hidden;
+    overflow-y:hidden;
+    display: block;
+}
+
+div {
+    display: block;
+}
+/*Background picture*/
+div#background_branding_container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+
+img#background_background_image {
+    position: fixed;    
+    width: 100%;
+    height: 100%;
+    width: 1400px;
+    height: 935px;
+    margin-top: 150px;
+    background-color: black;
+    visibility: visible;
+    display: block;
+}
+img {
+    border: 0;
+}
+div#background_right {
+    background-color: rgba(10,10,10, 0.7);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.login_panel {
+    position: fixed;
+    right: 0;
+    float: right;
+    height: 100%;
+    width: 550px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-left: 2px solid #333;
+}
+
+
+@media only screen and (max-width: 600px), (max-device-width: 600px){
+    .login_panel {        
+        float: none; 
+        height: 100%;
+        width: 100%; 
+        min-width: 100%;
+        padding-top: 0;
+        overflow: auto;   
+    }
+}
+
+#login, #register {
+    margin: 0 auto; 
+    padding: 0 10%;  
+}
+
+    /*Login body*/
+    div.body-login {  
+        z-index: 4;
+    }
+
+    /*Login Header Section*/
+    .login-header {        
+        margin: 20px 0 20px 0;
+    }
+    .login-header, .login-half  {
+        padding-top: 50px;
+    }
+
+        /*Headers*/
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
+
+        h2, h3, h4, h5, h6 {
+            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+        } 
+
+        h1, .h1 {
+            font-smoothing: antialiased;
+            font-family: "Papyrus Regular", "Telefon Black", Sans-Serif;
+            font-weight: 900;
+            line-height: 1.4;
+            font-size: 2.2rem;
+            padding-left: 80px;
+        }
+
+        h2, .h2 {
+            font-family: "Tw Cen MT";
+            display: block;
+            font-size: 1.5em;
+        }
+
+        /*Login Logo*/
+        .login-logo {
+            color: #999;
+            margin: 15px 0 5px 0;
+            height: 45px;
+            opacity: 0.7;
+        }
+        div.underline {
+          background: #999;
+          width: 275px;
+          height: 0.13em;
+          border-radius: 0 120% 0 70%;
+          transform: rotate(-1.5deg);
+          box-shadow: 0 0 2px white;/* because of rotation , blur the edges a bit to avoid a stairs effect */
+        }
+
+        /*Page title (login or Register*/
+        .little-big-header {
+            font-size: 3rem;            
+            padding-top: 33px;
+            margin: 0;
+            color: #bbb;
+        }
+
+        @media only screen and (max-width: 1400px), (max-device-width: 1400px){
+            .login_panel { width: 500px; }
+            /*Login Header Section*/
+            .login-header, .login-half  { padding-top: 20px; }
+            /*Headers*/
+            h1, .h1 { font-size: 2.3rem; }
+            h2, .h2 { font-size: 1.5em; }
+
+            /*Page title (login or Register*/
+            .little-big-header {font-size: 2.7rem; }
+
+            img#background_background_image {
+                width: 1200px;
+                height: 820px;
+                margin-top: 0px;
+            }
+
+        }
+    /*Login Form*/
+    .login-half{
+        padding: 0 5% 10% 2%;
+        width: 55%;
+
+    }
+    .flex-grid>* {
+        width: 100% !important;
+    }
+        /*Labels*/
+        .field>label {
+            color: #999;
+        }
+        .login-form label {
+            font-weight: normal;
+            display: block;
+            margin: 0 0 3px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        label[for], input[type=checkbox], input[type=radio] {
+            cursor: pointer;
+        }
+
+        /*Login Email*/
+        .login-form .field {
+            padding-right: 0;
+        }
+        .field {
+            margin: 0 0 20px 0;
+        }
+
+        /*Inputs*/        
+        input, button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal;
+            word-spacing: normal;
+            text-transform: none;
+            text-indent: 0px;
+            text-shadow: none;
+            display: inline-block;
+            text-align: start;
+            margin: 0em 0em 0em 0em;
+            font: 25px Arial;
+        }
+
+        input[type='name'], input[type='tel'], input[type='text'], input[type='email'], 
+        input[type='password'], input[type='search'], input[type='url'], input[type='tel'], 
+        input[type='number'], textarea {
+            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+            font-size: 1.2rem;
+            width: 100%;
+            padding: 7px 12px;
+            border: 3px solid #eee;
+            border-radius: 3px;
+            background-color: #ddd;
+            user-select: text;
+            cursor: auto;
+            border-color: #777;
+            
+        }
+        input[name="password"] {
+            font: small-caption;
+            padding: 0 0 2px 12px;
+            font-size: 2.2rem;
+        }
+
+
+        /*Password*/
+        .login-form .field {
+            padding-right: 0;
+        }
+        .login-form>div {
+            margin: 0 0 20px 0;
+        }
+
+            /*Input*/
+            input:-webkit-autofill {
+                background-color: #444;
+                background-image: none;
+                color: rgb(0, 0, 0);
+            }
+
+            /*Checkbox*/
+            label[for], input[type=checkbox], input[type=radio] {
+                cursor: pointer;
+            }
+            input[type="checkbox"] {
+                margin: 10px 0 0 10px;
+                box-sizing: border-box;    
+            }
+
+            /*Keep me logged in*/    
+            label.small-inline {
+                font-size: 0.8em;
+                display: inline-block !important;
+                margin-right: 3px;
+            }
+        
+
+        /*Login Btn*/
+        .button {
+            background: #47CF73;
+            font-family: "Lato", "Lucida Grande","Lucida Sans Unicode", Tahoma, Sans-Serif;
+            color: white;
+            position: relative;
+            -webkit-appearance: none;
+            font-size: 1rem;
+            line-height: 1.2;
+            display: inline-block;
+            border: 0;
+            outline: 0;
+            padding: 10px 16px;
+            margin: 15px 15px 0 0;
+            position: relative;
+            border-radius: 4px;
+            border: 3px solid transparent;
+            color: white;
+            cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-decoration: none !important;
+            cursor: pointer;
+            text-align: center;
+            font-weight: normal !important;
+        }
+
+        a {
+            text-decoration: none;
+            color: #76daff;
+        }
+
+    /*Register sub section*/
+    .signup-callout {
+        margin-top: 40px;
+        text-align: center;
+        border-radius: 2px;
+        color: #999;
+        display: block;
+        padding: 20px;
+        position: relative;
+        background: #333;
+        margin: 0 0 20px 0;
+        overflow: hidden;
+    }
+
+

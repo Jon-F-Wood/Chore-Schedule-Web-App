@@ -5,13 +5,143 @@
 		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />
 	</head>
 	<body>
-		<h2>Chores I Need to Do</h2>
-		<div class='choreListToDo'></div>
-		<form>
-	      <input type="button" class='addMoreChores' value="Add More Chores" />
-	      <input type="button" class='goToHistory' value="History" />
-	      <input type="button" class='loggout' value="Log Out" />
-	    </form>
+		<div id="bg_pattern" class="bg-pattern themeBackground themeBackground-sky"></div>
+		<div id="whole_page_container">
+			<div id="asana_ui" style="">
+				<div id="asana_main">
+					<div class="remix-topbar">
+						<div class="react-mount-node">
+							<div class="topbar ">
+								<a class="goToHistory NavigationLink topbar-myTasksButton">History</a>
+								<div class="topbar-accountInfo">
+									<a class="loggout Button Button--small Button--primary topbarContingentUpgradeButton-button">Log Out</a>
+								</div>
+							</div>
+						</div>
+						<div class="search-field-wrapper">
+							<div class="search-field-buffer search-field-buffer-left search-field-buffer-with-dashboard"></div>
+							<span class="typeahead multi-sectioned"><h1>Chore-Schedule</h1></span>
+							<div class="search-field-buffer search-field-buffer-right search-field-buffer-with-dashboard"></div>
+						</div>
+					</div>
+					<div class="asanaView-bodyContainer">
+						<div class="asanaView-body" style="">
+							<div class="asanaView-paneGutter"></div>
+							<div id="center_pane_container" class=" known-list" drag_drop_id="17870">
+								<div id="center_pane" class="">
+									<div id="center_pane__contents" class="column-contents2 ">
+										<div id="addChoresBtnContainer">
+											<span class="addChoresTitle">Add Chores</span>
+											<button class='addMoreChores'>+</button>
+										</div>
+										<div class="toolbar main-bar search tab-toolbar toolbar-no-grad">
+											<span class="toolbar-spacer"></span>
+										</div>
+										<div class="grid-uncompact">
+											<p>
+												<table id="grid">
+													<colgroup>
+														<col class="drag-handle-column">
+														<col class="boolean-column">
+													</colgroup>
+													<tbody drop_target_context_id="17870" drag_drop_id="17870">
+														<tr class="task-row completed">
+															<td class="grid-cell grid_cell_item_number grid_cell_drag_handle drag_hand">
+															</td>
+															<td class="grid-cell grid_cell_boolean taskRowView-completionCell" id="completed">
+																<div class="circularToggleButtonView  circularToggleButtonView--toggledOn taskCheckboxNodeView ">
+																	<div class="circularButtonView circularToggleButtonView-button circularButtonView--xsmall circularButtonView--onWhiteBackground circularButtonView--active">
+																		<span class="circularButtonView-label">
+																			<svg class="svgIcon " viewBox="0 0 32 32" title="checkmark">
+																				<polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "></polygon>
+																			</svg>
+																		</span>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_string non_insert_mode">
+																<div class="gridCell-stringContainer">
+																	<textarea id="SearchSelection.296940677590092_row__main_input__SPECIAL_GROUP_NULL_295552323761919" class="task-row-text-input override-focus-border  override-hover-border notranslate grid-inherited-subtask-0" rows="1" tabindex="-1" onfocus="undefined"></textarea>
+																	<div class="task-row-overlay grid-tags-and-date">
+																		<a id="centerpane_row__due_date__SPECIAL_GROUP_NULL_295552323761919" class="taskRow-dueDate"></a>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_assignee"></td>
+															<td class="grid-cell grid_cell_show_details"></td>
+														</tr>
+														<tr id="item_row_view_182329601352069" class="search_ordered task-row no-group">
+															<td class="grid-cell grid_cell_item_number grid_cell_drag_handle drag_hand">
+															</td>
+															<td class="grid-cell grid_cell_boolean taskRowView-completionCell" id="completed">
+																<div class="circularToggleButtonView  circularToggleButtonView--toggledOff taskCheckboxNodeView ">
+																	<div class="circularButtonView circularToggleButtonView-button circularButtonView--xsmall circularButtonView--onWhiteBackground circularButtonView--active">
+																		<span class="circularButtonView-label">
+																			<svg class="svgIcon " viewBox="0 0 32 32" title="checkmark">
+																				<polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "></polygon>
+																			</svg>
+																		</span>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_string non_insert_mode">
+																<div class="gridCell-stringContainer">
+																	<textarea id="SearchSelection.296940677590092_row__main_input__SPECIAL_GROUP_NULL_182329601352069" class="task-row-text-input override-focus-border  override-hover-border notranslate grid-inherited-subtask-0" rows="1" tabindex="-1" onfocus="undefined"></textarea>
+																	<div class="task-row-overlay grid-tags-and-date">
+																		<a id="centerpane_row__due_date__SPECIAL_GROUP_NULL_182329601352069" class="taskRow-dueDate"></a>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_assignee"></td>
+															<td class="grid-cell grid_cell_show_details"></td>
+														</tr>
+														<tr class="task-row completed">
+															<td class="grid-cell grid_cell_item_number grid_cell_drag_handle drag_hand">
+															</td>
+															<td class="grid-cell grid_cell_boolean taskRowView-completionCell" id="completed">
+																<div class="circularToggleButtonView  circularToggleButtonView--toggledOn taskCheckboxNodeView ">
+																	<div class="circularButtonView circularToggleButtonView-button circularButtonView--xsmall circularButtonView--onWhiteBackground circularButtonView--active">
+																		<span class="circularButtonView-label">
+																			<svg class="svgIcon " viewBox="0 0 32 32" title="checkmark">
+																				<polygon points="27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615 "></polygon>
+																			</svg>
+																		</span>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_string non_insert_mode">
+																<div class="gridCell-stringContainer">
+																	<textarea id="SearchSelection.296940677590092_row__main_input__SPECIAL_GROUP_NULL_295552323761919" class="task-row-text-input override-focus-border  override-hover-border notranslate grid-inherited-subtask-0" rows="1" tabindex="-1" onfocus="undefined"></textarea>
+																	<div class="task-row-overlay grid-tags-and-date">
+																		<a id="centerpane_row__due_date__SPECIAL_GROUP_NULL_295552323761919" class="taskRow-dueDate"></a>
+																	</div>
+																</div>
+															</td>
+															<td class="grid-cell grid_cell_assignee"></td>
+															<td class="grid-cell grid_cell_show_details"></td>
+														</tr>
+													</tbody>
+												</table>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="asanaView-paneGutter"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+			<h2>Chores I Need to Do</h2>
+			<div class='choreListToDo'></div>
 	<!-- /EXTERNAL SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="../js/main.js" type="text/javascript"></script>

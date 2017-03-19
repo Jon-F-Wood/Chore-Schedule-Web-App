@@ -867,6 +867,18 @@ a:-webkit-any-link {
                 }
 
                   /*Outside and Button Background*/
+                  .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button:hover {
+                    border-color: transparent;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 3px #3BF7D1;
+                    -moz-box-shadow: 0 0 0 3px #3BF7D1;
+                    -webkit-box-shadow: 0 0 0 3px #3BF7D1;
+                    color: #3BF7D1;
+                    fill: #3BF7D1;
+                    background-color: #fff;
+                    color: #3BF7D1;
+                    fill: #3BF7D1;
+                  }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
                     border: 1px solid #B9BCC0;
                     fill: #CDCFD2;
@@ -876,6 +888,25 @@ a:-webkit-any-link {
                     background-color: transparent;
                     color: #E1E2E4;
                     fill: #E1E2E4;
+                  }
+                  .circularButtonView--active.circularButtonView--onWhiteBackground:focus, .circularButtonView--active.circularButtonView--onWhiteBackground:hover {
+                    border-color: transparent;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 3px #02CEFF;
+                    -moz-box-shadow: 0 0 0 3px #02CEFF;
+                    -webkit-box-shadow: 0 0 0 3px #02CEFF;
+                    color: #02CEFF;
+                    fill: #02CEFF;
+                  }
+
+                  .taskCheckboxNodeView.circularToggleButtonView--toggledOn .circularToggleButtonView-button:hover {
+                    box-shadow: none;
+                    -moz-box-shadow: none;
+                    -webkit-box-shadow: none;
+                    background-color: #D4F2E8;
+                    color: #fff;
+                    fill: #fff;
+                    opacity: 0.5;
                   }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOn .circularToggleButtonView-button {
                     border-color: #D4F2E8;
@@ -1024,7 +1055,20 @@ a:-webkit-any-link {
                     height: 35px;
                     line-height: 35px;
                   }
-
+                  .grid-compact .completed .grid-tags-and-date a.tag, 
+                  .grid-compact .completed .grid_due_date, 
+                  .grid-compact .completed .grid_due_date:not(.due_soon):not(.overdue), 
+                  .grid-compact .completed .grid_cell_assignee a.tag, 
+                  .grid-compact .completed .tag_overflow, 
+                  .grid-compact .completed .grid_cell_string .task-row-text-input, 
+                  .grid-uncompact .completed .grid-tags-and-date a.tag, 
+                  .grid-uncompact .completed .grid_due_date, 
+                  .grid-uncompact .completed .grid_due_date:not(.due_soon):not(.overdue), 
+                  .grid-uncompact .completed .grid_cell_assignee a.tag, 
+                  .grid-uncompact .completed .tag_overflow, 
+                  .grid-uncompact .completed .grid_cell_string .task-row-text-input {
+                      color: #B9BCC0;
+                  }
                   .grid-uncompact .grid_cell_string .task-row-text-input {
                     top: 0;
                     color: #1B2432;

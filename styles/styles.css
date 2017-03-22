@@ -136,22 +136,24 @@ a:-webkit-any-link {
   text-decoration: underline;
   cursor: auto;
 }
-
+*:hover {
+  cursor: default;
+}
 /*Background Image*/
-.themeBackground, .webkit .bg-pattern {
+.themeBackground{
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
 }
-.themeBackground-sky {
+.themeBackground-pic {
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(https://d3ki9tyy5l5ruj.cloudfront.net/obj/63ffe57d9c7581fd71482364071be39315ab76fd/sky.jpg);
+    background-image: url(file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/pictures/pexels-photo-82256.jpg);
 }
 
-/*Page Container*/
-#whole_page_container {
+/*Page Container Context*/
+#page_container {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -176,7 +178,7 @@ a:-webkit-any-link {
   z-index: 0;
 }
 /*UI*/
-#asana_ui {
+#ui {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -196,7 +198,7 @@ a:-webkit-any-link {
 }
 
 /*Main*/
-#asana_main {
+#main {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -223,237 +225,205 @@ a:-webkit-any-link {
 }
 
 /*TopBar Container*/
-.remix-topbar {
+.topbar-container {
   -webkit-transition: min-width 0.25s ease-out;
   -moz-transition: min-width 0.25s ease-out;
   transition: min-width 0.25s ease-out;
-  min-width: 920px;
+  min-width: 40px;
   -webkit-flex-shrink: 0;
   -moz-flex-shrink: 0;
   flex-shrink: 0;
   -ms-flex-negative: 0;
-  height: 41px;
+  height: 55px;
   position: relative;
   z-index: 10;
 }
 
-  /*Mount Node*/
-  .remix-topbar>.react-mount-node {
+  /*Topbar Contents Container*/
+  .topbar-container>.topbar-contents-container {
     position: absolute;
     top: 0;
     width: 100%;
   }
-  .react-mount-node {
-  }
 
     /*TopBar*/
-    .react-mount-node .topbar {
-      background: #fff;
-      border-bottom: 1px solid #e1e2e4;
+    .topbar-contents-container .topbar-contents {
+      background: #09590b;
+      border-bottom: 2px solid #0c480e;
       color: #898e95;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-size: 14px;
-      height: 40px;
+      font-size: 18px;
+      height: 55px;
     }
-
-      /*View History Button*/
-      .react-mount-node .topbar-myTasksButton, 
-      .react-mount-node .topbar-notificationsButton, 
-      .react-mount-node .topbar-myDashboardButton {
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
+      /*Wrapper*/
+      .topbar-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
         align-items: center;
-        border-bottom: 3px solid transparent;
-        color: #898e95;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        font-size: 12px;
-        margin: 0 15px;
-        padding-top: 4px;
-        text-transform: uppercase;
       }
-      .react-mount-node a {
-        color: #1aafd0;
-        cursor: pointer;
-        text-decoration: none;
-      }
-      .react-mount-node a {
-        background-color: transparent;
-      }      
-      
-      /*Log Out Button*/
-      .react-mount-node .topbar-accountInfo {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-shrink: 0;
-        -ms-flex-negative: 0;
-        flex-shrink: 0;
-        margin-left: auto;
-      }
-
-        /*Log Out Button colors/fonts*/
-        .react-mount-node .topbarContingentUpgradeButton-button.Button--primary {
-          background: #ffb900;
-          border-color: #ffb900;
-          color: #fff;
-          fill: #fff;
-        }
-        .react-mount-node .Button.Button--small {
-          height: 30px;
-          padding: 0 9px;
-        }
-        .react-mount-node .Button.Button--primary {
-          background: #1aafd0;
-          border-color: #1aafd0;
-          color: #fff;
-          fill: #fff;
-        }
-        .react-mount-node .topbarContingentUpgradeButton-button {
-          -webkit-align-self: center;
-          -ms-flex-item-align: center;
-          align-self: center;
-          height: 26px;
-          margin: 3px 5px 3px 0;
-        }
-        .react-mount-node .Button {
+        
+        /*View History Button*/
+        .topbar-contents-container .topbar-history{
           -webkit-box-align: center;
           -webkit-align-items: center;
           -ms-flex-align: center;
           align-items: center;
-          border-radius: 3px;
-          border-style: solid;
-          border-width: 1px;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          cursor: pointer;
-          display: -webkit-inline-box;
-          display: -webkit-inline-flex;
-          display: -ms-inline-flexbox;
-          display: inline-flex;
+          border-bottom: 3px solid transparent;
+          color: #fff;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
           -webkit-flex-shrink: 0;
           -ms-flex-negative: 0;
           flex-shrink: 0;
-          font-size: 14px;
-          -webkit-box-pack: center;
-          -webkit-justify-content: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          line-height: 1;
-          min-width: 50px;
-          text-align: center;
-          -webkit-transition-duration: .2s;
-          transition-duration: .2s;
-          -webkit-transition-property: background, border, box-shadow, color;
-          transition-property: background, border, box-shadow, color;
+          font-size: 18px;
+          margin: 0 22px;
+          padding-top: 5px;
+        }
+        .topbar-contents-container a {
+          color: #1aafd0;
+          cursor: pointer;
+          text-decoration: none;
+          background-color: transparent;
+        }      
+        .topbar-title{
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          margin-left: 50px;
         }
 
-  /*Title Wrapper*/
-  .remix-topbar>.search-field-wrapper {
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center;
-    padding: 5px 0;
-  }
-    /*left Buffer*/
-    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-with-dashboard {
-      width: 380px;
-    }
-    .remix-topbar>.search-field-wrapper>.search-field-buffer {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      box-flex: 1;
-      -webkit-flex: 1 0 auto;
-      -moz-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-      flex: 1 0 auto;
-      -webkit-transition: width 0.25s ease-out;
-      -moz-transition: width 0.25s ease-out;
-      transition: width 0.25s ease-out;
-      width: 315px;
-    }
+        /*Title Wrapper*/
+        div.title-container {
+          -webkit-box-align: center;
+          -moz-box-align: center;
+          box-align: center;
+          -webkit-align-items: center;
+          -moz-align-items: center;
+          -ms-align-items: center;
+          -o-align-items: center;
+          align-items: center;
+          -ms-flex-align: center;
+          display: -webkit-box;
+          display: -moz-box;
+          display: box;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -moz-box-pack: center;
+          box-pack: center;
+          -webkit-justify-content: center;
+          -moz-justify-content: center;
+          -ms-justify-content: center;
+          -o-justify-content: center;
+          justify-content: center;
+          -ms-flex-pack: center;
+          padding: 5px 0;
 
-    /*Title*/
-    .remix-topbar>.search-field-wrapper>.typeahead {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-flex: 0;
-      -moz-box-flex: 0;
-      box-flex: 0;
-      -webkit-flex: 0 1 511px;
-      -moz-flex: 0 1 511px;
-      -ms-flex: 0 1 511px;
-      flex: 0 1 511px;
-      height: 30px;
-    }
-    .typeahead {
-      position: relative;
-    }
+        }  
+          /*Page Title*/
+          h1 {      
+            position: relative;
+            font-smoothing: antialiased;
+            font-family: "Papyrus Regular", "Telefon Black", Sans-Serif;
+            color: #fff;
+            font-weight: 500;
+            line-height: 1.4;
+            font-size: 1.4rem;  
+            padding-top: 5px
+          }
+          
+          /*Title Underline*/
+          div.underline {
+            background: #fff;
+            margin-top: 2px;
+            width: 175px;
+            height: 0.105em;
+            border-radius: 0 120% 0 70%;
+            transform: rotate(-1.5deg);
+            box-shadow: 0 0 1px white;
+          }
 
-    /*Right Buffer*/
-    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-right.search-field-buffer-with-dashboard {
-      -webkit-flex-shrink: 0.5;
-      -moz-flex-shrink: 0.5;
-      flex-shrink: 0.5;
-      -ms-flex-negative: 0.5;
-    }
-    .remix-topbar>.search-field-wrapper>.search-field-buffer.search-field-buffer-with-dashboard {
-      width: 380px;
-    }
-    .remix-topbar>.search-field-wrapper>.search-field-buffer {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      box-flex: 1;
-      -webkit-flex: 1 0 auto;
-      -moz-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-      flex: 1 0 auto;
-      -webkit-transition: width 0.25s ease-out;
-      -moz-transition: width 0.25s ease-out;
-      transition: width 0.25s ease-out;
-      width: 315px;
-    }
+        /*Log Out Button*/
+        .topbar-contents-container .topbar-logout {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
+          margin-left: auto;
+        }
 
+          /*Log Out Button colors/fonts*/
+          .topbar-contents-container .Button {  
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 3px;
+            border-style: solid;
+            border-width: 1px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: -webkit-inline-box;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;          
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            line-height: 1;
+            min-width: 50px;
+            text-align: center;
+            -webkit-transition-duration: .2s;
+            transition-duration: .2s;
+            -webkit-transition-property: background, border, box-shadow, color;
+            transition-property: background, border, box-shadow, color;
+
+            height: 32px;
+            padding: 0 9px;
+
+            background: #ffffff;
+            border-color: #777777;
+            color: #777777;
+            fill: #fff;
+            font-weight: 600;
+            font-size: 16px;
+
+            -webkit-align-self: center;
+            -ms-flex-item-align: center;
+            align-self: center;
+            margin: 5px 13px 3px 0;
+          }    
+
+          .topbar-contents-container .Button:hover {
+            background: #ffffff;
+            border-color: #ccc;
+            color: #777777;
+            fill: #fff;
+          }
 
 /*BodyContainer*/
-.asanaView-bodyContainer {
+.page-bodyContainer {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -480,11 +450,11 @@ a:-webkit-any-link {
 }
 
   /*Body*/
-  .asanaView-body {
+  .page-body {
     -webkit-transition: min-width 0.25s ease-out;
     -moz-transition: min-width 0.25s ease-out;
     transition: min-width 0.25s ease-out;
-    min-width: 920px;
+    min-width: 315px;
     background-color: transparent;
     display: -webkit-box;
     display: -moz-box;
@@ -510,7 +480,7 @@ a:-webkit-any-link {
   }
 
     /*Left and Right Gutter*/
-    .asanaView-paneGutter {
+    .page-paneGutter {
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       box-flex: 1;
@@ -525,7 +495,7 @@ a:-webkit-any-link {
 
     /*Center Body Container*/
     .known-list#center_pane_container {
-      max-width: 1000px;
+      max-width: 900px;
     }
     #center_pane_container {
       -webkit-transition: margin-left 0.25s ease-out,width 0.25s ease-out;
@@ -609,7 +579,7 @@ a:-webkit-any-link {
         }
 
           /*Body Header*/
-          .search.toolbar {
+          .body-title {
             -webkit-box-align: center;
             -moz-box-align: center;
             box-align: center;
@@ -619,10 +589,6 @@ a:-webkit-any-link {
             -o-align-items: center;
             align-items: center;
             -ms-flex-align: center;
-            height: 30px;
-            padding: 15px 30px;
-          }
-          .toolbar {
             -webkit-box-align: start;
             -moz-box-align: start;
             box-align: start;
@@ -638,20 +604,18 @@ a:-webkit-any-link {
             display: -webkit-flex;
             display: -moz-flex;
             display: -ms-flexbox;
-            display: flex;
+            display: flex;            
+            height: 30px;
+            margin: 27px 29px 0 23px;
+            padding: 0 0 11px 5px;
+            border-bottom: 2px solid #a8a8a8;
           }
 
-            /*Body Title Contents*/
-            .toolbar .toolbar-spacer {
-              display: block;
-              -webkit-box-flex: 1;
-              -moz-box-flex: 1;
-              box-flex: 1;
-              -webkit-flex: 1 0 auto;
-              -moz-flex: 1 0 auto;
-              -ms-flex: 1 0 auto;
-              flex: 1 0 auto;
-           }
+            h2 {
+              font-size: 25px;
+              color: #454545;   
+              text-align: center;
+            }
 
           /*Body Contents*/
           .grid-uncompact {
@@ -870,14 +834,12 @@ a:-webkit-any-link {
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button:hover {
                     border-color: transparent;
                     cursor: pointer;
-                    box-shadow: 0 0 0 3px #3BF7D1;
-                    -moz-box-shadow: 0 0 0 3px #3BF7D1;
-                    -webkit-box-shadow: 0 0 0 3px #3BF7D1;
-                    color: #3BF7D1;
-                    fill: #3BF7D1;
+                    box-shadow: 0 0 0 3px #1E7021;
+                    -moz-box-shadow: 0 0 0 3px #1E7021;
+                    -webkit-box-shadow: 0 0 0 3px #1E7021;
+                    color: #1E7021;
+                    fill: #1E7021;
                     background-color: #fff;
-                    color: #3BF7D1;
-                    fill: #3BF7D1;
                   }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
                     border: 1px solid #B9BCC0;
@@ -1117,7 +1079,7 @@ a:-webkit-any-link {
               }
               .grid-uncompact .task-row .grid_cell_assignee, 
               .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
-                cursor: pointer;
+                cursor: default;
                 width: 35px;
                 text-align: center;
               }
@@ -1158,7 +1120,7 @@ a:-webkit-any-link {
             font-size: 15px;
             font-weight: 500;
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             right: 90px;
             z-index: 99;
             border: none;
@@ -1171,12 +1133,12 @@ a:-webkit-any-link {
           .addMoreChores {
             font-size: 30px;
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             right: 30px;
             z-index: 99;
             border: none;
             outline: none;
-            background-color: red;
+            background-color: #003B02;
             color: white;
             cursor: pointer;
             padding: 10px 17px 8px 17px;
@@ -1184,12 +1146,63 @@ a:-webkit-any-link {
           }
 
           .addMoreChores:hover {
-            background-color: #e22;
+            background-color: #09590B;
           }
+@media only screen and (max-width: 451px), (max-device-width: 451px){
+  /*View History Button*/
+  .topbar-contents-container .topbar-history{
+    font-size: 17px;
+  }
 
+  /*Page Title*/
+  h1 {      
+    font-size: 1.2rem;  
+    padding-top: 10px
+  }
+  
+  /*Title Underline*/
+  div.underline {
+    width: 155px;
+    height: 0.105em;
+  }
 
+  /*Log Out Button colors/fonts*/
+  .topbar-contents-container .Button { 
+    height: 30px;
+    font-size: 14px;
+  }    
 
+}
+@media only screen and (max-width: 351px), (max-device-width: 351px){
+  .page-body {
+    padding-top: 4px;
+  }
 
+  /*View History Button*/
+  .topbar-contents-container .topbar-history{
+    font-size: 15px;
+  }
+  .page-paneGutter {
+    flex: 1 0 4px;
+  }
+  /*Page Title*/
+  h1 {      
+    font-size: 1rem;  
+    padding-top: 10px
+  }
+  
+  /*Title Underline*/
+  div.underline {
+    width: 135px;
+    height: 0.105em;
+  }
+
+  /*Log Out Button colors/fonts*/
+  .topbar-contents-container .Button { 
+    height: 27px;
+    font-size: 12px;
+  } 
+}
 
 /*Reset Defaults*/
 /*

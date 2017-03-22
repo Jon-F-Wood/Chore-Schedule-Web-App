@@ -7,7 +7,8 @@ console.log("To Dos: \n"
 			+ "- Fix Bug with login=true and on register(when page is exited make login = false?) \n"
 			+ "- Make 'Remember Me' on login page Work \n"
 			+ "- Change validation from alerts to error messages in DOM \n"
-			+ "- Make Confirm Password on Register Page \n");
+			+ "- Make Confirm Password on Register Page \n"
+			+ "- Fix bug so i can go back in browser (probably connected to page reload) \n");
 $( document ).ready(function() {	
 //Text input Validation
     var validations = {
@@ -173,12 +174,40 @@ $( document ).ready(function() {
 		//Display all chores to the dom
 		if (setItems !== "") {	
 			for (var i = 0; localChoreList.length > i; i++) {
-				var choreName = localChoreList[i]; 		
-				var choreToDo = $("<div class='choreToDoLI'><input type='checkbox' value='done' class='checkbox' /> &nbsp; &nbsp; &nbsp;" 
-						    	+ "<span class='choreToDo'>" + choreName + "</span></div>");
+				var choreName = localChoreList[i];
+				var choreToDo = $("<tr class='task-row'><td></td>" +
+										"<td class='grid_cell_boolean'>" +
+											"<div class='circularToggleButtonView--toggledOff taskCheckboxNodeView'>" +
+												"<div class='circularButtonView circularButtonView--xsmall circularToggleButtonView-button'>" +
+													"<span class='circularButtonView-label'>" +
+														"<svg class='svgIcon ' viewBox='0 0 32 32' title='checkmark'>" +
+															"<polygon points='27.672,4.786 10.901,21.557 4.328,14.984 1.5,17.812 10.901,27.214 30.5,7.615'></polygon>" +
+														"</svg>" +
+													"</span>" +
+												"</div>" +
+											"</div>" +
+										"</td>" +
+										"<td class='grid_cell_string'>" +
+											"<span class='task-row-text-input'>" + choreName + "</span>" +
+										"</td>" +
+										"<td class='grid_cell_assignee'></td>" +
+										"<td class='grid-cell grid_cell_show_details'></td>" +
+									"</tr>");
 				//Append list and clear text field
-			    $(".choreListToDo").append(choreToDo);
-			}	
+			    $(".table").append(choreToDo);
+			}
+		} else {
+			var choreToDo = $("<tr class='task-row completed'><td></td>" +
+								"<td class='grid_cell_boolean'>" +
+								"</td>" +
+								"<td class='grid_cell_string'>" +
+									"<span class='task-row-text-input'>You have no chores left!</span>" +
+								"</td>" +
+								"<td class='grid_cell_assignee'></td>" +
+								"<td class='grid-cell grid_cell_show_details'></td>" +
+							"</tr>");
+			//Append list and clear text field
+		    $(".table").append(choreToDo);
 	    }
 
 	    var sendEmails = localStorage.getItem("sendEmails");	    
@@ -196,16 +225,20 @@ $( document ).ready(function() {
     		$(".sendEmails").prop("checked", true);
     	}
 
-	    $(".choreListToDo").on("click", ".checkbox", function() {
+	    $(".circularButtonView").on("click", function() {
+			//Change CSS
+			$(this).parent().removeClass("circularToggleButtonView--toggledOff")
+							.addClass("circularToggleButtonView--toggledOn");
+			$(this).parents(".task-row").toggleClass("completed");				
 			//delete div from the dom
-			$(this).delay(400).queue(function() {
-	            $(this).parent().remove();
+			$(this).delay(1000).queue(function() {
+	            $(this).parents(".task-row").remove();
 	        });		
 			//Update histRecord
 			var histRecord = localStorage.getItem("history");
 			//get the text from Dom that I want to remove from choreList
-			var targetChore = $(this).parent().children(".choreToDo")[0].textContent;
-
+			var targetChore = $(this).parents(".task-row").children("td.grid_cell_string")
+									.children(".task-row-text-input")[0].textContent;
 			//Move the targetChore text and time info into history
 			var x = new Date();
 			var datetime = x.toDateString();

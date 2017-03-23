@@ -2,15 +2,87 @@
 <html>
 	<head>	
 		<title>Chore Schedule Web App</title>
-		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/styles.css" />		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
-		<h2>History: Completed Chores</h2>
-		<div class='choreListHistory'></div>
-		<form>
-	      <input type="button" class='backToChores' value="Back">
-	      <input type="button" class='loggout' value="Log Out" />
-	    </form>
+		<div class="themeBackground themeBackground-pic"></div>
+		<div id="page_container">
+			<div id="ui">
+				<div id="main">
+					<div class="topbar-container">
+						<div class="topbar-contents-container">
+							<div class="topbar-contents">
+								<div class="topbar-wrapper">
+									<i id="menuIcon" class="material-icons topbar-link" >menu</i>
+										<nav id="leftMenu" class="c-menu c-menu--left"> 
+											<div id="profileInfo">
+												<img id="profilePic" src="" />
+												<span class="accountEmail"></span>
+											</div>
+											<div id="mainPageNav">
+												<span>Today's Chores</span>
+												<span>Overdue Chores</span>
+												<span>Finished Chores</span>
+											</div>	
+											<div id="Reports">
+												<h2>Reports</h2>
+												<span>History</span>
+												<span>Statistics</span>
+												<span>Dismissed Chores</span>
+											</div>	
+											<div id="About">
+												<h2>About</h2>
+												<span>Profile Settings</span>
+												<span>Help & FAQ</span>
+												<span>Dismissed Chores</span>
+											</div>			
+										</nav>
+										<div id="mask" class="c-mask"></div>
+									<a class="backToChores topbar-link">My Chores</a>
+									<a class="goToHistory topbar-link">History</a>
+									<div class="topbar-logout">
+										<a class="Button loggout">Log Out</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="title-container">
+							<div class="content-wrapper">	
+								<h1>Chore-Schedule</h1>
+								<div class="underline"></div>
+							</div>	
+						</div>
+					</div>
+					<div class="page-bodyContainer">
+						<div class="page-body history">
+							<div class="page-paneGutter"></div>
+							<div id="center_pane_container" class="known-list">
+								<div id="center_pane">
+									<div id="center_pane__contents">
+										<div class="body-title">
+											<h2>History: Completed Chores</h2>
+										</div>
+										<div class="grid-uncompact">
+											<table id="grid">
+												<colgroup>
+													<col class="drag-handle-column">
+													<col class="boolean-column">
+												</colgroup>
+												<tbody class="choreListHistory"></tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="page-paneGutter"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	<!-- /EXTERNAL SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
 		<script src="../js/main.js" type="text/javascript"></script>

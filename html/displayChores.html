@@ -4,6 +4,7 @@
 		<title>Chore Schedule Web App</title>
 		<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	</head>
 	<body>
 		<div class="themeBackground themeBackground-pic"></div>
@@ -14,7 +15,33 @@
 						<div class="topbar-contents-container">
 							<div class="topbar-contents">
 								<div class="topbar-wrapper">
-									<a class="goToHistory topbar-history">History</a>
+									<i id="menuIcon" class="material-icons topbar-link" >menu</i>
+										<nav id="leftMenu" class="c-menu c-menu--left"> 
+											<div id="profileInfo">
+												<img id="profilePic" src="" />
+												<span class="accountEmail"></span>
+											</div>
+											<div id="mainPageNav">
+												<span>Today's Chores</span>
+												<span>Overdue Chores</span>
+												<span>Finished Chores</span>
+											</div>	
+											<div id="Reports">
+												<h2>Reports</h2>
+												<span>History</span>
+												<span>Statistics</span>
+												<span>Dismissed Chores</span>
+											</div>	
+											<div id="About">
+												<h2>About</h2>
+												<span>Profile Settings</span>
+												<span>Help & FAQ</span>
+												<span>Dismissed Chores</span>
+											</div>			
+										</nav>
+										<div id="mask" class="c-mask"></div>
+									<a class="backToChores topbar-link">My Chores</a>
+									<a class="goToHistory topbar-link">History</a>
 									<div class="topbar-logout">
 										<a class="Button loggout">Log Out</a>
 									</div>
@@ -47,7 +74,7 @@
 													<col class="drag-handle-column">
 													<col class="boolean-column">
 												</colgroup>
-												<tbody class="table"></tbody>
+												<tbody class="display-chores-table"></tbody>
 											</table>
 										</div>
 									</div>

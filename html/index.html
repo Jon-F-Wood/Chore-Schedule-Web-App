@@ -3,12 +3,271 @@
 	<head>	
 		<title>Chore Schedule Web App</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="styles/styles.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<style>
+			/*Reset Defaults*/
+			html, body, applet, object, iframe, h1, h2, h3, h4, 
+			h5, h6, p, blockquote, pre, acronym, address, big, 
+			cite, code, del, dfn, em, img, ins, kbd, q, s, samp, 
+			small, strike, strong, sub, sup, tt, var, b, u, i, 
+			center, dl, dt, dd, ol, ul, li, fieldset, form, label, 
+			legend, table, caption, tbody, tfoot, thead, tr, th, 
+			article, aside, canvas, details, embed, figure, 
+			figcaption, footer, header, hgroup, menu, nav, output, 
+			ruby, section, summary, time, mark, audio, video, input, textarea {
+			    margin: 0;
+			    padding: 0;
+			    border: 0;
+			    font-size: 100%;
+			    font-family: arial;
+			    vertical-align: baseline;
+			}
+
+			html, body { 
+			    width: 100%; 
+			    height: 100%;
+			}
+
+			[id*="Page"], aside {
+			    display: none;
+			    visibility: hidden;
+			}
+
+			#homePage {
+			    display: block;
+			    visibility: visible;
+			}
+
+
+			/*Headers*/
+			header {  
+			    position: fixed; /* Set the navbar to fixed position */
+			    top: 0; /* Position the navbar at the top of the page*/
+			    width: 100%; /* Full width */
+
+			    color: white;
+			}
+			header.withSubMenu {  
+			    background-color: #09590B; 
+			    height: 8%; 
+			    min-height: 50px;
+			}
+
+			div.mainHeader {
+			}
+			div.topNav {
+			    background-color: #09590B;
+			}
+
+			.menuIcon {    
+			    width: 18%; 
+			    
+			}
+			i#menu {
+			    margin: 9.5px 0 0 12px;
+			    font-size: 30px;
+			}
+
+			.title {
+			    white-space: nowrap;
+			    overflow-x: hidden;
+			    width: 62%;
+			    margin-top: 12px;
+			}
+
+			#mainName {
+			    font-size: 22px;
+			}
+			.dashIcon{
+			    margin: 4%;
+			}
+			#mainDate{
+			    font-size: 15px;  
+			}
+
+			.eventNoteIcon {  
+			    width: 20%;
+			}
+			i#eventNote {
+			    float: right;
+			    margin: 12px 13px 0 0;
+			    font-size: 27px;
+			}
+			.subHeader {
+			    width: 100%;
+			    margin: 0 auto;
+			    position: absolute;
+			    bottom: 0;   
+			}
+
+			.Tabs {
+			    position: absolute;
+			    width: 100%;
+			    background-color: #0D6610;
+			    margin: 0;
+			    padding: 0;
+			    list-style: none;
+			}
+
+			.Tabs:after {
+			    content: ' ';
+			    display: table;
+			    clear: both;
+			}
+
+			.Tabs__tab {
+			    float: left;
+			    width: 33.333%;
+			    text-align: center;
+			}
+
+			.Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
+			    left: 0;
+			}
+			.Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
+			    left: 33.333%;
+			}
+			.Tabs__tab:nth-child(3).active ~ .Tabs__presentation-slider {
+			    left: 66.66667%;
+			}
+
+			.Tabs__presentation-slider {
+			    position: absolute;
+			    bottom: 0;
+			    width: 33.333%;
+			    height: 2px;
+			    background-color: white;
+			    transition: left .25s;
+			}
+
+
+			.Tab a {
+			    display: block;
+			    padding: 10px 12px;
+			    text-decoration: none;
+			    color: #cccccc;
+			    transition: color .17s;
+			}
+
+			.Tab.active a {
+			    color: white;
+			}
+
+			.Tab:hover a {
+			    color: white;
+			}
+
+
+
+
+			/*Contents*/
+
+			main.contents {
+			    margin: 90px 10px 0 10px;
+
+			}
+			/*Catagories*/
+			td.catagory {
+			    color: #1B2432;
+			    font-size: 20px; 
+			}
+			span.catagory {
+			    box-align: start;    
+			    display: inline-flex;
+			    align-items: flex-start;
+			    flex: 1 1 auto;
+			    font-family: "proxima-nova","Helvetica Neue",Arial,sans-serif;
+			    font-weight: 600;
+			    line-height: 22px;
+			}
+			span.room {
+			    font-size: 16px;
+			    color: #676D76;
+			}
+			/*Rooms*/
+			/*Chore Rows*/
+
+
+			/*Time Left Aside*/
+			/*Action Buttons Aside*/
+
+
+
+
+			/*Grid System*/
+			.row::after {
+			    content: "";
+			    clear: both;
+			    display: table;
+			}
+			[class*="col-"], .col {
+			    float: left;
+			}
+			.col-1 {width: 8.33%;}
+			.col-2 {width: 16.66%;}
+			.col-3 {width: 25%;}
+			.col-4 {width: 33.33%;}
+			.col-5 {width: 41.66%;}
+			.col-6 {width: 50%;}
+			.col-7 {width: 58.33%;}
+			.col-8 {width: 66.66%;}
+			.col-9 {width: 75%;}
+			.col-10 {width: 83.33%;}
+			.col-11 {width: 91.66%;}
+			.col-12 {width: 100%;}
+
+
+			/*Side Navigation Menus*/
+			/*Formatting*/
+			.c-menu {
+			    z-index:200;
+			    background-color:#67b5d1;
+			    transition:transform .3s;
+
+			    width:80%; height:100%; overflow-y:scroll;
+			}
+			.c-menu__items {
+			    list-style:none;
+			    display:block; text-align:center; margin:0; padding:0;
+			    border-top:solid 1px #b5dbe9;
+			    border-bottom:solid 1px #3184a1;
+			}
+			.c-menu--left .c-menu__link, .c-menu--right .c-menu__link {
+			    display:block; padding:12px 24px;  color:#fff;
+			}
+			.c-menu--left .c-menu__close,.c-menu--right .c-menu__close {
+			    display:block; padding:12px 24px; width:100%;
+			}
+			.c-menu__close{
+			    color:#fff; background-color:#3184a1; border:none;
+			}
+
+			/*Positioning*/
+			.c-mask,.c-menu {
+			    position:fixed;
+			}
+
+			/*Class Toggling*/
+			.c-menu--left {top:0; left:0; transform:translateX(-100%);}
+			.c-menu--left.is-active {     transform:translateX(0);     }
+
+			.c-menu--right {top:0; right:0; transform:translateX(100%);}
+			.c-menu--right.is-active {      transform:translateX(0);    }
+
+			.c-mask {
+			    z-index:100;
+			    top:0;left:0; width:0; height:0;
+			    background-color:#000; opacity:0;
+			    transition:opacity .3s, width 0s .3s, height 0s .3s;
+			}
+			.c-mask.is-active {
+			    width:100%; height:100%; 
+			    opacity:.7;  transition:opacity .3s;}
+
+		</style>
 	</head>
 	<body>
 		<div>	
-			<!--Previously written code
 			<div id="pages">
 				<div id="homePage">
 					<header id="homeNav" class="withSubMenu">
@@ -56,7 +315,7 @@
 											<span class="duration">5 minutes</span>
 										</div>	
 									</li>	
-									<!--<li class="chore">
+									<li class="chore">
 										<div class="col">
 											<i class="material-icons">check</i>
 										</div>
@@ -904,6 +1163,53 @@
 
 	<!-- /EXTERNAL SCRIPTS -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-		<script src="js/main.js" type="text/javascript"></script>
+		<script>
+			//sideNav Constructor
+			function sideNav(options) {
+				//Initialise sideNav
+				var mask = document.getElementById("mask");
+				this.menu = document.getElementById(options.side);
+				this.btn = document.getElementById(options.btnId);
+				//Open sideNav when corresponding button is clicked
+				this.btn.addEventListener('click', function() {		
+					this.menu.classList.add('is-active');
+					mask.classList.add('is-active');
+				}.bind(this));
+				//Close sideNav when mask is clicked
+				mask.addEventListener('click', function() {		
+					this.menu.classList.remove('is-active');
+					mask.classList.remove('is-active');
+				}.bind(this));
+			}
+
+			//Create leftMenu
+			var slideLeft = new sideNav({
+				side: 'leftMenu',
+				btnId: 'menu'
+			});
+
+			//Create rightMenu
+			var slideRight = new sideNav({
+				side: 'rightMenu',
+				btnId: 'eventNote'
+			});
+
+
+
+
+			var tabs = document.getElementsByClassName('Tab');
+
+			Array.prototype.forEach.call(tabs, function(tab) {
+				tab.addEventListener('click', setActiveClass);
+			});
+
+			function setActiveClass(evt) {
+				Array.prototype.forEach.call(tabs, function(tab) {
+					tab.classList.remove('active');
+				});
+				
+				event.currentTarget.classList.add('active');
+			}
+		</script>
 	</body>
 </html>

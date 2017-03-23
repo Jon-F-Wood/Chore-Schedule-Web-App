@@ -19,7 +19,22 @@ $( document ).ready(function() {
 	};   
 
 //Login_Register.html
-	
+	//Initialise sideNav
+	var mask = $("#mask");
+	var menu = $("#leftMenu");
+	var btn = $("#menuIcon");
+	//Open sideNav when corresponding button is clicked
+	btn.on('click', function() {		
+		menu.addClass('is-active');
+		mask.addClass('is-active');
+	});
+	//Close sideNav when mask is clicked
+	mask.on('click', function() {		
+		menu.removeClass('is-active');
+		mask.removeClass('is-active');
+	});
+	$(".accountEmail").append(localStorage.getItem("email"));
+
 	var toggleForms = function(){
 		$("#login").toggleClass("hide");
 		$("#register").toggleClass("hide");
@@ -99,6 +114,16 @@ $( document ).ready(function() {
 	});
 
 //When Logged In
+	if (window.location == "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html") {
+		$(".goToHistory").addClass("dim");
+		$(".backToChores").removeClass("dim");
+	} else if (window.location == "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html"){
+		$(".backToChores").addClass("dim");
+		$(".goToHistory").removeClass("dim");
+	} else {
+		$(".backToChores").addClass("dim");
+		$(".goToHistory").addClass("dim");
+	}
 	//Make Sure user is Logged in
 	var currentUrl = $(location).attr('href');	
     if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/login_register.html") {
@@ -194,7 +219,7 @@ $( document ).ready(function() {
 										"<td class='grid-cell grid_cell_show_details'></td>" +
 									"</tr>");
 				//Append list and clear text field
-			    $(".table").append(choreToDo);
+			    $(".display-chores-table").append(choreToDo);
 			}
 		} else {
 			var choreToDo = $("<tr class='task-row completed'><td></td>" +
@@ -207,7 +232,7 @@ $( document ).ready(function() {
 								"<td class='grid-cell grid_cell_show_details'></td>" +
 							"</tr>");
 			//Append list and clear text field
-		    $(".table").append(choreToDo);
+		    $(".display-chores-table").append(choreToDo);
 	    }
 
 	    var sendEmails = localStorage.getItem("sendEmails");	    
@@ -239,14 +264,39 @@ $( document ).ready(function() {
 			//get the text from Dom that I want to remove from choreList
 			var targetChore = $(this).parents(".task-row").children("td.grid_cell_string")
 									.children(".task-row-text-input")[0].textContent;
-			//Move the targetChore text and time info into history
-			var x = new Date();
-			var datetime = x.toDateString();
+			//Move the targetChore text and time info into history		
+			var addZero = function(number) {
+				if (number < 10) {
+					number = "0" + number;
+				}
+				return number;
+			};			
+			var formatTime = function (timeInfo) {
+				var hour = timeInfo.getHours();
+				var minutes = addZero(timeInfo.getMinutes());
+				if (hour > 12) {
+					var twelveHourTime = (hour-12)+":"+minutes+"p.m."
+				} else {
+					var twelveHourTime = hour+":"+minutes+"a.m."
+				}
+				return twelveHourTime + " on ";
+			};
+
+			var formatDate = function(dateInfo) {				
+				var month = addZero((dateInfo.getMonth()+1));
+				var day = dateInfo.getDate();
+				var year = dateInfo.getFullYear().toString().slice(2, 4);
+
+				return month + "/" + day + "/" + year;
+			}
+			var datetime = new Date();
+			var formatedDate = formatDate(datetime);
+			var formatedTime = formatTime(datetime);		
 
 			if (histRecord === null)	{
-		    	histRecord = targetChore + ',' + datetime;
+		    	histRecord = targetChore + ',' + formatedTime + ',' + formatedDate;
 		    } else {
-		    	histRecord = histRecord + ',' + targetChore + ',' + datetime;
+		    	histRecord = histRecord + ',' + targetChore + ',' + formatedTime + ',' + formatedDate;
 		    }
 			localStorage.setItem("history", histRecord); 
 			//Remove the item from the array
@@ -284,25 +334,58 @@ $( document ).ready(function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
 		});
 
-	//Display History	
+	//Display History			
+		if (localStorage.getItem("history").charAt(0) === ",") {
+			var correctHistRecord = localStorage.getItem("history").slice(1);
+			localStorage.setItem("history", correctHistRecord);
+		}
 		var histRecord = localStorage.getItem("history");
+
 		if (histRecord !== "" || histRecord !== null) {		
 			//make history into two dimentional array
 			var histRecordList = [];
 			var histRecordConverter = histRecord.split(",");
 			for (var i = 0; (histRecordConverter.length+i-1) > i; i++) {
-				histRecordList.push(histRecordConverter.splice(0,2));
+				histRecordList.push(histRecordConverter.splice(0,3));
+			}	
+			for (var i = histRecordList.length-1; 0 < i; i--) {
 				var choreName = histRecordList[i][0]; 
-				var choreDateTime = histRecordList[i][1];
+				var choreTime = histRecordList[i][1];
+				var choreDate = histRecordList[i][2];
+				
+				if (window.matchMedia('(max-width: 550px)').matches){
+					var choreDateTime = choreDate;
+				} else {	
+					var choreDateTime = choreTime + choreDate;				
+				}
 
-				var choreHistory = $("<div class='choreHistLI'><b><span class='choreHistName'>" + choreName
-						    	+ "</b> was preformed on </span><span class='choreHistDate'><b>" + choreDateTime 
-						    	+ "</b></span></div>");
+				var choreHistory = 
+					$("<tr class='task-row'><td></td>" +
+						"<td class='grid_cell_boolean'  >" +
+						"<span class='bullet'>\u2022</span>" +
+						"</td>" +
+						"<td class='grid_cell_string'>" +
+							"<span class='task-row-text-input'>" + choreName + "</span>" +
+						"</td>" +
+						"<td class='grid_cell_assignee'>" + 
+							"<span class='date-of-completion'>" + choreDateTime + "</span>" +
+						"</td>" +
+						"<td class='grid-cell grid_cell_show_details'></td>" +
+					  "</tr>");
 				//Append list and clear text field
 			    $(".choreListHistory").append(choreHistory);
 			}
 	    } else {
-	    	//if there are no chores done write " no chores done"
+	    	var choreToDo = 
+				$("<tr class='task-row completed'><td></td>" +
+					"<td class='grid_cell_boolean'>" +
+					"</td>" +
+					"<td class='grid_cell_string'>" +
+						"<span class='task-row-text-input'>You have yet to complete a single chore.</span>" +
+					"</td>" +
+					"<td class='grid_cell_assignee'></td>" +
+					"<td class='grid-cell grid_cell_show_details'></td>" +
+				"</tr>");
 	    }
 
 	    $(".backToChores").on("click", function() {
@@ -327,124 +410,3 @@ $( document ).ready(function() {
 
 
 
-
-
-/*/sideNav Constructor
-function sideNav(options) {
-	//Initialise sideNav
-	var mask = document.getElementById("mask");
-	this.menu = document.getElementById(options.side);
-	this.btn = document.getElementById(options.btnId);
-	//Open sideNav when corresponding button is clicked
-	this.btn.addEventListener('click', function() {		
-		this.menu.classList.add('is-active');
-		mask.classList.add('is-active');
-	}.bind(this));
-	//Close sideNav when mask is clicked
-	mask.addEventListener('click', function() {		
-		this.menu.classList.remove('is-active');
-		mask.classList.remove('is-active');
-	}.bind(this));
-}
-
-//Create leftMenu
-var slideLeft = new sideNav({
-	side: 'leftMenu',
-	btnId: 'menu'
-});
-
-//Create rightMenu
-var slideRight = new sideNav({
-	side: 'rightMenu',
-	btnId: 'eventNote'
-});
-
-
-
-
-var tabs = document.getElementsByClassName('Tab');
-
-Array.prototype.forEach.call(tabs, function(tab) {
-	tab.addEventListener('click', setActiveClass);
-});
-
-function setActiveClass(evt) {
-	Array.prototype.forEach.call(tabs, function(tab) {
-		tab.classList.remove('active');
-	});
-	
-	evt.currentTarget.classList.add('active');
-}
-
-
-
-
-$( document ).ready(function() {	
-	var toggleForms = function(){
-		$("#login").toggleClass("hide");
-		$("#register").toggleClass("hide");
-	};
-	
-	if (localStorage.key(0) === null){
-		toggleForms();
-	} 
-
-	$("#clear").on("click", function(){
-		localStorage.clear();
-	});	
-	$("#registerLink").on("click", function(){
-		toggleForms();
-	});
-    $("#registerBtn").on("click", function(){
-    	var newUserInfo = {
-    		email: $("#registerEmail").val(),
-			password: $("#registerPassword").val()
-    	}
-	    localStorage.setItem(newUserInfo.email, JSON.stringify(newUserInfo));
-	    toggleForms();
-		
-    });
-    $("#loginBtn").on("click", function(){
-		for (var i = 0; localStorage.length > i; i++) {				
-			if  (localStorage.key(i) == $("#loginEmail").val()) {
-				var password = (JSON.parse(localStorage.getItem(localStorage.key(i)))).password;
-				console.log(password);
-				if (password == $("#loginPassword").val()) {
-					alert("In");
-				}
-			} 
-			*******if (i == (localStorage.length + 1) &&  (localStorage.key(i) !== $("#loginEmail").val())) {
-				console.log("It seems there is no account here by that name.  Would you like to register it?");
-			}
-		}
-	});
-
-	// Check all the input fields of type email. This function will handle all the email addresses validations
-    $("#registerEmail").change( function(){
-        // Set the regular expression to validate the email 
-        validation = new RegExp(validations['email'][0]);
-        // validate the email value against the regular expression
-        if (!validation.test($(this).val())){
-            // If the validation fails then we show the custom error message
-            this.setCustomValidity(validations['email'][1]);
-            return false;
-        } else {
-            // This is really important. If the validation is successful you need to reset the custom error message
-            this.setCustomValidity('');
-        }
-	});
-    $("#registerPassword").change( function(){
-        // Set the regular expression to validate the password 
-        validation = new RegExp(validations['password'][0]);
-        // validate the password value against the regular expression
-        if (!validation.test($(this).val())){
-            // If the validation fails then we show the custom error message
-            this.setCustomValidity(validations['password'][1]);
-            return false;
-        } else {
-            // This is really important. If the validation is successful you need to reset the custom error message
-            this.setCustomValidity('');
-        }
-	});
-});
-*/

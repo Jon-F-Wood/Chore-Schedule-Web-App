@@ -271,7 +271,7 @@ a:-webkit-any-link {
       }
         
         /*View History Button*/
-        .topbar-contents-container .topbar-history{
+        .topbar-contents-container .topbar-link{
           -webkit-box-align: center;
           -webkit-align-items: center;
           -ms-flex-align: center;
@@ -286,8 +286,16 @@ a:-webkit-any-link {
           -ms-flex-negative: 0;
           flex-shrink: 0;
           font-size: 18px;
-          margin: 0 22px;
+          margin: 0 6px 0 22px;
           padding-top: 5px;
+        }
+        .dim {
+          opacity: 0.8;
+        }
+        .topbar-link:hover {
+          color: #fff;
+          opacity: 1;
+          text-shadow: 0px 1px #000;
         }
         .topbar-contents-container a {
           color: #1aafd0;
@@ -302,6 +310,55 @@ a:-webkit-any-link {
           display: flex;
           margin-left: 50px;
         }
+
+        /*Side Navigation Menus*/
+        /*Formatting*/
+        .c-menu {
+          z-index:200;
+          background-color:#fff;
+          transition:transform .3s;
+
+          width:75%; max-width: 400px; height:100%; overflow-y:scroll;
+        }
+        .c-menu__items {
+          list-style:none;
+          display:block; text-align:center; margin:0; padding:0;
+          border-top:solid 1px #b5dbe9;
+          border-bottom:solid 1px #3184a1;
+        }
+        .c-menu--left .c-menu__link {
+          display:block; padding:12px 24px;  color:#fff;
+        }
+        .c-menu--left .c-menu__close {
+          display:block; padding:12px 24px; width:100%;
+        }
+        .c-menu__close{
+          color:#fff; background-color:#3184a1; border:none;
+        }
+
+        /*Positioning*/
+        .c-mask,.c-menu {
+          position:fixed;
+        }
+
+        /*Class Toggling*/
+        .c-menu--left {top:0; left:0; transform:translateX(-100%);}
+        .c-menu--left.is-active {     transform:translateX(0);     }
+
+        .c-mask {
+          z-index:100;
+          top:0;left:0; width:0; height:0;
+          background-color:#000; opacity:0;
+          transition:opacity .3s, width 0s .3s, height 0s .3s;
+        }
+        .c-mask.is-active {
+          width:100%; height:100%; 
+          opacity:.7;  transition:opacity .3s;
+        }
+          #profileInfo {
+            height: 55px;
+          }
+
 
         /*Title Wrapper*/
         div.title-container {
@@ -402,7 +459,7 @@ a:-webkit-any-link {
             height: 32px;
             padding: 0 9px;
 
-            background: #ffffff;
+            background: #fff;
             border-color: #777777;
             color: #777777;
             fill: #fff;
@@ -416,9 +473,9 @@ a:-webkit-any-link {
           }    
 
           .topbar-contents-container .Button:hover {
-            background: #ffffff;
-            border-color: #ccc;
-            color: #777777;
+            background: #f5f5f5;
+            color: #666;
+            border-color: #666;
             fill: #fff;
           }
 
@@ -478,7 +535,9 @@ a:-webkit-any-link {
     -moz-transition: background-color 1s;
     transition: background-color 1s;
   }
-
+  .history {
+    min-width: 400px;
+  }
     /*Left and Right Gutter*/
     .page-paneGutter {
       -webkit-box-flex: 1;
@@ -781,11 +840,6 @@ a:-webkit-any-link {
               .grid-uncompact #grid .grid-cell {
                 vertical-align: middle;
               }
-              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, 
-              .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
-                border-bottom: 1px solid transparent;
-                border-top: 1px solid #E1E2E4;
-              }
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
               .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
@@ -797,9 +851,6 @@ a:-webkit-any-link {
                 font-size: 14px;
                 vertical-align: middle;
                 white-space: nowrap;
-              }
-              .grid-compact:not(.itemListView--isCompact) .grid_cell_boolean, .grid-uncompact:not(.itemListView--isCompact) .grid_cell_boolean {
-                height: 35px;
               }
               .grid_cell_boolean {
                 -webkit-flex-shrink: 0;
@@ -861,18 +912,9 @@ a:-webkit-any-link {
                     fill: #02CEFF;
                   }
 
-                  .taskCheckboxNodeView.circularToggleButtonView--toggledOn .circularToggleButtonView-button:hover {
-                    box-shadow: none;
-                    -moz-box-shadow: none;
-                    -webkit-box-shadow: none;
-                    background-color: #D4F2E8;
-                    color: #fff;
-                    fill: #fff;
-                    opacity: 0.5;
-                  }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOn .circularToggleButtonView-button {
-                    border-color: #D4F2E8;
-                    background-color: #D4F2E8;
+                    border-color: rgba(57, 173, 60, 0.2);
+                    background-color: rgba(57, 173, 60, 0.3);
                     color: #fff;
                     fill: #fff;
                   }
@@ -950,7 +992,11 @@ a:-webkit-any-link {
                         width: 16px;
                       }
 
-
+              .bullet {
+                font-size: 30px; 
+                float: right; 
+                padding-right: 12px;
+              }
 
               /*Chore List Text*/
               .grid-uncompact #grid .grid-row-selected.focused>td {
@@ -960,11 +1006,6 @@ a:-webkit-any-link {
               }
               .grid-uncompact #grid .grid-cell {
                 vertical-align: middle;
-              }
-              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, 
-              .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
-                border-bottom: 1px solid transparent;
-                border-top: 1px solid #E1E2E4;
               }
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
@@ -1067,10 +1108,6 @@ a:-webkit-any-link {
               .grid-uncompact #grid .grid-cell {
                 vertical-align: middle;
               }
-              .grid-uncompact #grid .grid_cell_boolean, .grid-uncompact #grid .grid_cell_string, .grid-uncompact #grid .grid_cell_schedule, .grid-uncompact #grid .grid_cell_assignee {
-                border-bottom: 1px solid transparent;
-                border-top: 1px solid #E1E2E4;
-              }
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
               .grid-compact:not(.itemListView--isCompact).grid-uncompact .grid_pseudorow_no_prioritized .grid-cell, 
               .grid-uncompact:not(.itemListView--isCompact).grid-uncompact .task-row .grid-cell, 
@@ -1080,7 +1117,7 @@ a:-webkit-any-link {
               .grid-uncompact .task-row .grid_cell_assignee, 
               .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
                 cursor: default;
-                width: 35px;
+                width: 150px;
                 text-align: center;
               }
               .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
@@ -1089,6 +1126,12 @@ a:-webkit-any-link {
                 vertical-align: middle;
                 white-space: nowrap;
               }
+
+              .date-of-completion{
+                float:right;
+                font-weight: 600;
+              }
+
               /*Right Spacer 2*/
               .grid-uncompact #grid .grid-cell {
                 vertical-align: middle;
@@ -1117,11 +1160,11 @@ a:-webkit-any-link {
 
           /*Add Chores Button*/
           .addChoresTitle {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 500;
             position: fixed;
             bottom: 25px;
-            right: 90px;
+            right: 93px;
             z-index: 99;
             border: none;
             outline: none;
@@ -1148,16 +1191,49 @@ a:-webkit-any-link {
           .addMoreChores:hover {
             background-color: #09590B;
           }
-@media only screen and (max-width: 451px), (max-device-width: 451px){
+#menuIcon {
+  display:none;
+}                 
+@media only screen and (max-width: 851px), (max-device-width: 851px){
   /*View History Button*/
-  .topbar-contents-container .topbar-history{
+  .topbar-contents-container .topbar-link{
     font-size: 17px;
-  }
+    padding-top: 5px;
+  }   
+}  
+@media only screen and (max-width: 701px), (max-device-width: 701px){
+  /*View History Button*/
+  .topbar-contents-container .topbar-link{
+    display: none;
+  }  
 
+  #menuIcon {
+    display: block;
+    font-size: 30px;
+    padding-top: 4px; 
+  } 
+
+  h1 {      
+    font-size: 1.3rem;  
+    padding-top: 7px
+  }
+  
+  /*Title Underline*/
+  div.underline {
+    width: 175px;
+    height: 0.105em;
+  }  
+
+  /*Log Out Button colors/fonts*/
+  .topbar-contents-container .Button { 
+    height: 30px;
+    font-size: 14px;
+  } 
+  
+@media only screen and (max-width: 551px), (max-device-width: 551px){
   /*Page Title*/
   h1 {      
-    font-size: 1.2rem;  
-    padding-top: 10px
+    font-size: 1.2rem; 
   }
   
   /*Title Underline*/
@@ -1169,22 +1245,18 @@ a:-webkit-any-link {
   /*Log Out Button colors/fonts*/
   .topbar-contents-container .Button { 
     height: 30px;
-    font-size: 14px;
+    font-size: 13px;
   }    
-
+  .grid-uncompact .task-row .grid_cell_assignee, 
+  .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
+    width: 0px;
 }
-@media only screen and (max-width: 351px), (max-device-width: 351px){
+}
+@media only screen and (max-width: 451px), (max-device-width: 451px){
   .page-body {
     padding-top: 4px;
   }
 
-  /*View History Button*/
-  .topbar-contents-container .topbar-history{
-    font-size: 15px;
-  }
-  .page-paneGutter {
-    flex: 1 0 4px;
-  }
   /*Page Title*/
   h1 {      
     font-size: 1rem;  
@@ -1193,7 +1265,7 @@ a:-webkit-any-link {
   
   /*Title Underline*/
   div.underline {
-    width: 135px;
+    width: 130px;
     height: 0.105em;
   }
 
@@ -1202,265 +1274,11 @@ a:-webkit-any-link {
     height: 27px;
     font-size: 12px;
   } 
-}
 
-/*Reset Defaults*/
-/*
-html, body, applet, object, iframe, h1, h2, h3, h4, 
-h5, h6, p, blockquote, pre, acronym, address, big, 
-cite, code, del, dfn, em, img, ins, kbd, q, s, samp, 
-small, strike, strong, sub, sup, tt, var, b, u, i, 
-center, dl, dt, dd, ol, ul, li, fieldset, form, label, 
-legend, table, caption, tbody, tfoot, thead, tr, th, 
-article, aside, canvas, details, embed, figure, 
-figcaption, footer, header, hgroup, menu, nav, output, 
-ruby, section, summary, time, mark, audio, video, input, textarea {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font-family: arial;
-    vertical-align: baseline;
+  .page-paneGutter {
+    -webkit-flex: 1 0 2px;
+    -moz-flex: 1 0 2px;
+    -ms-flex: 1 0 2px;
+    flex: 1 0 2px;
+  }
 }
-
-html, body { 
-    width: 100%; 
-    height: 100%;
-}
-
-[id*="Page"], aside {
-    display: none;
-    visibility: hidden;
-}
-
-#homePage {
-    display: block;
-    visibility: visible;
-}
-
-
-/*Headers
-header {  
-    position: fixed; /* Set the navbar to fixed position 
-    top: 0; /* Position the navbar at the top of the page
-    width: 100%; /* Full width 
-
-    color: white;
-}
-header.withSubMenu {  
-    background-color: #09590B; 
-    height: 8%; 
-    min-height: 50px;
-}
-
-div.mainHeader {
-}
-div.topNav {
-    background-color: #09590B;
-}
-
-.menuIcon {    
-    width: 18%; 
-    
-}
-i#menu {
-    margin: 9.5px 0 0 12px;
-    font-size: 30px;
-}
-
-.title {
-    white-space: nowrap;
-    overflow-x: hidden;
-    width: 62%;
-    margin-top: 12px;
-}
-
-#mainName {
-    font-size: 22px;
-}
-.dashIcon{
-    margin: 4%;
-}
-#mainDate{
-    font-size: 15px;  
-}
-
-.eventNoteIcon {  
-    width: 20%;
-}
-i#eventNote {
-    float: right;
-    margin: 12px 13px 0 0;
-    font-size: 27px;
-}
-.subHeader {
-    width: 100%;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 0;   
-}
-
-.Tabs {
-    position: absolute;
-    width: 100%;
-    background-color: #0D6610;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.Tabs:after {
-    content: ' ';
-    display: table;
-    clear: both;
-}
-
-.Tabs__tab {
-    float: left;
-    width: 33.333%;
-    text-align: center;
-}
-
-.Tabs__tab:first-child.active ~ .Tabs__presentation-slider {
-    left: 0;
-}
-.Tabs__tab:nth-child(2).active ~ .Tabs__presentation-slider {
-    left: 33.333%;
-}
-.Tabs__tab:nth-child(3).active ~ .Tabs__presentation-slider {
-    left: 66.66667%;
-}
-
-.Tabs__presentation-slider {
-    position: absolute;
-    bottom: 0;
-    width: 33.333%;
-    height: 2px;
-    background-color: white;
-    transition: left .25s;
-}
-
-
-.Tab a {
-    display: block;
-    padding: 10px 12px;
-    text-decoration: none;
-    color: #cccccc;
-    transition: color .17s;
-}
-
-.Tab.active a {
-    color: white;
-}
-
-.Tab:hover a {
-    color: white;
-}
-
-
-
-
-/*Contents
-
-main.contents {
-    margin: 90px 10px 0 10px;
-
-}
-/*Catagories
-td.catagory {
-    color: #1B2432;
-    font-size: 20px; 
-}
-span.catagory {
-    box-align: start;    
-    display: inline-flex;
-    align-items: flex-start;
-    flex: 1 1 auto;
-    font-family: "proxima-nova","Helvetica Neue",Arial,sans-serif;
-    font-weight: 600;
-    line-height: 22px;
-}
-span.room {
-    font-size: 16px;
-    color: #676D76;
-}
-/*Rooms
-/*Chore Rows
-
-
-/*Time Left Aside
-/*Action Buttons Aside
-
-
-
-
-/*Grid System
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-[class*="col-"], .col {
-    float: left;
-}
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-
-
-/*Side Navigation Menus
-/*Formatting
-.c-menu {
-    z-index:200;
-    background-color:#67b5d1;
-    transition:transform .3s;
-
-    width:80%; height:100%; overflow-y:scroll;
-}
-.c-menu__items {
-    list-style:none;
-    display:block; text-align:center; margin:0; padding:0;
-    border-top:solid 1px #b5dbe9;
-    border-bottom:solid 1px #3184a1;
-}
-.c-menu--left .c-menu__link, .c-menu--right .c-menu__link {
-    display:block; padding:12px 24px;  color:#fff;
-}
-.c-menu--left .c-menu__close,.c-menu--right .c-menu__close {
-    display:block; padding:12px 24px; width:100%;
-}
-.c-menu__close{
-    color:#fff; background-color:#3184a1; border:none;
-}
-
-/*Positioning
-.c-mask,.c-menu {
-    position:fixed;
-}
-
-/*Class Toggling
-.c-menu--left {top:0; left:0; transform:translateX(-100%);}
-.c-menu--left.is-active {     transform:translateX(0);     }
-
-.c-menu--right {top:0; right:0; transform:translateX(100%);}
-.c-menu--right.is-active {      transform:translateX(0);    }
-
-.c-mask {
-    z-index:100;
-    top:0;left:0; width:0; height:0;
-    background-color:#000; opacity:0;
-    transition:opacity .3s, width 0s .3s, height 0s .3s;
-}
-.c-mask.is-active {
-    width:100%; height:100%; 
-    opacity:.7;  transition:opacity .3s;}
-*/

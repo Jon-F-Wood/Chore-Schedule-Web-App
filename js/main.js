@@ -160,13 +160,21 @@ $( document ).ready(function() {
 				    var choreItem = 
 				    	$("<tr class='task-row'><td></td>" +
 							"<td class='grid_cell_boolean'  >" +
-								"<i class='material-icons right'>keyboard_arrow_right</i>" +
+								"<span style='font-size: 16px; padding-left: 5px;'>\u25B6 </span>" +
 							"</td>" +
 							"<td class='grid_cell_string'>" +
 								"<span class='task-row-text-input toDo'>" + chores + "</span>" +
 							"</td>" +
-							"<td class='grid_cell_assignee'>" + 
-								"<input type='button' value='delete' class='delete' />" +
+							"<td class='grid_cell_assignee '>" + 
+								"<div class='delete'>" +
+									"<div class='circularButtonView circularButtonView--xsmall circularToggleButtonView-button'>" +
+										"<span class='circularButtonView-label'>" +
+											"<svg class='svgIcon ' viewBox='0 0 32 32' title='checkmark'>" +
+												"<polygon points='5,1 16,12 26,1 30,5 20,16 30,26 26,30 16,20 5,30 1,26 12,16 1,5'></polygon>/>" +
+											"</svg>" +
+										"</span>" +
+									"</div>" +
+								"</div>" +
 							"</td>" +
 							"<td class='grid-cell grid_cell_show_details'></td>" +
 						  "</tr>");			    
@@ -178,7 +186,7 @@ $( document ).ready(function() {
 				    }
 				    localStorage.setItem("choreList", setItems);  
 			    	//Append list and clear text field
-			    	$(".choreList").append(choreItem);
+			    	$(".postBeforeThis").before(choreItem);
 			    	
 			    	$(this).val(''); //Empty input field on submit
 			    }		        	   

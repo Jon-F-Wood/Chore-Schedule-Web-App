@@ -970,11 +970,29 @@ a:-webkit-any-link {
                     -webkit-box-shadow: 0 0 0 3px #1E7021;
                     color: #1E7021;
                     fill: #1E7021;
+                    stroke: #1E7021;
                     background-color: #fff;
                   }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
                     border: 1px solid #B9BCC0;
                     fill: #CDCFD2;
+                  }
+                  .delete .circularToggleButtonView-button{
+                    border-color: #B9BCC0;
+                    background-color: transparent;
+                    color: rgba(160, 153, 150, 0.45);
+                    fill: rgba(160, 153, 150, 0.45);
+                  }
+                  .delete .circularToggleButtonView-button:hover {
+                    border-color: transparent;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 3px #c39a91;
+                    -moz-box-shadow: 0 0 0 3px #c39a91;
+                    -webkit-box-shadow: 0 0 0 3px #c39a91;
+                    color: #c39a91;
+                    fill: #c39a91;
+                    stroke: #c39a91;
+                    background-color: #fff;
                   }
                   .taskCheckboxNodeView.circularToggleButtonView--toggledOff .circularToggleButtonView-button {
                     border-color: #B9BCC0;
@@ -1169,6 +1187,7 @@ a:-webkit-any-link {
                     resize: none;
                     word-wrap: normal;
                     white-space: nowrap;
+                    font-size: inherit;
                   }
                   .generic-input, textarea, .recurly input[type=text], .recurly .recurly-hosted-field {
                     border-radius: 3px 3px 3px 3px;
@@ -1197,7 +1216,7 @@ a:-webkit-any-link {
               .grid-uncompact .task-row .grid_cell_assignee, 
               .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
                 cursor: default;
-                width: 150px;
+                width: 130px;
                 text-align: center;
               }
               .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {
@@ -1237,7 +1256,9 @@ a:-webkit-any-link {
                 border-top-right-radius: 3px;
                 border-left: 0px;
               }
-
+              .input {
+                border-top: 1px solid #1AAFD0;
+              }
           /*Add Chores Button*/
           .addChoresTitle {
             font-size: 17px;
@@ -1261,7 +1282,7 @@ a:-webkit-any-link {
             z-index: 99;
             border: none;
             outline: none;
-            background-color: #003B02;
+            background-color: #0c480e;
             color: white;
             cursor: pointer;
             padding: 10px 17px 8px 17px;
@@ -1269,11 +1290,11 @@ a:-webkit-any-link {
           }
 
           .done {
-            font-size: 30px;
+            font-size: 25px;
             position: absolute;
             border: none;
             outline: none;
-            padding: 10px 17px 8px 17px;
+            padding: 9px 16px 7px 16px;
             border-radius: 5px;
           }
           .addMoreChores:hover, .done:hover {
@@ -1340,7 +1361,7 @@ a:-webkit-any-link {
   }    
   .grid-uncompact .task-row .grid_cell_assignee, 
   .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
-    width: 0px;
+    width: 40px;
 }
 }
 @media only screen and (max-width: 451px), (max-device-width: 451px){

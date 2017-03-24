@@ -96,31 +96,32 @@
 													<col class="drag-handle-column">
 													<col class="boolean-column">
 												</colgroup>
-												<tbody class="choreList"></tbody>								    
-												<tr class='task-row'>
-										    	<td></td>
-													<td class='grid_cell_boolean'>
-														<i class='material-icons right'>keyboard_arrow_right</i>
-													</td>
-													<td class='grid_cell_string'>
-														<span class='task-row-text-input'>
-															<input type='text' id='addChore' placeholder='Add a Chore' autocomplete="off">
-														</span>
-													</td>
-													<td class='grid_cell_assignee'> 
-													</td>
-													<td class='grid-cell grid_cell_show_details'></td>
-											  </tr>	
-											  <tr class='task-row instructions completed'>
-										    	<td class="noLine"></td><td class='grid_cell_boolean'></td>
-													<td class='grid_cell_string'>
-														<span class='task-row-text-input'>
-															Add a Chore by pressing Enter.
-														</span>
-													</td>
-													<td class='grid_cell_assignee'></td>
-													<td class='grid-cell grid_cell_show_details noLine'></td>
-											  </tr>									
+												<tbody class="choreList">							    
+													<tr class='task-row input postBeforeThis'>
+											    	<td></td>
+														<td class='grid_cell_boolean'>
+															<i class='material-icons right'>keyboard_arrow_right</i>
+														</td>
+														<td class='grid_cell_string'>
+															<span class='task-row-text-input'>
+																<textarea id='addChore' class="task-row-text-input" placeholder='Add a Chore' autocomplete="off" autofocus></textarea>
+															</span>
+														</td>
+														<td class='grid_cell_assignee'> 
+														</td>
+														<td class='grid-cell grid_cell_show_details'></td>
+												  </tr>	
+												  <tr class='task-row instructions completed'>
+											    	<td class="noLine"></td><td class='grid_cell_boolean'></td>
+														<td class='grid_cell_string'>
+															<span class='task-row-text-input'>
+																Press Enter to Add your Chore to the list.
+															</span>
+														</td>
+														<td class='grid_cell_assignee'></td>
+														<td class='grid-cell grid_cell_show_details noLine'></td>
+												  </tr>	
+											  </tbody>									
 											</table>
 										</div>
 									</div>

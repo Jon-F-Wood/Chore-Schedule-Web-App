@@ -17,27 +17,50 @@
 								<div class="topbar-wrapper">
 									<i id="menuIcon" class="material-icons topbar-link" >menu</i>
 										<nav id="leftMenu" class="c-menu c-menu--left"> 
-											<div id="profileInfo">
-												<img id="profilePic" src="" />
-												<span class="accountEmail"></span>
+											<div class="widget-settings-content">  
+												<div class="widget-settings-header"> 
+													<ul>      
+														<li class="profilePicture widget-settings-list-item"> 															
+															<img id="profilePic" src="file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/pictures/github-mark.png" class="profilePic">
+														</li> 
+														<li class="accountEmail"> 	
+														</li> 
+													</ul> 
+												</div>   
+												<ul  class="widget-settings-list">   
+													<li class="widget-settings-list-item first disChoreBtn"> 
+														<button  class="sidemenu widget-settings-button"> Today's Chores </button> 
+													</li> 
+													<li class="widget-settings-list-item addChoreBtn"> 
+														<button  class="sidemenu widget-settings-button"> Add Chores </button> 
+													</li> 
+												</ul> 
+												<ul class="widget-settings-list"> 
+													<li class="widget-settings-list-title">
+														<span>Reports & Records</span>
+													</li>
+													<li class="widget-settings-list-item first disHistBtn"> 
+														<button class="sidemenu widget-settings-button"> History </button> 
+													</li> 
+													<li class="widget-settings-list-item"> 
+														<span>Statistics</span> 
+													</li> 
+												</ul>  
+												<ul class="widget-settings-list">
+													<li class="widget-settings-list-title">
+														<span>About</span>
+													</li>
+													<li class="widget-settings-list-item first">
+														<span>Profile Settings</span>
+													</li>	
+													<li class="widget-settings-list-item">
+														<span>Help & FAQ</span>
+													</li>	
+													<li class="widget-settings-list-item">
+														<span>About US</span>
+													</li>	
+												</ul>
 											</div>
-											<div id="mainPageNav">
-												<span>Today's Chores</span>
-												<span>Overdue Chores</span>
-												<span>Finished Chores</span>
-											</div>	
-											<div id="Reports">
-												<h2>Reports</h2>
-												<span>History</span>
-												<span>Statistics</span>
-												<span>Dismissed Chores</span>
-											</div>	
-											<div id="About">
-												<h2>About</h2>
-												<span>Profile Settings</span>
-												<span>Help & FAQ</span>
-												<span>Dismissed Chores</span>
-											</div>			
 										</nav>
 										<div id="mask" class="c-mask"></div>
 									<a class="backToChores topbar-link">My Chores</a>
@@ -60,10 +83,10 @@
 							<div class="page-paneGutter"></div>
 							<div id="center_pane_container" class="known-list">
 								<div id="center_pane">
+									<div class="body-title historyTitle">
+										<h2>History: Completed Chores</h2>
+									</div>
 									<div id="center_pane__contents">
-										<div class="body-title">
-											<h2>History: Completed Chores</h2>
-										</div>
 										<div class="grid-uncompact">
 											<table id="grid">
 												<colgroup>

@@ -8,14 +8,15 @@ console.log("To Dos: \n"
 			+ "- Make 'Remember Me' on login page Work \n"
 			+ "- Change validation from alerts to error messages in DOM \n"
 			+ "- Make Confirm Password on Register Page \n"
-			+ "- Fix bug so i can go back in browser (probably connected to page reload) \n");
+			+ "- Fix bug so i can go back in browser (probably connected to page reload) \n"
+			+ "- Make it so if URL = button being click it just displays the screen \n");
 $( document ).ready(function() {	
 //Text input Validation
     var validations = {
 	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 
 	    'Your email address is invalid.  Please enter a valid Email.'],
 		password: [/.{8,}/, 'Password must be 8 or more characters.'],
-		addChoresTextField: [/^([a-z\d\-_\s]{3,})+$/i, 'Your chore name can only be Letters and Numbers']
+		addChoresTextField: [/^([a-z\d\-_\s]{3,})+$/i, 'Your chore name can only be Letters and Numbers and must be 3 or more characters long.']
 	};   
 
 //Login_Register.html
@@ -156,9 +157,19 @@ $( document ).ready(function() {
 			    if (valid == false) {
 			    	alert(validations['addChoresTextField'][1]);
 			    } else {		    				    
-				    var choreItem = $("<div class='choreLI'><span class='toDo'>" + chores  
-				    	+ "</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " 
-				    	+ "<input type='button' value='delete' class='delete' /></div>");			    
+				    var choreItem = 
+				    	$("<tr class='task-row'><td></td>" +
+							"<td class='grid_cell_boolean'  >" +
+								"<i class='material-icons right'>keyboard_arrow_right</i>" +
+							"</td>" +
+							"<td class='grid_cell_string'>" +
+								"<span class='task-row-text-input toDo'>" + chores + "</span>" +
+							"</td>" +
+							"<td class='grid_cell_assignee'>" + 
+								"<input type='button' value='delete' class='delete' />" +
+							"</td>" +
+							"<td class='grid-cell grid_cell_show_details'></td>" +
+						  "</tr>");			    
 			    	//Store toDo in a Comma Separated Value (CSV) format in local Storage
 				    if (setItems === null || setItems == "")	{
 				    	setItems = chores;
@@ -320,7 +331,10 @@ $( document ).ready(function() {
 		$(".addMoreChores").on("click", function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
 		});
-
+ 
+ 		$(".addChoreBtn").on("click", function() {
+			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
+		});
 		$(".addMoreChores").hover(
 		    function() {
 		      $(".addChoresTitle").removeClass('hide');
@@ -334,6 +348,9 @@ $( document ).ready(function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
 		});
 
+		$(".disHistBtn").on("click", function() {
+			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
+		});
 	//Display History			
 		if (localStorage.getItem("history").charAt(0) === ",") {
 			var correctHistRecord = localStorage.getItem("history").slice(1);
@@ -387,11 +404,22 @@ $( document ).ready(function() {
 					"<td class='grid-cell grid_cell_show_details'></td>" +
 				"</tr>");
 	    }
-
+	    if (window.matchMedia('(max-width: 402px)').matches){
+			$(".page-body").addClass("historyMobile");
+			$(".historyTitle").empty();
+			$(".historyTitle").append("<h2>History:</h2>");
+		} else {	
+			$(".page-body").removeClass("historyMobile");
+			$(".historyTitle").empty();
+			$(".historyTitle").append("<h2>History: Completed Chores</h2>")				
+		}
 	    $(".backToChores").on("click", function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
 		});
-	
+		
+		$(".disChoreBtn").on("click", function() {
+			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+		});
 	}//end to login if
 
 	

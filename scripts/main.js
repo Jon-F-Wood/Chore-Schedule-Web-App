@@ -38,10 +38,11 @@ $( document ).ready(function() {
 	var toggleForms = function(){
 		$("#login").toggleClass("hide");
 		$("#register").toggleClass("hide");
-	};
-	
+	};	
 	window.onbeforeunload = function (e) {
-	  localStorage.setItem("loggedIn", "false");
+		if (localStorage.getItem("loggedIn") == "true") {
+			localStorage.setItem("loggedIn", "false");
+		}
 	};
 	if (localStorage.getItem("email") === null){
 		toggleForms();

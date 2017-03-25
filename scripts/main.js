@@ -97,7 +97,8 @@ $( document ).ready(function() {
 	    	localStorage.clear();
 	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
 		    localStorage.setItem("password", $("#registerPassword").val());	
-		    location.reload();
+		    localStorage.setItem("loggedIn", "true");
+			window.location.replace("http://www.chore-schedule.com/displayChores.html");
 		} else {
 			if (whichFail == "email") {
 				alert(validations['email'][1]);

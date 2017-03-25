@@ -18,7 +18,7 @@ $( document ).ready(function() {
 		addChoresTextField: [/^([a-z\d\-_\s]{3,})+$/i, 'Your chore name can only be Letters and Numbers and must be 3 or more characters long.']
 	};   
 
-//Login_Register.html
+//Index.html Login Page
 	//Initialise sideNav
 	var mask = $("#mask");
 	var menu = $("#leftMenu");
@@ -52,7 +52,7 @@ $( document ).ready(function() {
 
 	//Loggout button
 	$(".loggout").on("click", function(){
-		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/login_register.html");
+		window.location.replace("http://www.chore-schedule.com/index.html");
 		localStorage.setItem("loggedIn", "false");
 	});
 
@@ -135,7 +135,7 @@ $( document ).ready(function() {
     	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
 			localStorage.getItem("password") == $("#loginPassword").val()) {
 			localStorage.setItem("loggedIn", "true");
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			window.location.replace("http://www.chore-schedule.com/displayChores.html");
 			return false;
 		} else {
 			localStorage.setItem("loggedIn", "false");
@@ -146,10 +146,10 @@ $( document ).ready(function() {
 	});
 
 //When Logged In
-	if (window.location == "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html") {
+	if (window.location == "http://www.chore-schedule.com/displayChores.html") {
 		$(".goToHistory").addClass("dim");
 		$(".backToChores").removeClass("dim");
-	} else if (window.location == "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html"){
+	} else if (window.location == "http://www.chore-schedule.com/displayHistory.html"){
 		$(".backToChores").addClass("dim");
 		$(".goToHistory").removeClass("dim");
 	} else {
@@ -158,8 +158,8 @@ $( document ).ready(function() {
 	}
 	//Make Sure user is Logged in
 	var currentUrl = $(location).attr('href');	
-    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/login_register.html") {
-    	window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/login_register.html");
+    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
+    	window.location.replace("http://www.chore-schedule.com/index.html");
 	} else {
 
 	//addChores.html		
@@ -241,7 +241,7 @@ $( document ).ready(function() {
 		});	
 
 		$(".done").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			window.location.replace("http://www.chore-schedule.com/displayChores.html");
 		});
 
 	//DisplayChores.html
@@ -380,11 +380,11 @@ $( document ).ready(function() {
 		});
 		
 		$(".addMoreChores").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
+			window.location.replace("http://www.chore-schedule.com/addChores.html");
 		});
  
  		$(".addChoreBtn").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
+			window.location.replace("http://www.chore-schedule.com/addChores.html");
 		});
 		$(".addMoreChores").hover(
 		    function() {
@@ -396,11 +396,11 @@ $( document ).ready(function() {
 		);
 
 		$(".goToHistory").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
+			window.location.replace("http://www.chore-schedule.com/displayHistory.html");
 		});
 
 		$(".disHistBtn").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
+			window.location.replace("http://www.chore-schedule.com/displayHistory.html");
 		});
 
 	//Display History	
@@ -476,11 +476,11 @@ $( document ).ready(function() {
 			$(".historyTitle").append("<h2>History: Completed Chores</h2>")				
 		}
 	    $(".backToChores").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			window.location.replace("http://www.chore-schedule.com/displayChores.html");
 		});
 		
 		$(".disChoreBtn").on("click", function() {
-			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			window.location.replace("http://www.chore-schedule.com/displayChores.html");
 		});
 	}//end to login if
 

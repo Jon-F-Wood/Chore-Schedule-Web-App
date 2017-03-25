@@ -39,11 +39,13 @@ $( document ).ready(function() {
 		$("#login").toggleClass("hide");
 		$("#register").toggleClass("hide");
 	};	
-	window.onbeforeunload = function (e) {
-		if (localStorage.getItem("loggedIn") == "true") {
-			localStorage.setItem("loggedIn", "false");
-		}
-	};
+	window.onload = function() { alert('window.onload alert'); };
+ 	window.onunload = function(){};
+	//window.onbeforeunload = function (e) {
+	//	if (localStorage.getItem("loggedIn") == "true") {
+	//		localStorage.setItem("loggedIn", "false");
+	//	}
+	//};
 	if (localStorage.getItem("email") === null){
 		toggleForms();
 	} 

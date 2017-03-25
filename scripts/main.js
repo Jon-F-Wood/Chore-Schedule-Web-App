@@ -39,8 +39,12 @@ $( document ).ready(function() {
 		$("#login").toggleClass("hide");
 		$("#register").toggleClass("hide");
 	};	
-	window.onload = function() { alert('window.onload alert'); };
- 	window.onunload = function(){};
+	window.onload = function() { 
+		alert('window.onload alert'); 
+	};
+ 	window.onunload = function(){
+ 		history.pushState(null, "testing title", window.location);
+ 	};
 	//window.onbeforeunload = function (e) {
 	//	if (localStorage.getItem("loggedIn") == "true") {
 	//		localStorage.setItem("loggedIn", "false");

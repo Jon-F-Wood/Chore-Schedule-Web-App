@@ -19,6 +19,10 @@ $( document ).ready(function() {
 	};   
 
 //Index.html Login Page
+	var goTo = function (fileName){
+		var internalNavigation = true;
+		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");		
+	};
 	//Initialise sideNav
 	var mask = $("#mask");
 	var menu = $("#leftMenu");
@@ -40,13 +44,16 @@ $( document ).ready(function() {
 		$("#register").toggleClass("hide");
 	};	
 	window.onload = function() { 
-		alert('window.onload alert'); 
+		alert(internalNavigation); 
+		internalNavigation = false;
 	};
  	window.onunload = function(){
+ 		alert(internalNavigation);
  		history.pushState(null, "testing title", window.location);
  	};
 	window.onbeforeunload = function (e) {
-		if (localStorage.getItem("loggedIn") == "true") {
+		alert(internalNavigation);
+		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
@@ -62,7 +69,7 @@ $( document ).ready(function() {
 
 	//Loggout button
 	$(".loggout").on("click", function(){
-		window.location.replace("http://www.chore-schedule.com/index.html");
+		goTo(index);
 		localStorage.setItem("loggedIn", "false");
 	});
 
@@ -108,7 +115,7 @@ $( document ).ready(function() {
 	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
 		    localStorage.setItem("password", $("#registerPassword").val());	
 		    localStorage.setItem("loggedIn", "true");
-			window.location.replace("http://www.chore-schedule.com/displayChores.html");
+			goTo(displayChores);
 		} else {
 			if (whichFail == "email") {
 				alert(validations['email'][1]);
@@ -146,7 +153,7 @@ $( document ).ready(function() {
     	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
 			localStorage.getItem("password") == $("#loginPassword").val()) {
 			localStorage.setItem("loggedIn", "true");
-			window.location.replace("http://www.chore-schedule.com/displayChores.html");
+			goTo(displayChores);
 			return false;
 		} else {
 			localStorage.setItem("loggedIn", "false");
@@ -170,7 +177,7 @@ $( document ).ready(function() {
 	//Make Sure user is Logged in
 //	var currentUrl = $(location).attr('href');	
 //    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
-//    	window.location.replace("http://www.chore-schedule.com/index.html");
+//    	goTo(index);
 //	} else {
 
 	//addChores.html		
@@ -252,7 +259,7 @@ $( document ).ready(function() {
 		});	
 
 		$(".done").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/displayChores.html");
+			goTo(displayChores);
 		});
 
 	//DisplayChores.html
@@ -391,11 +398,11 @@ $( document ).ready(function() {
 		});
 		
 		$(".addMoreChores").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/addChores.html");
+			goTo(addChores);
 		});
  
  		$(".addChoreBtn").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/addChores.html");
+			goTo(addChores);
 		});
 		$(".addMoreChores").hover(
 		    function() {
@@ -407,11 +414,11 @@ $( document ).ready(function() {
 		);
 
 		$(".goToHistory").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/displayHistory.html");
+			goTo(displayHistory);
 		});
 
 		$(".disHistBtn").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/displayHistory.html");
+			goTo(displayHistory);
 		});
 
 	//Display History	
@@ -487,11 +494,11 @@ $( document ).ready(function() {
 			$(".historyTitle").append("<h2>History: Completed Chores</h2>")				
 		}
 	    $(".backToChores").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/displayChores.html");
+			goTo(displayChores);
 		});
 		
 		$(".disChoreBtn").on("click", function() {
-			window.location.replace("http://www.chore-schedule.com/displayChores.html");
+			goTo(displayChores);
 		});
 	//}//end to login if
 

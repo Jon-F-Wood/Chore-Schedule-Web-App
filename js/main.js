@@ -45,34 +45,47 @@ $( document ).ready(function() {
 		toggleForms();
 	} 
 
+	if (localStorage.getItem("rememberMe") == "true"){
+		$("#remember-me").attr("checked", true);
+		$("#loginEmail").val(localStorage.getItem("email"));
+		$("#loginPassword").val(localStorage.getItem("password"));
+	}
+
 	//Loggout button
 	$(".loggout").on("click", function(){
 		window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/login_register.html");
 		localStorage.setItem("loggedIn", "false");
 	});
 
-	/*$("#clear").on("click", function(){
-		localStorage.clear();
-	});	*/
 	$(".switch").on("click", function(){
 		toggleForms();
 	});
     $("#registerBtn").on("click", function(){
+	    var whichFail = "";
 	    var validationTest = function() {
 		    var validateEmail = new RegExp(validations['email'][0]);
 	        // validate the email value against the regular expression
 	        if (!validateEmail.test($("#registerEmail").val())){	            
+	            whichFail = "email";
 	            return false;
 	        } 	        
 	        var validatePassword = new RegExp(validations['password'][0]);
 	        // validate the password value against the regular expression
 	        if (!validatePassword.test($("#registerPassword").val())){
+	            whichFail = "password";
 	            return false;
 	        }
+	        if ($("#confirmPassword").val() !== $("#registerPassword").val()){
+	        	whichFail = "confirm";
+	        	return false;
+	        }
+
 	        if (validateEmail.test($("#registerEmail").val()) && 
-	        	validatePassword.test($("#registerPassword").val())){
+	        	validatePassword.test($("#registerPassword").val()) &&
+	        	$("#confirmPassword").val() == $("#registerPassword").val()){
 	            return true;
 	        }
+	        
 	    }
 	    var emailFailsValidation = function() {
 		    var validateEmail = new RegExp(validations['email'][0]);
@@ -81,31 +94,50 @@ $( document ).ready(function() {
 	            return true;
 	        } 	  
 	    }
-	    if (validationTest() == true) {
+	    if (validationTest() == true ) {
+	    	localStorage.clear();
 	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
 		    localStorage.setItem("password", $("#registerPassword").val());	
-		    toggleForms();
+		    location.reload();
 		} else {
-			if (emailFailsValidation() == true) {
+			if (whichFail == "email") {
 				alert(validations['email'][1]);
-				$('#registerEmail').focus();
-			} else {
+				$('#registerEmail').focus();				
+			} else if (whichFail == "password") {
 				alert(validations['password'][1]);
 				$('#registerPassword').focus();
+			} else if (whichFail == "confirm") {
+				alert("The passwords don't match. Please try again.");
+				$('#confirmPassword').focus();
+			} else {
+				alert("Unknown Error.  Please try again later.");
+				toggleForms();
 			}
 		}    
+		return false;
+    });
+    $(".remember-me").on("click", function() {
+    	if (localStorage.getItem("rememberMe") == "true")	{
+    		localStorage.setItem("rememberMe", "false");
+    	} else {
+    		localStorage.setItem("rememberMe", "true");
+    	}
+    });
+
+    $("#forgot-password-link").on("click", function(){
+    	if (localStorage.getItem("password") !== null && localStorage.getItem("password") !== ""){
+    		alert("Your password is: " + localStorage.getItem("password"));
+    	} else {
+    		alert("You need to register.");
+    	}
+    	return false;
     });
     $("#loginBtn").on("click", function(){
     	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
 			localStorage.getItem("password") == $("#loginPassword").val()) {
-			localStorage.setItem("loggedIn", "true");			
-			if (localStorage.getItem("choreList") === null || localStorage.getItem("choreList") == "" )	{
-				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/addChores.html");
-				return false;
-			} else {
-				window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
-				return false;
-			}
+			localStorage.setItem("loggedIn", "true");
+			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
+			return false;
 		} else {console.log("Out");
 			localStorage.setItem("loggedIn", "false");
 			alert("Email or password was incorrect.  Please try again.");			
@@ -198,11 +230,12 @@ $( document ).ready(function() {
 		
 		$(".choreList").on("click", ".delete", function() {
 			//delete div from the dom
-			$(this).parent().remove();		
+			$(this).parents(".task-row").remove();		
 			//make choreList into an array
 			var localChoreList = localStorage.getItem("choreList").split(",");
 			//get the text from Dom that I want to remove from choreList
-			var targetChore = $(this).parent().children(".toDo")[0].textContent;
+			var targetChore = $(this).parents(".task-row").children(".grid_cell_string").children(".toDo")[0].textContent;
+			console.log(targetChore);
 			//Remove the item from the array
 			localChoreList.splice(localChoreList.indexOf(targetChore),1);
 			//convert the array back into a string in the right format then put it back into choreList
@@ -214,10 +247,46 @@ $( document ).ready(function() {
 		});
 
 	//DisplayChores.html
-		var localChoreList = localStorage.getItem("choreList").split(",");			
+		if (localStorage.getItem("choreList") !== null) {
+			var localChoreList = localStorage.getItem("choreList").split(",");
+		}			
 		//Display all chores to the dom
-		if (setItems !== "") {	
-			for (var i = 0; localChoreList.length > i; i++) {
+		if (setItems === "" || setItems === null) {	
+			if (window.matchMedia('(max-width: 950px)').matches){
+				var choreToDo = $("<tr class='task-row completed'><td></td>" +
+									"<td class='grid_cell_boolean'>" +
+									"</td>" +
+									"<td class='grid_cell_string'>" +
+										"<span class='task-row-text-input'>You have no chores to Do!</span>" +
+									"</td>" +
+									"<td class='grid_cell_assignee'></td>" +
+									"<td class='grid-cell grid_cell_show_details'></td>" +
+								"</tr>");
+			} else {				
+				var choreToDo = $("<tr class='task-row completed'><td></td>" +
+									"<td class='grid_cell_boolean'>" +
+									"</td>" +
+									"<td class='grid_cell_string'>" +
+										"<span class='task-row-text-input'>You have no chores to Do! " +
+										"&nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + 
+										" &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;  &nbsp; &nbsp;" + 
+										"&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; " + 
+										"&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; " + 
+										"&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" +
+										" Click the Add Chores Button below. " + 
+										"<span class='downArrow'>\u2B07</span>" +
+										"</span>" +
+									"</td>" +
+								"</tr>");
+			}	
+			//Append list and clear text field
+		    $(".display-chores-table").append(choreToDo);
+		} else {
+		    var choresNum = 0;
+			if (localChoreList !== undefined) {
+				choresNum = localChoreList.length;
+			}
+			for (var i = 0; choresNum > i; i++) {
 				var choreName = localChoreList[i];
 				var choreToDo = $("<tr class='task-row'><td></td>" +
 										"<td class='grid_cell_boolean'>" +
@@ -240,18 +309,6 @@ $( document ).ready(function() {
 				//Append list and clear text field
 			    $(".display-chores-table").append(choreToDo);
 			}
-		} else {
-			var choreToDo = $("<tr class='task-row completed'><td></td>" +
-								"<td class='grid_cell_boolean'>" +
-								"</td>" +
-								"<td class='grid_cell_string'>" +
-									"<span class='task-row-text-input'>You have no chores left!</span>" +
-								"</td>" +
-								"<td class='grid_cell_assignee'></td>" +
-								"<td class='grid-cell grid_cell_show_details'></td>" +
-							"</tr>");
-			//Append list and clear text field
-		    $(".display-chores-table").append(choreToDo);
 	    }
 
 	    var sendEmails = localStorage.getItem("sendEmails");	    
@@ -322,18 +379,6 @@ $( document ).ready(function() {
 			localChoreList.splice(localChoreList.indexOf(targetChore),1);
 			//convert the array back into a string in the right format then put it back into choreList
 			localStorage.setItem("choreList", JSON.stringify(localChoreList).replace(/[\[\]"]+/g, ''));
-
-			//Send Email Update
-			if (sendEmails == "true") { 
-	    		$.ajax({
-				    url: "https:  //formspree.io/woodj14123@gmail.com", 
-				    method: "POST",
-				    data: $(this).serialize(),
-				    dataType: "json"
-				});
-	    	} 
-
-
 		});
 		
 		$(".addMoreChores").on("click", function() {
@@ -359,21 +404,41 @@ $( document ).ready(function() {
 		$(".disHistBtn").on("click", function() {
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayHistory.html");
 		});
-	//Display History			
-		if (localStorage.getItem("history").charAt(0) === ",") {
+
+	//Display History	
+		if (localStorage.getItem("history") !== null) {
+			var firstChar = localStorage.getItem("history").charAt(0);
+		} 		
+		if (firstChar === ",") {
 			var correctHistRecord = localStorage.getItem("history").slice(1);
 			localStorage.setItem("history", correctHistRecord);
 		}
 		var histRecord = localStorage.getItem("history");
 
-		if (histRecord !== "" || histRecord !== null) {		
-			//make history into two dimentional array
+		if (histRecord === "" || histRecord === null) {	
+	    	var choreHistory = 
+				$("<tr class='task-row completed'><td></td>" +
+					"<td class='grid_cell_boolean'>" +
+					"</td>" +
+					"<td class='grid_cell_string'>" +
+						"<span class='task-row-text-input'>You have yet to complete a chore.</span>" +
+					"</td>" +
+					"<td class='grid_cell_assignee'></td>" +
+					"<td class='grid-cell grid_cell_show_details'></td>" +
+				"</tr>");
+			$(".choreListHistory").append(choreHistory);
+	    } else {	    	
+	    	//make history into two dimentional array
 			var histRecordList = [];
-			var histRecordConverter = histRecord.split(",");
-			for (var i = 0; (histRecordConverter.length+i-1) > i; i++) {
+			if (histRecord !== null){
+				var histRecordConverter = histRecord.split(",");
+				var histRecLength = histRecordConverter.length;
+			}	
+
+			for (var i = 0; (histRecLength+i-1) > i; i++) {
 				histRecordList.push(histRecordConverter.splice(0,3));
 			}	
-			for (var i = histRecordList.length-1; 0 < i; i--) {
+			for (var i = 0; histRecordList.length > i; i++) {
 				var choreName = histRecordList[i][0]; 
 				var choreTime = histRecordList[i][1];
 				var choreDate = histRecordList[i][2];
@@ -399,18 +464,7 @@ $( document ).ready(function() {
 					  "</tr>");
 				//Append list and clear text field
 			    $(".choreListHistory").append(choreHistory);
-			}
-	    } else {
-	    	var choreToDo = 
-				$("<tr class='task-row completed'><td></td>" +
-					"<td class='grid_cell_boolean'>" +
-					"</td>" +
-					"<td class='grid_cell_string'>" +
-						"<span class='task-row-text-input'>You have yet to complete a single chore.</span>" +
-					"</td>" +
-					"<td class='grid_cell_assignee'></td>" +
-					"<td class='grid-cell grid_cell_show_details'></td>" +
-				"</tr>");
+			}	    		
 	    }
 	    if (window.matchMedia('(max-width: 402px)').matches){
 			$(".page-body").addClass("historyMobile");

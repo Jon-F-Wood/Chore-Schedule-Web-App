@@ -749,7 +749,12 @@ a:-webkit-any-link {
               color: #454545;   
               text-align: center;
             }
-
+          .downArrow {
+            display: inline-block; 
+            font-size:20px; 
+            color: black; 
+            transform:scale(2,1.4);'
+          }
           /*Body Contents*/
           .grid-uncompact {
             margin-bottom: 30px;
@@ -1216,7 +1221,7 @@ a:-webkit-any-link {
               .grid-uncompact .task-row .grid_cell_assignee, 
               .grid-uncompact .grid_pseudorow_no_prioritized .grid_cell_assignee {
                 cursor: default;
-                width: 130px;
+                width: 105px;
                 text-align: center;
               }
               .grid-uncompact .task-row .grid-cell, .grid-uncompact .grid_pseudorow_no_prioritized .grid-cell {

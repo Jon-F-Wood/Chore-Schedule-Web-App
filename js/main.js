@@ -7,7 +7,7 @@ To Dos:
 	Make display chores draggable
 	Change validation from alerts to error messages in DOM 
 	Fix bug so i can go back in browser (probably connected to page reload)
-	Make it so if URL = button being click it just displays the screen 
+	Make it so if URL = button being click it just displays the screen                  
 */			
 $( document ).ready(function() {	
 //Text input Validation
@@ -433,10 +433,12 @@ $( document ).ready(function() {
 				var histRecLength = histRecordConverter.length;
 			}	
 
-			for (var i = 0; (histRecLength+i-1) > i; i++) {
+				
+			for (var i = 0; (histRecLength/3) > i; i++) {
 				histRecordList.push(histRecordConverter.splice(0,3));
 			}	
-			for (var i = 0; histRecordList.length > i; i++) {
+			var none = 0;
+			for (var i = histRecordList.length-1; 0 <= i; i--) {
 				var choreName = histRecordList[i][0]; 
 				var choreTime = histRecordList[i][1];
 				var choreDate = histRecordList[i][2];

@@ -1,15 +1,14 @@
-console.log("To Dos: \n"
-			+ "- Make into Single HTML page with append() and empty() \n" 
-			+ "- Make file locations stored in variables\n"
-			+ "- Make it possible to have multiple user \n"
-			+ "- Refactor Code \n"
-			+ "- Make display chores draggable \n"
-			+ "- Fix Bug with login=true and on register(when page is exited make login = false?) \n"
-			+ "- Make 'Remember Me' on login page Work \n"
-			+ "- Change validation from alerts to error messages in DOM \n"
-			+ "- Make Confirm Password on Register Page \n"
-			+ "- Fix bug so i can go back in browser (probably connected to page reload) \n"
-			+ "- Make it so if URL = button being click it just displays the screen \n");
+/*
+To Dos: 
+	Make into Single HTML page with append() and empty() 
+	Make file locations stored in variables
+	Make it possible to have multiple user 
+	Refactor Code
+	Make display chores draggable
+	Change validation from alerts to error messages in DOM 
+	Fix bug so i can go back in browser (probably connected to page reload)
+	Make it so if URL = button being click it just displays the screen 
+*/			
 $( document ).ready(function() {	
 //Text input Validation
     var validations = {
@@ -138,7 +137,7 @@ $( document ).ready(function() {
 			localStorage.setItem("loggedIn", "true");
 			window.location.replace("file:///C:/Users/woodj/Desktop/Chore-Schedule-Web-App/html/displayChores.html");
 			return false;
-		} else {console.log("Out");
+		} else {
 			localStorage.setItem("loggedIn", "false");
 			alert("Email or password was incorrect.  Please try again.");			
 			$('#loginPassword').val("");
@@ -235,7 +234,6 @@ $( document ).ready(function() {
 			var localChoreList = localStorage.getItem("choreList").split(",");
 			//get the text from Dom that I want to remove from choreList
 			var targetChore = $(this).parents(".task-row").children(".grid_cell_string").children(".toDo")[0].textContent;
-			console.log(targetChore);
 			//Remove the item from the array
 			localChoreList.splice(localChoreList.indexOf(targetChore),1);
 			//convert the array back into a string in the right format then put it back into choreList

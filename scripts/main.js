@@ -42,15 +42,6 @@ $( document ).ready(function() {
 	
 	window.onbeforeunload = function (e) {
 	  localStorage.setItem("loggedIn", "false");
-	  var message = "Your confirmation message goes here.",
-	  e = e || window.event;
-	  // For IE and Firefox
-	  if (e) {
-	    e.returnValue = message;
-	  }
-
-	  // For Safari
-	  return message;
 	};
 	if (localStorage.getItem("email") === null){
 		toggleForms();

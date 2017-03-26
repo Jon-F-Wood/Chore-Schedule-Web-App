@@ -19,28 +19,24 @@ $( document ).ready(function() {
 	};   
 
 //Index.html Login Page
-	var internalNavigation, backButtonHit;
+	var internalNavigation;
 	var goTo = function (fileName){
 		internalNavigation = true;
 		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
 	};
 	window.onload = function() {  
 		internalNavigation = false;
-		backButtonHit == false;
-		console.log(backButtonHit);
 	};
-	console.log(backButtonHit);
 	if (window.history && window.history.pushState) {
 	    window.history.pushState('', null, './');
 
 	    $(window).on('popstate', function() {
-	    	backButtonHit = true;
+	    	alert("Error: the back button will log you out.")
 	    });
 	}
-	console.log(backButtonHit);
 	window.onbeforeunload = function (e) {
 		history.pushState(null, "testing title", window.location);
-		if (internalNavigation !== true && backButtonHit !== true) {
+		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
@@ -184,10 +180,10 @@ $( document ).ready(function() {
 		$(".goToHistory").addClass("dim");
 	}
 	//Make Sure user is Logged in
-//	var currentUrl = $(location).attr('href');	
-//    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
-//    	goTo("index");
-//	} else {
+	var currentUrl = $(location).attr('href');	
+    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
+    	goTo("index");
+	} else {
 
 	//addChores.html		
 		var chores;
@@ -509,7 +505,7 @@ $( document ).ready(function() {
 		$(".disChoreBtn").on("click", function() {
 			goTo("displayChores");
 		});
-	//}//end to login if
+	}//end to login if
 
 	
 });

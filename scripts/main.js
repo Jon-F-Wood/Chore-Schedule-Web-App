@@ -40,7 +40,7 @@ $( document ).ready(function() {
 	console.log(backButtonHit);
 	window.onbeforeunload = function (e) {
 		history.pushState(null, "testing title", window.location);
-		if (internalNavigation == false && backButtonHit == false) {
+		if (internalNavigation !== true && backButtonHit !== true) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};

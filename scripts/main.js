@@ -19,25 +19,33 @@ $( document ).ready(function() {
 	};   
 
 //Index.html Login Page
-	var internalNavigation;
+	var internalNavigation, backButtonHit;
 	var goTo = function (fileName){
 		internalNavigation = true;
 		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
 	};
 	window.onload = function() {  
 		internalNavigation = false;
+		backButtonHit == false;
 	};
+	if (window.history && window.history.pushState) {
+	    window.history.pushState('', null, './');
+
+	    $(window).on('popstate', function() {
+	    	backButtonHit = true;
+	    });
+	}
  	window.onunload = function(){
  		history.pushState(null, "testing title", window.location);
- 		$(window).on('popstate', function() {
-	      alert('Back button was pressed.');
-	    });
+ 		localStorage.setItem("#", "1");
  	};
 	window.onbeforeunload = function (e) {
-		if (internalNavigation == false) {
+		localStorage.setItem("#", "2");
+		if (internalNavigation == false && backButtonHit == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
+	
 	//Initialise sideNav
 	var mask = $("#mask");
 	var menu = $("#leftMenu");

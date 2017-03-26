@@ -22,9 +22,7 @@ $( document ).ready(function() {
 	var internalNavigation;
 	var goTo = function (fileName){
 		internalNavigation = true;
-		var loc = "http://www.chore-schedule.com/" + fileName + ".html";
-		window.location.replace(loc);	
-		return true;	
+		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
 	};
 	window.onload = function() { 
 		alert(internalNavigation); 
@@ -74,7 +72,7 @@ $( document ).ready(function() {
 
 	//Loggout button
 	$(".loggout").on("click", function(){
-		goTo(index);
+		goTo("index");
 		localStorage.setItem("loggedIn", "false");
 	});
 
@@ -120,7 +118,7 @@ $( document ).ready(function() {
 	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
 		    localStorage.setItem("password", $("#registerPassword").val());	
 		    localStorage.setItem("loggedIn", "true");
-			goTo(displayChores);
+			goTo("displayChores");
 		} else {
 			if (whichFail == "email") {
 				alert(validations['email'][1]);
@@ -158,7 +156,7 @@ $( document ).ready(function() {
     	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
 			localStorage.getItem("password") == $("#loginPassword").val()) {
 			localStorage.setItem("loggedIn", "true");
-			goTo(displayChores);
+			goTo("displayChores");
 			return false;
 		} else {
 			localStorage.setItem("loggedIn", "false");
@@ -182,7 +180,7 @@ $( document ).ready(function() {
 	//Make Sure user is Logged in
 //	var currentUrl = $(location).attr('href');	
 //    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
-//    	goTo(index);
+//    	goTo("index");
 //	} else {
 
 	//addChores.html		
@@ -264,7 +262,7 @@ $( document ).ready(function() {
 		});	
 
 		$(".done").on("click", function() {
-			goTo(displayChores);
+			goTo("displayChores");
 		});
 
 	//DisplayChores.html
@@ -403,11 +401,11 @@ $( document ).ready(function() {
 		});
 		
 		$(".addMoreChores").on("click", function() {
-			goTo(addChores);
+			goTo("addChores");
 		});
  
  		$(".addChoreBtn").on("click", function() {
-			goTo(addChores);
+			goTo("addChores");
 		});
 		$(".addMoreChores").hover(
 		    function() {
@@ -419,11 +417,11 @@ $( document ).ready(function() {
 		);
 
 		$(".goToHistory").on("click", function() {
-			goTo(displayHistory);
+			goTo("displayHistory");
 		});
 
 		$(".disHistBtn").on("click", function() {
-			goTo(displayHistory);
+			goTo("displayHistory");
 		});
 
 	//Display History	
@@ -499,11 +497,11 @@ $( document ).ready(function() {
 			$(".historyTitle").append("<h2>History: Completed Chores</h2>")				
 		}
 	    $(".backToChores").on("click", function() {
-			goTo(displayChores);
+			goTo("displayChores");
 		});
 		
 		$(".disChoreBtn").on("click", function() {
-			goTo(displayChores);
+			goTo("displayChores");
 		});
 	//}//end to login if
 

@@ -24,16 +24,13 @@ $( document ).ready(function() {
 		internalNavigation = true;
 		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
 	};
-	window.onload = function() { 
-		alert(internalNavigation); 
+	window.onload = function() {  
 		internalNavigation = false;
 	};
  	window.onunload = function(){
- 		alert(internalNavigation);
  		history.pushState(null, "testing title", window.location);
  	};
 	window.onbeforeunload = function (e) {
-		alert(internalNavigation);
 		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}

@@ -35,12 +35,8 @@ $( document ).ready(function() {
 	    	backButtonHit = true;
 	    });
 	}
- 	window.onunload = function(){
- 		history.pushState(null, "testing title", window.location);
- 		localStorage.setItem("#", "1");
- 	};
 	window.onbeforeunload = function (e) {
-		localStorage.setItem("#", "2");
+		history.pushState(null, "testing title", window.location);
 		if (internalNavigation == false && backButtonHit == false) {
 			localStorage.setItem("loggedIn", "false");
 		}

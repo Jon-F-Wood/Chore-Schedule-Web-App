@@ -182,7 +182,7 @@ $( document ).ready(function() {
 	}
 	//Make Sure user is Logged in
 	var currentUrl = $(location).attr('href');	
-    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com/") {
+    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com") {
     	goTo("index");
 	} else {
 

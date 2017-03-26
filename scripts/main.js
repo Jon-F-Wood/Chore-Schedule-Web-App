@@ -35,8 +35,15 @@ $( document ).ready(function() {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
+	var loaded = false;
 	window.onpopstate = function(event) {
-		alert("back");
+	    if (!loaded) {
+	        loaded = true;
+	        return;
+	    } else {
+	        alert("back");
+	    }
+		
 	};
 	
 	//Initialise sideNav

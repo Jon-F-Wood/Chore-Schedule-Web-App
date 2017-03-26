@@ -498,6 +498,10 @@ $( document ).ready(function() {
 		$(".disChoreBtn").on("click", function() {
 			goTo("displayChores");
 		});
+		
+		$(".github-link").on("click", function() {
+			window.location.replace("https://github.com/Jon-F-Wood/Chore-Schedule-Web-App");	
+		});
 	}//end to login if
 
 	

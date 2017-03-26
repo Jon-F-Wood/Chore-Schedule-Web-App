@@ -29,20 +29,15 @@ $( document ).ready(function() {
 	};
  	window.onunload = function(){
  		history.pushState(null, "testing title", window.location);
+ 		$(window).on('popstate', function() {
+	      alert('Back button was pressed.');
+	    });
  	};
 	window.onbeforeunload = function (e) {
 		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
-	if (window.history && window.history.pushState) {
-        window.history.pushState('', null, './');
-        $(window).on('popstate', function() {
-            alert('Back button was pressed.');
-            document.location.href = '#';
-
-        });
-    }
 	//Initialise sideNav
 	var mask = $("#mask");
 	var menu = $("#leftMenu");

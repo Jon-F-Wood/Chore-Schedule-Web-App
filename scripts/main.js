@@ -182,9 +182,9 @@ $( document ).ready(function() {
 	}
 	//Make Sure user is Logged in
 	var currentUrl = $(location).attr('href');	
-    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com") {
-    	goTo("index");
-	} else {
+//    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com/") {
+//    	goTo("index");
+//	} else {
 
 	//addChores.html		
 		var chores;
@@ -506,7 +506,7 @@ $( document ).ready(function() {
 		$(".disChoreBtn").on("click", function() {
 			goTo("displayChores");
 		});
-	}//end to login if
+	//}//end to login if
 
 	
 });

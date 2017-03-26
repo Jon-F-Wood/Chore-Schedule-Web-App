@@ -27,7 +27,9 @@ $( document ).ready(function() {
 	window.onload = function() {  
 		internalNavigation = false;
 		backButtonHit == false;
+		console.log(backButtonHit);
 	};
+	console.log(backButtonHit);
 	if (window.history && window.history.pushState) {
 	    window.history.pushState('', null, './');
 
@@ -35,6 +37,7 @@ $( document ).ready(function() {
 	    	backButtonHit = true;
 	    });
 	}
+	console.log(backButtonHit);
 	window.onbeforeunload = function (e) {
 		history.pushState(null, "testing title", window.location);
 		if (internalNavigation == false && backButtonHit == false) {

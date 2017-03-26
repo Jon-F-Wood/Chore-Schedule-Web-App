@@ -7,8 +7,7 @@ To Dos:
 	Change validation from alerts to error messages in DOM 
 	Fix bug so i can go back in browser (probably connected to page reload)
 	Make it so if URL = button being click it just displays the screen  
-	Make back button not log person out 
-	add Favicon               
+	Make back button not log person out              
 */			
 $( document ).ready(function() {	
 //Text input Validation

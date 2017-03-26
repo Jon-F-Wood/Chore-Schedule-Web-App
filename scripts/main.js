@@ -31,19 +31,10 @@ $( document ).ready(function() {
  		history.pushState(null, "testing title", window.location);
  	};
 	window.onbeforeunload = function (e) {
+		localStorage.setItem("prevOrNextLoc?", window.location);
 		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
-	};
-	var loaded = false;
-	window.onpopstate = function(event) {
-	    if (!loaded) {
-	        loaded = true;
-	        return;
-	    } else {
-	        alert("back");
-	    }
-		
 	};
 	
 	//Initialise sideNav

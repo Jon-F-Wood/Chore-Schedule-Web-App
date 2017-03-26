@@ -30,10 +30,11 @@ $( document ).ready(function() {
 	};
 	if (window.history && window.history.pushState) {
 	    window.history.pushState('', null, './');
-
-	    $(window).on('popstate', function() {
-	    	alert("Error: the back button will log you out.")
-	    });
+	    if (currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com/") {
+		    $(window).on('popstate', function() {
+		    	alert("Error: the back button will log you out.")
+		    });
+		}
 	}
 	window.onbeforeunload = function (e) {
 		history.pushState(null, "testing title", window.location);

@@ -35,6 +35,9 @@ $( document ).ready(function() {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
+	window.onpopstate = function(event) {
+		alert("back");
+	};
 	
 	//Initialise sideNav
 	var mask = $("#mask");

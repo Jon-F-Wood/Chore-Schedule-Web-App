@@ -19,8 +19,23 @@ $( document ).ready(function() {
 	};   
 
 //Index.html Login Page
+	window.onload = function() { 
+		alert(internalNavigation); 
+		internalNavigation = false;
+	};
+ 	window.onunload = function(){
+ 		alert(internalNavigation);
+ 		history.pushState(null, "testing title", window.location);
+ 	};
+	window.onbeforeunload = function (e) {
+		alert(internalNavigation);
+		if (internalNavigation == false) {
+			localStorage.setItem("loggedIn", "false");
+		}
+	};
+	var internalNavigation;
 	var goTo = function (fileName){
-		var internalNavigation = true;
+		internalNavigation = true;
 		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");		
 	};
 	//Initialise sideNav
@@ -43,20 +58,7 @@ $( document ).ready(function() {
 		$("#login").toggleClass("hide");
 		$("#register").toggleClass("hide");
 	};	
-	window.onload = function() { 
-		alert(internalNavigation); 
-		internalNavigation = false;
-	};
- 	window.onunload = function(){
- 		alert(internalNavigation);
- 		history.pushState(null, "testing title", window.location);
- 	};
-	window.onbeforeunload = function (e) {
-		alert(internalNavigation);
-		if (internalNavigation == false) {
-			localStorage.setItem("loggedIn", "false");
-		}
-	};
+	
 	if (localStorage.getItem("email") === null){
 		toggleForms();
 	} 

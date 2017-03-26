@@ -22,7 +22,9 @@ $( document ).ready(function() {
 	var internalNavigation;
 	var goTo = function (fileName){
 		internalNavigation = true;
-		window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");		
+		var loc = "http://www.chore-schedule.com/" + fileName + ".html";
+		window.location.replace(loc);	
+		return true;	
 	};
 	window.onload = function() { 
 		alert(internalNavigation); 

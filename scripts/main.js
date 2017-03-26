@@ -31,12 +31,18 @@ $( document ).ready(function() {
  		history.pushState(null, "testing title", window.location);
  	};
 	window.onbeforeunload = function (e) {
-		localStorage.setItem("prevOrNextLoc?", window.location);
 		if (internalNavigation == false) {
 			localStorage.setItem("loggedIn", "false");
 		}
 	};
-	
+	if (window.history && window.history.pushState) {
+	    window.history.pushState('forward', null, './#forward');
+
+	    $(window).on('popstate', function() {
+	      alert('Back button was pressed.');
+	    });
+
+	  }
 	//Initialise sideNav
 	var mask = $("#mask");
 	var menu = $("#leftMenu");

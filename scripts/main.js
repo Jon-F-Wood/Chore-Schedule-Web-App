@@ -1,13 +1,14 @@
 /*
 To Dos: 
 	Make into Single HTML page with append() and empty() 
-	Make file locations stored in variables
 	Make it possible to have multiple user 
 	Refactor Code
 	Make display chores draggable
 	Change validation from alerts to error messages in DOM 
 	Fix bug so i can go back in browser (probably connected to page reload)
-	Make it so if URL = button being click it just displays the screen                  
+	Make it so if URL = button being click it just displays the screen  
+	Make back button not log person out 
+	add Favicon               
 */			
 $( document ).ready(function() {	
 //Text input Validation
@@ -181,7 +182,7 @@ $( document ).ready(function() {
 	}
 	//Make Sure user is Logged in
 	var currentUrl = $(location).attr('href');	
-    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html") {
+    if (localStorage.getItem("loggedIn") == "false" && currentUrl !== "http://www.chore-schedule.com/index.html" && currentUrl !== "http://www.chore-schedule.com/") {
     	goTo("index");
 	} else {
 

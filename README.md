@@ -5,10 +5,10 @@
 ### __Chore Schedule__ is a web application consisting of __HTML and CSS__, using __JavaScript and jQuery__ with a __completely responsive design__.  In essence, this application was built to make setting aside the time to do your daily chores _more convenient and less of a hassle to manage_.  For now, this means having a To Do list with the Chores for your day or week but eventually, it will mean much more.  One current caveat to this program, however, is that this application will only save your data on your local machine through __local storage__.  So, though all of your chores and history will be saved to your account, your Chore list and account will not be transferable to another computer for now. 
 
 
-### This application currently has 4 features:    
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.) User Management System: User can register and login and logout and can't access any page other than unless they are logged in. 	       
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.) Add Items to a List: User can Add Chores to their chore list by clicking the add Chores button on the Chore List page or in the side pop out menu navigation.    
-#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.) Checking off Items off of a List:  User can check off tasks to remove them from their Chore list.    
+### This application currently has 4 features:  
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.) User Management System: User can register and login and logout and can't access any page other than unless they are logged in.  
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.) Add Items to a List: User can Add Chores to their chore list by clicking the add Chores button on the Chore List page or in the side pop out menu navigation.  
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.) Checking off Items off of a List:  User can check off tasks to remove them from their Chore list.  
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.) View History of Checked off Items: User can view all tasks that the have finished along with the date and time that they were finished from the History tab.
 
 

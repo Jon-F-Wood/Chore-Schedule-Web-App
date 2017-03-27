@@ -12,7 +12,7 @@
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.) View History of Checked off Items: User can view all tasks that the have finished along with the date and time that they were finished from the History tab.
 
 
-### I also still plan to work on a few more features and design elements such as:    
+### I also still plan to work on a few more features and design elements such as:  
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Refactoring my JavaScript code to use Modular.js notation and then convert that into Angular.js  ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Integrate an open source API (Google Calendar) and/or pull information from a database in order to enhancer user experience       
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Clean up CSS and convert into SASS or possibly LESS      
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- Turn the application into a single page web application      

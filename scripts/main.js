@@ -15,7 +15,7 @@ $( document ).ready(function() {
 	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 
 	    'Your email address is invalid.  Please enter a valid Email.'],
 		password: [/.{8,}/, 'Password must be 8 or more characters.'],
-		addChoresTextField: [/^([a-z\d\-_\s]{3,})+$/i, 'Your chore name can only be Letters and Numbers and must be 3 or more characters long.']
+		addChoresTextField: [/^([,]{3,})+$/i, 'Your chore name can only be Letters and Numbers and must be 3 or more characters long.']
 	};   
 
 //Index.html Login Page

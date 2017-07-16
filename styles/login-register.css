@@ -142,7 +142,7 @@ div#background_right {
           height: 0.13em;
           border-radius: 0 120% 0 70%;
           transform: rotate(-1.7deg);
-          box-shadow: 0 0 2px white;/* because of rotation , blur the edges a bit to avoid a stairs effect */
+          box-shadow: 0 0 2px white;/* because of rotation, blur the edges a bit to avoid a stairs effect */
         }
 
         /*Page title (login or Register*/

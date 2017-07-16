@@ -10,7 +10,7 @@ To Dos:
 	Make back button not log person out        
 */		
 
-$( document ).ready(function() {	
+	
 	var people = {
 		people: ['Jon', 'Wood'],
 		init: function() {
@@ -52,247 +52,153 @@ $( document ).ready(function() {
 
 	people.init();
 //working on site.login.register
-	var site = {
-		login: {
-			people: ['Jon', 'Wood'],
-			init: function() {
-				this.cacheDom();
-				this.bindEvents();
-				this.render();
-			},
-			cacheDom: function (){
-				this.$el = $('#peopleModule');
-				this.$button = this.$el.find('button');
-				this.$input = this.$el.find('input');
-				this.$ul = this.$el.find('ul');
-				this.template =  this.$el.find('#people-template').html();
-				this.$switch = $(".switch");
-				this.$regBtn = $("#registerBtn");
-			},
-			bindEvents: function(){
-				this.$button.on('click', this.addPerson.bind(this));
-				this.$ul.delegate('i.del', 'click', this.deletePerson.bind(this));
-				this.$switch.on("click", toggleForms());
-				this.$regBtn.on("click", register());
-			},
-			//Only thing that interacts with the HTML
-			render: function() {
-				var data = {
-		 			people: this.people,
-			 	};
-			 	this.$ul.html(Mustache.render(this.template, data));
-			},
-			addPerson: function(value) {
-				this.people.push(value || this.$input.val());
-				this.render();
-				this.$input.val('');
-			},
-			deletePerson: function(event){
-				var $remove = $(event.target).closest('li');
-				var i = this.$ul.find('li').index($remove);
-
-				this.people.splice(i, 1);
-				this.render();
-			},
-			evaluateRememberMe: function(){
-				if (localStorage.getItem("rememberMe") == "true"){ //Fix possible bug later.  If checked remember me and no register.
-					$("#remember-me").attr("checked", true);
-					$("#loginEmail").val(localStorage.getItem("email"));
-					$("#loginPassword").val(localStorage.getItem("password"));
-				}
-			},
-			register: function(){
-				//make DRY
-				var whichFail = "";
-			    var validationTest = function() {
-				    var validateEmail = new RegExp(validations['email'][0]);
-			        // validate the email value against the regular expression
-			        if (!validateEmail.test($("#registerEmail").val())){	            
-			            whichFail = "email";
-			            return false;
-			        } 	        
-			        var validatePassword = new RegExp(validations['password'][0]);
-			        // validate the password value against the regular expression
-			        if (!validatePassword.test($("#registerPassword").val())){
-			            whichFail = "password";
-			            return false;
-			        }
-			        if ($("#confirmPassword").val() !== $("#registerPassword").val()){
-			        	whichFail = "confirm";
-			        	return false;
-			        }
-
-			        if (validateEmail.test($("#registerEmail").val()) && 
-			        	validatePassword.test($("#registerPassword").val()) &&
-			        	$("#confirmPassword").val() == $("#registerPassword").val()){
-			            return true;
-			        }
-			        
-			    }
-			    var emailFailsValidation = function() {
-				    var validateEmail = new RegExp(validations['email'][0]);
-			        // validate the email value against the regular expression
-			        if (!validateEmail.test($("#registerEmail").val())){	            
-			            return true;
-			        } 	  
-			    }
-			    if (validationTest() == true ) {
-			    	localStorage.clear();
-			    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
-				    localStorage.setItem("password", $("#registerPassword").val());	
-				    localStorage.setItem("loggedIn", "true");
-					goTo("displayChores");
-				} else {
-					if (whichFail == "email") {
-						alert(validations['email'][1]);
-						$('#registerEmail').focus();				
-					} else if (whichFail == "password") {
-						alert(validations['password'][1]);
-						$('#registerPassword').focus();
-					} else if (whichFail == "confirm") {
-						alert("The passwords don't match. Please try again.");
-						$('#confirmPassword').focus();
-					} else {
-						alert("Unknown Error.  Please try again later.");
-						toggleForms();
-					}
-				}    
-				return false;
-			}
-		},
-		displayChores: {
-
-		},
-		addChores: {
-
-		},
-		displayHistory: {
-
-		},
-	}
-
-	//Gobal
-		//Text input Validation
-		    var validations = {
-			    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 
-			    'Your email address is invalid.  Please enter a valid Email.'],
-				password: [/.{8,}/, 'Password must be 8 or more characters.'],
-				addChoresTextField: [/^[^,]*[^ ,][^,]*$/i, 'Your chore name cannot include a comma.']
-			};   
-
-		//Index.html Login Page
-			var internalNavigation;
-			var goTo = function (fileName){
-				internalNavigation = true;
-				window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
-			};
-			window.onload = function() {  
-				internalNavigation = false;
-			};
-			window.onbeforeunload = function (e) {
-				history.pushState(null, "testing title", window.location);
-				if (internalNavigation == false) {
-					localStorage.setItem("loggedIn", "false");
-				}
-			};
-			
-			//Initialise sideNav
-			var mask = $("#mask");
-			var menu = $("#leftMenu");
-			var btn = $("#menuIcon");
-			//Open sideNav when corresponding button is clicked
-			btn.on('click', function() {		
-				menu.addClass('is-active');
-				mask.addClass('is-active');
-			});
-			//Close sideNav when mask is clicked
-			mask.on('click', function() {		
-				menu.removeClass('is-active');
-				mask.removeClass('is-active');
-			});
-			$(".accountEmail").append(localStorage.getItem("email"));
-
-			var toggleForms = function(){
-				$("#login").toggleClass("hide");
-				$("#register").toggleClass("hide");
-			};	
-			
-			if (localStorage.getItem("email") === null){
-				toggleForms();
-			} 
-
-
-		//Loggout button
+function main() {
+	//Text input Validation
+    var validations = {
+	    email: [/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/, 
+	    'Your email address is invalid.  Please enter a valid Email.'],
+		password: [/.{8,}/, 'Password must be 8 or more characters.'],
+		addChoresTextField: [/^[^,]*[^ ,][^,]*$/i, 'Your chore name cannot include a comma.']
+	};
+	//Side Menu
+		//Initialise sideNav
+		var mask = $("#mask");
+		var menu = $("#leftMenu");
+		var btn = $("#menuIcon");
+		
+		//Open sideNav when corresponding button is clicked
+		btn.on('click', function() {		
+			menu.addClass('is-active');
+			mask.addClass('is-active');
+		});
+		
+		//Close sideNav when mask is clicked
+		mask.on('click', function() {		
+			menu.removeClass('is-active');
+			mask.removeClass('is-active');
+		});
+	
+	//Loggout button
 		$(".loggout").on("click", function(){
 			goTo("index");
 			localStorage.setItem("loggedIn", "false");
 		});
 
-    $("#registerBtn").on("click", function(){
-	    var whichFail = "";
-	    var validationTest = function() {
-		    var validateEmail = new RegExp(validations['email'][0]);
-	        // validate the email value against the regular expression
-	        if (!validateEmail.test($("#registerEmail").val())){	            
-	            whichFail = "email";
-	            return false;
-	        } 	        
-	        var validatePassword = new RegExp(validations['password'][0]);
-	        // validate the password value against the regular expression
-	        if (!validatePassword.test($("#registerPassword").val())){
-	            whichFail = "password";
-	            return false;
-	        }
-	        if ($("#confirmPassword").val() !== $("#registerPassword").val()){
-	        	whichFail = "confirm";
-	        	return false;
-	        }
+	//loginModule.init();
 
-	        if (validateEmail.test($("#registerEmail").val()) && 
-	        	validatePassword.test($("#registerPassword").val()) &&
-	        	$("#confirmPassword").val() == $("#registerPassword").val()){
-	            return true;
-	        }
-	        
-	    }
-	    var emailFailsValidation = function() {
-		    var validateEmail = new RegExp(validations['email'][0]);
-	        // validate the email value against the regular expression
-	        if (!validateEmail.test($("#registerEmail").val())){	            
-	            return true;
-	        } 	  
-	    }
-	    if (validationTest() == true ) {
-	    	localStorage.clear();
-	    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
-		    localStorage.setItem("password", $("#registerPassword").val());	
-		    localStorage.setItem("loggedIn", "true");
-			goTo("displayChores");
-		} else {
-			if (whichFail == "email") {
-				alert(validations['email'][1]);
-				$('#registerEmail').focus();				
-			} else if (whichFail == "password") {
-				alert(validations['password'][1]);
-				$('#registerPassword').focus();
-			} else if (whichFail == "confirm") {
-				alert("The passwords don't match. Please try again.");
-				$('#confirmPassword').focus();
-			} else {
-				alert("Unknown Error.  Please try again later.");
-				toggleForms();
+
+//Index.html Login Page
+	// Using <--back in browser
+		var internalNavigation;
+		var goTo = function (fileName){
+			internalNavigation = true;
+			window.location.replace("http://www.chore-schedule.com/" + fileName + ".html");	
+		};
+		window.onload = function() {  
+			internalNavigation = false;
+		};
+		window.onbeforeunload = function (e) {
+			history.pushState(null, "testing title", window.location);
+			if (internalNavigation == false) {
+				localStorage.setItem("loggedIn", "false");
 			}
-		}    
-		return false;
-    });
-    $(".remember-me").on("click", function() {
-    	if (localStorage.getItem("rememberMe") == "true")	{
-    		localStorage.setItem("rememberMe", "false");
-    	} else {
-    		localStorage.setItem("rememberMe", "true");
-    	}
-    });
+		};
+	
+	
+	
+	//????????
+		$(".accountEmail").append(localStorage.getItem("email"));
 
+	//Login page
+		//longin Side
+			var toggleForms = function(){
+				$("#login").toggleClass("hide");
+				$("#register").toggleClass("hide");
+			};	
+		
+			if (localStorage.getItem("email") === null){
+				toggleForms();
+			} 
+
+			$(".switch").on("click", function(){
+				toggleForms();
+			});
+
+			if (localStorage.getItem("rememberMe") == "true"){
+				$("#remember-me").attr("checked", true);
+				$("#loginEmail").val(localStorage.getItem("email"));
+				$("#loginPassword").val(localStorage.getItem("password"));
+			}
+			$(".remember-me").on("click", function() {
+		    	if (localStorage.getItem("rememberMe") == "true")	{
+		    		localStorage.setItem("rememberMe", "false");
+		    	} else {
+		    		localStorage.setItem("rememberMe", "true");
+		    	}
+		    });
+
+	
+
+	//Register side
+	    $("#registerBtn").on("click", function(){
+		    var whichFail = "";
+		    var validationTest = function() {
+			    var validateEmail = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validateEmail.test($("#registerEmail").val())){	            
+		            whichFail = "email";
+		            return false;
+		        } 	        
+		        var validatePassword = new RegExp(validations['password'][0]);
+		        // validate the password value against the regular expression
+		        if (!validatePassword.test($("#registerPassword").val())){
+		            whichFail = "password";
+		            return false;
+		        }
+		        if ($("#confirmPassword").val() !== $("#registerPassword").val()){
+		        	whichFail = "confirm";
+		        	return false;
+		        }
+
+		        if (validateEmail.test($("#registerEmail").val()) && 
+		        	validatePassword.test($("#registerPassword").val()) &&
+		        	$("#confirmPassword").val() == $("#registerPassword").val()){
+		            return true;
+		        }
+		        
+		    }
+		    var emailFailsValidation = function() {
+			    var validateEmail = new RegExp(validations['email'][0]);
+		        // validate the email value against the regular expression
+		        if (!validateEmail.test($("#registerEmail").val())){	            
+		            return true;
+		        } 	  
+		    }
+		    if (validationTest() == true ) {
+		    	localStorage.clear();
+		    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
+			    localStorage.setItem("password", $("#registerPassword").val());	
+			    localStorage.setItem("loggedIn", "true");
+				goTo("displayChores");
+			} else {
+				if (whichFail == "email") {
+					alert(validations['email'][1]);
+					$('#registerEmail').focus();				
+				} else if (whichFail == "password") {
+					alert(validations['password'][1]);
+					$('#registerPassword').focus();
+				} else if (whichFail == "confirm") {
+					alert("The passwords don't match. Please try again.");
+					$('#confirmPassword').focus();
+				} else {
+					alert("Unknown Error.  Please try again later.");
+					toggleForms();
+				}
+			}    
+			return false;
+	    });
+	    
+    
     $("#forgot-password-link").on("click", function(){
     	if (localStorage.getItem("password") !== null && localStorage.getItem("password") !== ""){
     		alert("Your password is: " + localStorage.getItem("password"));
@@ -659,18 +565,8 @@ $( document ).ready(function() {
 	}//end to login if
 
 	
-});
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+   
+$( document ).ready(main());

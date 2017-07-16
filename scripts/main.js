@@ -109,8 +109,25 @@ function main() {
 		$(".accountEmail").append(localStorage.getItem("email"));
 
 //Login Page	
+	var loginPageModule = {
+		init: function() {
+			loginModule.init();
+			registerModule.init();
+		},
+		cacheDom: function (){
+			this.$login = $("#login");
+			this.$register = $("#register");
+			this.$switch = $(".switch");
+		},
+		bindEvents: function(){			
+			this.$switch.on('click', this.toggleForms.bind(this));
+		},
+		toggleForms: function(){
+			this.$login.toggleClass("hide");
+			this.$register.toggleClass("hide");
+		}
+	};
 	var loginModule	= {
-		people: ['Jon', 'Wood'],
 		init: function() {
 			this.cacheDom();
 			this.bindEvents();
@@ -124,13 +141,11 @@ function main() {
 			this.$loginBtn = $("#loginBtn");
 			this.$remember_me = $("#remember-me");			
 			this.$forgot_password_link = $("#forgot-password-link");
-			this.$switch = $(".switch");
 		},
 		bindEvents: function(){
+			this.$loginBtn.on('click', this.tryLogin.bind(this));
 			this.$remember_me.on('click', this.remember_me.bind(this));
 			this.$forgot_password_link.on('click', this.displayPassword.bind(this));
-			this.$loginBtn.on('click', this.tryLogin.bind(this));
-			this.$switch.on('click', this.toggleForms.bind(this));
 		},
 		render: function() {
 
@@ -162,43 +177,57 @@ function main() {
 	    		alert("You need to register.");
 	    	}
 	    	return false;
-		},
-		toggleForms: function(){
-			this.$login.toggleClass("hide");
-			this.$register.toggleClass("hide");
-		}
+		}		
 	}
 
-//Login page		
+	var registerModule	= {
+		init: function() {
+			this.cacheDom();
+			this.bindEvents();
+			this.render();
+		},
+		cacheDom: function (){
+			this.$registerBtn = $("#registerBtn");
+			this.$registerEmail = $("#registerEmail");
+			this.$registerPassword = $("#registerPassword");
+			this.$confirmPassword = $("#confirmPassword");
+			this.$registerBtn = $("#registerBtn");
+			
+		},
+		bindEvents: function(){
+			this.$registerBtn.on('click', this.tryRegistering.bind(this));			
+		},
+		render: function() {
 
-	//Register side
-	    $("#registerBtn").on("click", function(){
-		    var whichFail = "";
+		},		
+		tryRegistering: function (){
+			var whichFail = "";
 		    var validationTest = function() {
 			    var validateEmail = new RegExp(validations['email'][0]);
 		        // validate the email value against the regular expression
-		        if (!validateEmail.test($("#registerEmail").val())){	            
+		        if (!validateEmail.test(this.$registerEmail.val())){	            
 		            whichFail = "email";
 		            return false;
 		        } 	        
 		        var validatePassword = new RegExp(validations['password'][0]);
 		        // validate the password value against the regular expression
-		        if (!validatePassword.test($("#registerPassword").val())){
+		        if (!validatePassword.test(this.$registerPassword.val())){
 		            whichFail = "password";
 		            return false;
 		        }
-		        if ($("#confirmPassword").val() !== $("#registerPassword").val()){
+		        if (this.$confirmPassword.val() !== this.$registerPassword.val()){
 		        	whichFail = "confirm";
 		        	return false;
 		        }
 
-		        if (validateEmail.test($("#registerEmail").val()) && 
-		        	validatePassword.test($("#registerPassword").val()) &&
-		        	$("#confirmPassword").val() == $("#registerPassword").val()){
+		        if (validateEmail.test(this.$registerEmail.val()) && 
+		        	validatePassword.test(this.$registerPassword.val()) &&
+		        	this.$confirmPassword.val() == this.$registerPassword.val()){
 		            return true;
 		        }
 		        
 		    }
+		    
 		    var emailFailsValidation = function() {
 			    var validateEmail = new RegExp(validations['email'][0]);
 		        // validate the email value against the regular expression
@@ -206,30 +235,38 @@ function main() {
 		            return true;
 		        } 	  
 		    }
+		    
 		    if (validationTest() == true ) {
 		    	localStorage.clear();
-		    	localStorage.setItem("email", $("#registerEmail").val().toLowerCase());
-			    localStorage.setItem("password", $("#registerPassword").val());	
+		    	localStorage.setItem("email", this.$registerEmail.val().toLowerCase());
+			    localStorage.setItem("password", this.$registerPassword.val());	
 			    localStorage.setItem("loggedIn", "true");
 				goTo("displayChores");
 			} else {
-				if (whichFail == "email") {
-					alert(validations['email'][1]);
-					$('#registerEmail').focus();				
-				} else if (whichFail == "password") {
-					alert(validations['password'][1]);
-					$('#registerPassword').focus();
-				} else if (whichFail == "confirm") {
-					alert("The passwords don't match. Please try again.");
-					$('#confirmPassword').focus();
-				} else {
-					alert("Unknown Error.  Please try again later.");
-					toggleForms();
-				}
+				switch (whichFail) {
+				    case 'email':
+				      	alert(validations['email'][1]);
+						this.$registerEmail.focus();
+				      	break;
+				    case 'password':
+						alert(validations['password'][1]);
+						this.$registerPassword.focus();
+						break;
+				    case 'confirm':
+						alert("The passwords don't match. Please try again.");
+						this.$confirmPassword.focus();
+						break;
+				    default:
+						alert("Unknown Error.  Please try again later.");
+						loginPageModule.toggleForms();
+						break;
+			    }
 			}    
 			return false;
-	    });
-
+		}		
+	}
+//Login page
+	
     
     
     

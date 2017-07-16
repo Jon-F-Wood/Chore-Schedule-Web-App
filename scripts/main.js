@@ -103,41 +103,73 @@ function main() {
 				localStorage.setItem("loggedIn", "false");
 			}
 		};
-	
-	
-	
+		
+
 	//????????
 		$(".accountEmail").append(localStorage.getItem("email"));
 
-	//Login page
-		//longin Side
-			var toggleForms = function(){
-				$("#login").toggleClass("hide");
-				$("#register").toggleClass("hide");
-			};	
-		
-			if (localStorage.getItem("email") === null){
-				toggleForms();
-			} 
+//Login Page	
+	var loginModule	= {
+		people: ['Jon', 'Wood'],
+		init: function() {
+			this.cacheDom();
+			this.bindEvents();
+			this.render();
+		},
+		cacheDom: function (){
+			this.$login = $("#login");
+			this.$register = $("#register");
+			this.$loginEmail = $("#loginEmail");
+			this.$loginPassword =  $("#loginPassword");
+			this.$loginBtn = $("#loginBtn");
+			this.$remember_me = $("#remember-me");			
+			this.$forgot_password_link = $("#forgot-password-link");
+			this.$switch = $(".switch");
+		},
+		bindEvents: function(){
+			this.$remember_me.on('click', this.remember_me.bind(this));
+			this.$forgot_password_link.on('click', this.displayPassword.bind(this));
+			this.$loginBtn.on('click', this.tryLogin.bind(this));
+			this.$switch.on('click', this.toggleForms.bind(this));
+		},
+		render: function() {
 
-			$(".switch").on("click", function(){
-				toggleForms();
-			});
-
-			if (localStorage.getItem("rememberMe") == "true"){
-				$("#remember-me").attr("checked", true);
-				$("#loginEmail").val(localStorage.getItem("email"));
-				$("#loginPassword").val(localStorage.getItem("password"));
+		},
+		tryLogin: function(){
+			if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
+				localStorage.getItem("password") == $("#loginPassword").val()) {
+				localStorage.setItem("loggedIn", "true");
+				goTo("displayChores");
+				return false;
+			} else {
+				localStorage.setItem("loggedIn", "false");
+				alert("Email or password was incorrect.  Please try again.");			
+				$('#loginPassword').val("");
+				$('#loginPassword').focus();
 			}
-			$(".remember-me").on("click", function() {
-		    	if (localStorage.getItem("rememberMe") == "true")	{
-		    		localStorage.setItem("rememberMe", "false");
-		    	} else {
-		    		localStorage.setItem("rememberMe", "true");
-		    	}
-		    });
+		},
+		remember_me: function (){
+			if (localStorage.getItem("rememberMe") == "true")	{
+	    		localStorage.setItem("rememberMe", "false");
+	    	} else {
+	    		localStorage.setItem("rememberMe", "true");
+	    	}
+		},
+		displayPassword: function(){
+			if (localStorage.getItem("password") !== null && localStorage.getItem("password") !== ""){
+	    		alert("Your password is: " + localStorage.getItem("password"));
+	    	} else {
+	    		alert("You need to register.");
+	    	}
+	    	return false;
+		},
+		toggleForms: function(){
+			this.$login.toggleClass("hide");
+			this.$register.toggleClass("hide");
+		}
+	}
 
-	
+//Login page		
 
 	//Register side
 	    $("#registerBtn").on("click", function(){
@@ -197,29 +229,10 @@ function main() {
 			}    
 			return false;
 	    });
-	    
+
     
-    $("#forgot-password-link").on("click", function(){
-    	if (localStorage.getItem("password") !== null && localStorage.getItem("password") !== ""){
-    		alert("Your password is: " + localStorage.getItem("password"));
-    	} else {
-    		alert("You need to register.");
-    	}
-    	return false;
-    });
-    $("#loginBtn").on("click", function(){
-    	if  (localStorage.getItem("email") == $("#loginEmail").val().toLowerCase() && 
-			localStorage.getItem("password") == $("#loginPassword").val()) {
-			localStorage.setItem("loggedIn", "true");
-			goTo("displayChores");
-			return false;
-		} else {
-			localStorage.setItem("loggedIn", "false");
-			alert("Email or password was incorrect.  Please try again.");			
-			$('#loginPassword').val("");
-			$('#loginPassword').focus();
-		}
-	});
+    
+    
 
 //When Logged In
 	if (window.location == "http://www.chore-schedule.com/displayChores.html") {
